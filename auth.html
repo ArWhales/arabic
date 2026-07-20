@@ -67,6 +67,10 @@
       <div id="msgBox" class="msg"></div>
 
       <form id="authForm">
+        <div class="field" id="usernameField" style="display:none;">
+          <label>اسم المستخدم</label>
+          <input type="text" id="username" placeholder="مثال: ahmed_crypto">
+        </div>
         <div class="field">
           <label>البريد الإلكتروني</label>
           <input type="email" id="email" required placeholder="you@example.com">
@@ -93,6 +97,7 @@ function switchTab(m){
   document.getElementById('tabLogin').classList.toggle('active', m === 'login');
   document.getElementById('tabSignup').classList.toggle('active', m === 'signup');
   document.getElementById('submitBtn').textContent = m === 'login' ? 'تسجيل الدخول' : 'إنشاء الحساب';
+  document.getElementById('usernameField').style.display = m === 'signup' ? 'block' : 'none';
   document.getElementById('msgBox').style.display = 'none';
   document.getElementById('verifyNote').style.display = 'none';
 }
@@ -105,12 +110,23 @@ document.getElementById('authForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
+  const usernameInput = document.getElementById('username').value.trim();
   const msgBox = document.getElementById('msgBox');
   msgBox.style.display = 'none';
 
   if(!IS_BACKEND_CONFIGURED){
-    // Demo mode: fake a local "session" so the rest of the UI (route guard) has something to check.
-    localStorage.setItem('aw_demo_session', JSON.stringify({email, ts: Date.now()}));
+    // Demo mode: keep a simple email -> username directory so returning users
+    // (logging in, not signing up) still get their username back.
+    const directory = JSON.parse(localStorage.getItem('aw_username_directory') || '{}');
+    let username;
+    if(mode === 'signup'){
+      username = usernameInput || email.split('@')[0];
+      directory[email] = username;
+      localStorage.setItem('aw_username_directory', JSON.stringify(directory));
+    } else {
+      username = directory[email] || email.split('@')[0];
+    }
+    localStorage.setItem('aw_demo_session', JSON.stringify({email, username, ts: Date.now()}));
     msgBox.className = 'msg success';
     msgBox.textContent = 'تم تسجيل الدخول (وضع تجريبي — لا يوجد تحقق حقيقي من البريد بعد).';
     msgBox.style.display = 'block';
@@ -120,7 +136,10 @@ document.getElementById('authForm').addEventListener('submit', async (e) => {
 
   try{
     if(mode === 'signup'){
-      const { data, error } = await supabaseClient.auth.signUp({ email, password });
+      const { data, error } = await supabaseClient.auth.signUp({
+        email, password,
+        options: { data: { username: usernameInput || email.split('@')[0] } }
+      });
       if(error) throw error;
       document.getElementById('verifyNote').style.display = 'block';
       msgBox.className = 'msg success';
