@@ -11,6 +11,32 @@
   body.lang-en{font-family:'Inter',sans-serif;}
   body.lang-en h1, body.lang-en h2, body.lang-en h3, body.lang-en .brand{font-family:'Inter',sans-serif;font-weight:800;}
 
+  /* تحسين التجاوب وتفادي التداخل في الهيدر */
+  header.site nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 24px;
+  }
+  .nav-right-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .user-profile-tag {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    color: var(--teal);
+    background: rgba(45, 212, 191, 0.1);
+    padding: 6px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(45, 212, 191, 0.2);
+    font-size: 14px;
+  }
+
   .course-shell{
     max-width:1180px;margin:0 auto;padding:30px 24px 80px;
     display:grid;grid-template-columns:300px 1fr;gap:24px;
@@ -20,13 +46,16 @@
     background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;
     padding:18px;position:sticky;top:100px;
     max-height:calc(100vh - 120px);overflow-y:auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   .back-to-hub{
     display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim);
-    margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);cursor:pointer;
+    margin-bottom:6px;padding-bottom:14px;border-bottom:1px solid var(--line);cursor:pointer;
   }
   .back-to-hub:hover{color:var(--teal);}
-  .course-title{font-family:'Cairo',sans-serif;font-weight:700;font-size:16px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .course-title{font-family:'Cairo',sans-serif;font-weight:700;font-size:16px;margin-bottom:4px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .level-block{margin-bottom:10px;}
   .level-head{
     display:flex;align-items:center;justify-content:space-between;
@@ -62,22 +91,21 @@
   .progress-bar-outer{height:6px;background:var(--bg-panel-2);border-radius:999px;overflow:hidden;margin-bottom:20px;}
   .progress-bar-inner{height:100%;background:var(--teal);border-radius:999px;transition:width .3s;}
 
+  /* تطوير حاويات مشغل الفيديو والصور بشكل حقيقي وتفاعلي ومقاوم لتشوه الأبعاد */
   .lesson-media{
     position:relative;border-radius:14px;overflow:hidden;margin-bottom:24px;
-    border:1px solid var(--line);background:var(--bg-panel-2);
+    border:1px solid var(--line);background:#000;
   }
-  .lesson-media video, .lesson-media img{width:100%;display:block;max-height:340px;object-fit:cover;background:#000;}
-  .media-placeholder{
-    height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:8px;color:var(--text-dim);font-size:13px;
-  }
-  .media-placeholder .icon{font-size:34px;}
+  .lesson-media video{width:100%;display:block;max-height:400px;object-fit:contain;background:#000;}
+  .lesson-media img{width:100%;display:block;max-height:450px;object-fit:contain;background:var(--bg-panel-2);}
+  
   .watermark{
-    position:absolute;bottom:10px;left:12px;
-    background:rgba(5,13,20,0.72);backdrop-filter:blur(4px);
+    position:absolute;bottom:12px;left:12px;z-index:10;
+    background:rgba(5,13,20,0.75);backdrop-filter:blur(4px);
     padding:5px 12px;border-radius:8px;
-    font-family:'Cairo',sans-serif;font-weight:700;font-size:12px;color:var(--teal);
-    display:flex;align-items:center;gap:6px;
+    font-family:'Cairo',sans-serif;font-weight:700;font-size:11px;color:var(--teal);
+    display:flex;align-items:center;gap:6px;pointer-events:none;
+    border:1px solid rgba(45, 212, 191, 0.2);
   }
 
   .comments-section{border-top:1px solid var(--line);padding-top:24px;margin-top:10px;}
@@ -112,6 +140,7 @@
   .hub-card{
     background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;
     padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s;
+    cursor: pointer;
   }
   .hub-card:hover{transform:translateY(-4px);border-color:var(--teal);}
   .hub-card .icon{font-size:28px;}
@@ -119,26 +148,57 @@
   .hub-card .meta{font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
   .hub-card .progress-bar-outer{margin:6px 0 0;}
 
+  /* تصميم متناسق ومخصص لزر اللغة بأسفل القائمة الجانبية */
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: center;
+  }
   .lang-toggle{
-    background:none;border:1px solid var(--line);color:var(--text-dim);
-    padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'JetBrains Mono',monospace;
+    background:var(--bg-panel-2);border:1px solid var(--line);color:var(--text);
+    padding:8px 20px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'JetBrains Mono',monospace;
+    width: 100%;text-align: center;transition: border-color 0.2s, background 0.2s;
   }
-  .lang-toggle:hover{border-color:var(--teal);color:var(--text);}
-  .greeting-bar{
-    max-width:1180px;margin:14px auto 0;padding:0 24px;
-    font-family:'Cairo',sans-serif;font-size:15px;color:var(--text);
-  }
+  .lang-toggle:hover{border-color:var(--teal);background:rgba(45,212,191,0.05);}
+  
   .en-content-note{
     background:rgba(45,212,191,0.08);border:1px solid var(--teal-dim);color:var(--teal);
     font-size:12.5px;padding:10px 14px;border-radius:10px;margin-bottom:18px;
   }
 
-  @media (max-width:900px){
-    .course-shell{grid-template-columns:1fr;}
-    .course-sidebar{position:static;max-height:none;}
-    .hub-grid{grid-template-columns:1fr 1fr;}
+  /* نافذة الحماية المنبثقة (Auth Guard Modal) */
+  .guard-modal-backdrop {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(3, 11, 20, 0.85); backdrop-filter: blur(8px);
+    z-index: 2000; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
   }
-  @media (max-width:600px){ .hub-grid{grid-template-columns:1fr;} }
+  .guard-modal-backdrop.show { opacity: 1; pointer-events: auto; }
+  .guard-modal {
+    background: var(--bg-panel); border: 1px solid var(--line);
+    padding: 32px; border-radius: 20px; max-width: 420px; width: 90%;
+    text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    transform: translateY(20px); transition: transform 0.3s ease;
+  }
+  .guard-modal-backdrop.show .guard-modal { transform: translateY(0); }
+  .guard-modal .icon { font-size: 48px; margin-bottom: 16px; }
+  .guard-modal h3 { font-family: 'Cairo', sans-serif; font-size: 20px; margin-bottom: 12px; font-weight: 700; }
+  .guard-modal p { color: var(--text-dim); font-size: 14.5px; line-height: 1.6; margin-bottom: 24px; }
+
+  @media (max-width:960px){
+    .course-shell{grid-template-columns:1fr;}
+    .course-sidebar{position:static;max-height:none; width: 100%; box-sizing: border-box;}
+    .hub-grid{grid-template-columns:1fr 1fr;}
+    header.site nav { justify-content: center; flex-direction: column; text-align: center; }
+    .nav-links { justify-content: center; margin-bottom: 8px; }
+  }
+  @media (max-width:600px){ 
+    .hub-grid{grid-template-columns:1fr;}
+    .course-main { padding: 20px; }
+    .lesson-title { font-size: 20px; }
+  }
 </style>
 </head>
 <body>
@@ -165,17 +225,17 @@
         <a href="index.html#articles" data-i18n="nav_articles">المقالات</a>
         <a href="index.html#contact" data-i18n="nav_contact">تواصل معنا</a>
       </div>
-      <button class="lang-toggle" id="langToggle">EN</button>
-      <a href="https://t.me/ArabicWhales" class="cta-btn" style="margin-inline-start:10px;" data-i18n="nav_join">انضم الآن</a>
-      <a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding:9px 18px;font-size:14px;margin-inline-start:10px;" data-i18n="nav_login">تسجيل الدخول</a>
+      <div class="nav-right-group" id="navRightGroup">
+        <a href="https://t.me/ArabicWhales" class="cta-btn" id="joinBtn" data-i18n="nav_join">انضم الآن</a>
+        <a href="auth.html" class="btn-ghost" id="authNavBtn" data-i18n="nav_login">تسجيل الدخول</a>
+      </div>
     </nav>
   </header>
 
   <div id="guardBanner"></div>
-  <div class="greeting-bar" id="greetingBar"></div>
 
   <section style="padding-bottom:0;" id="pageHeadSection">
-    <div class="eyebrow" id="pageEyebrow">مسار تعليمي متكامل</div>
+    <div class="eyebrow" id="pageEyebrow">معسكر تعليمي متكامل</div>
     <h1 style="font-size:32px;font-weight:900;margin:16px 0 10px;" id="pageMainTitle">المسارات التعليمية</h1>
     <p style="color:var(--text-dim);font-size:15.5px;max-width:640px;" id="pageSubtitle">اختر مساراً وابدأ التعلم خطوة بخطوة.</p>
   </section>
@@ -189,11 +249,21 @@
     <main class="course-main" id="mainPane"></main>
   </div>
 
+  <!-- الـ Modal الجديد لمنع الدخول غير المصرح به -->
+  <div class="guard-modal-backdrop" id="guardModal">
+    <div class="guard-modal">
+      <div class="icon">🔒</div>
+      <h3>محتوى محمي للطالب</h3>
+      <p>عذراً يا صديقي، يجب عليك تسجيل الدخول أولاً أو إنشاء حساب مجاني للانضمام إلى المسارات التعليمية وحفظ تقدمك داخل الأكاديمية.</p>
+      <button class="btn-primary" style="width:100%; padding:12px;" onclick="window.location.href='auth.html'">الانتقال لتسجيل الدخول</button>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
         <div class="brand" style="font-size:17px;margin-bottom:14px;">🐋 حيتان العرب</div>
-        <p style="font-size:13px;color:var(--text-dim);max-width:260px;">أكبر منصة عربية تعليمية بمجال العملات الرقمية، تأسست 2020.</p>
+        <p style="font-size:13px;color:var(--text-dim);max-width:260px;">أكبر منصة عربية تعليمية بمجال العملات الرقمية، تأسست 2021.</p>
       </div>
       <div class="footer-col">
         <h4>روابط</h4>
@@ -223,13 +293,12 @@ const I18N = {
   ar: {
     nav_home:"الرئيسية", nav_about:"من نحن", nav_edu:"التعليم ▾", nav_articles:"المقالات",
     nav_contact:"تواصل معنا", nav_join:"انضم الآن", nav_login:"تسجيل الدخول",
-    hub_eyebrow:"مسار تعليمي متكامل", hub_title:"المسارات التعليمية",
+    hub_eyebrow:"معسكر تعليمي متكامل", hub_title:"المسارات التعليمية",
     hub_subtitle:"اختر مساراً وابدأ التعلم خطوة بخطوة.",
     back_to_hub:"→ كل المسارات",
     prev_lesson:"الدرس السابق", next_lesson:"إنهاء الدرس والانتقال للتالي", next_lesson_done:"تم ✓ — الدرس التالي",
     exam_title:"📝 اختبار اجتياز المستوى", exam_submit:"إرسال الإجابات",
-    en_note:"محتوى هذا الدرس متاح بالعربية حالياً، والترجمة الإنجليزية قيد الإعداد.",
-    greeting:"مرحباً"
+    en_note:"محتوى هذا الدرس متاح بالعربية حالياً، والترجمة الإنجليزية قيد الإعداد."
   },
   en: {
     nav_home:"Home", nav_about:"About", nav_edu:"Learn ▾", nav_articles:"Articles",
@@ -239,18 +308,21 @@ const I18N = {
     back_to_hub:"← All Tracks",
     prev_lesson:"Previous Lesson", next_lesson:"Finish & Continue", next_lesson_done:"Done ✓ — Next Lesson",
     exam_title:"📝 Level Exam", exam_submit:"Submit Answers",
-    en_note:"This lesson's content is currently available in Arabic only — English translation is in progress.",
-    greeting:"Welcome"
+    en_note:"This lesson's content is currently available in Arabic only — English translation is in progress."
   }
 };
 let currentLang = localStorage.getItem('aw_lang') || 'ar';
+let isAuthenticatedUser = false;
 
 function applyLang(){
   const t = I18N[currentLang];
   document.getElementById('htmlRoot').lang = currentLang;
   document.getElementById('htmlRoot').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
   document.body.classList.toggle('lang-en', currentLang === 'en');
-  document.getElementById('langToggle').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+  
+  const toggleBtn = document.getElementById('langToggle');
+  if(toggleBtn) toggleBtn.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+  
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if(t[key]){
@@ -266,14 +338,19 @@ function applyLang(){
     document.getElementById('pageMainTitle').textContent = t.hub_title;
     document.getElementById('pageSubtitle').textContent = t.hub_subtitle;
   }
-  renderGreeting();
   if(currentTrackId) render();
 }
-document.getElementById('langToggle').addEventListener('click', () => {
-  currentLang = currentLang === 'ar' ? 'en' : 'ar';
-  localStorage.setItem('aw_lang', currentLang);
-  applyLang();
-});
+
+function initLangToggleListener(){
+  const btn = document.getElementById('langToggle');
+  if(btn){
+    btn.onclick = () => {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      localStorage.setItem('aw_lang', currentLang);
+      applyLang();
+    };
+  }
+}
 
 const FALLBACK_COINS = [
   {symbol:'BTC', price:'—', chg:null},{symbol:'ETH', price:'—', chg:null},
@@ -360,21 +437,19 @@ const eduTrigger = document.getElementById('eduTrigger');
 eduTrigger.addEventListener('click', (e) => { e.stopPropagation(); eduDropdown.classList.toggle('open'); });
 document.addEventListener('click', (e) => { if(!eduDropdown.contains(e.target)){ eduDropdown.classList.remove('open'); } });
 
+// نظام التحقق الصارم الصديق للمستخدم
 async function checkAuth(){
-  const banner = document.getElementById('guardBanner');
-  const authBtn = document.getElementById('authNavBtn');
+  const group = document.getElementById('navRightGroup');
 
   if(IS_BACKEND_CONFIGURED){
     const { data: { session } } = await supabaseClient.auth.getSession();
-    if(!session || !session.user.email_confirmed_at){
-      window.location.href = 'auth.html';
-      return false;
+    if(session && session.user.email_confirmed_at){
+      const uname = session.user.user_metadata?.username || session.user.email.split('@')[0];
+      localStorage.setItem('aw_username', uname);
+      group.innerHTML = `<span class="user-profile-tag">${uname} 🐳</span>`;
+      isAuthenticatedUser = true;
+      return true;
     }
-    const uname = session.user.user_metadata?.username || session.user.email.split('@')[0];
-    localStorage.setItem('aw_username', uname);
-    authBtn.textContent = '👤 ' + uname;
-    authBtn.href = '#';
-    return true;
   }
 
   const demoSession = localStorage.getItem('aw_demo_session');
@@ -382,22 +457,19 @@ async function checkAuth(){
     const s = JSON.parse(demoSession);
     const uname = s.username || s.email.split('@')[0];
     localStorage.setItem('aw_username', uname);
-    authBtn.textContent = '👤 ' + uname;
-    authBtn.href = '#';
+    group.innerHTML = `<span class="user-profile-tag">${uname} 🐳</span>`;
+    isAuthenticatedUser = true;
+    return true;
   }
-  banner.innerHTML = `<div style="max-width:1180px;margin:10px auto 0;padding:0 24px;">
-    <div style="background:rgba(212,162,76,0.1);border:1px solid rgba(212,162,76,.35);color:var(--gold);
-      font-size:13px;padding:10px 16px;border-radius:10px;">
-      🔧 وضع تجريبي: لم يتم ربط قاعدة بيانات حقيقية بعد (راجع config.js)، فالدخول للمسارات مفتوح مؤقتاً بدون تسجيل إجباري.
-    </div>
-  </div>`;
-  return true;
+
+  // إذا لم يسجل الدخول، تبقى أزرار التسجيل ظاهرة وتفعيل الحظر
+  isAuthenticatedUser = false;
+  return false;
 }
 
-function renderGreeting(){
-  const bar = document.getElementById('greetingBar');
-  const uname = localStorage.getItem('aw_username');
-  bar.textContent = uname ? `${I18N[currentLang].greeting}، ${uname} 🐳` : '';
+function triggerGuardModal() {
+  const modal = document.getElementById('guardModal');
+  modal.classList.add('show');
 }
 
 const STORAGE_PREFIX = "aw_course_";
@@ -436,7 +508,9 @@ function renderComments(key){
   `;
 }
 function wireCommentForm(key){
-  document.getElementById('commentSubmit').onclick = () => {
+  const submitBtn = document.getElementById('commentSubmit');
+  if(!submitBtn) return;
+  submitBtn.onclick = () => {
     const input = document.getElementById('commentInput');
     if(input.value.trim() === '') return;
     addComment(key, input.value.trim());
@@ -445,24 +519,20 @@ function wireCommentForm(key){
   };
 }
 
+// عرض حقيقي للوسائط (فيديوهات وصور مصممة بشكل احترافي)
 function renderMediaBlock(lesson){
   if(lesson.video_url){
     return `<div class="lesson-media">
-      <div class="media-placeholder">
-        <div class="icon">🎬</div>
-        <div>فيديو توضيحي قصير (سيظهر هنا عند رفع الملف الفعلي)</div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.6;">${lesson.video_url}</div>
-      </div>
+      <video controls controlsList="nodownload" preload="metadata" poster="https://images.unsplash.com/photo-1621761191319-c6fb62004040?q=80&w=1000">
+        <source src="${lesson.video_url}" type="video/mp4">
+        متصفحك لا يدعم تشغيل الفيديو.
+      </video>
       <div class="watermark">🐋 ArabicWhales حيتان العرب</div>
     </div>`;
   }
   if(lesson.image_url){
     return `<div class="lesson-media">
-      <div class="media-placeholder">
-        <div class="icon">🖼️</div>
-        <div>إنفوجرافيك توضيحي (سيظهر هنا عند رفع الصورة الفعلية)</div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;opacity:.6;">${lesson.image_url}</div>
-      </div>
+      <img src="${lesson.image_url}" alt="${lesson.title}" onerror="this.src='https://images.unsplash.com/photo-1639762681485-074b7f938ba0?q=80&w=1200'">
       <div class="watermark">🐋 ArabicWhales حيتان العرب</div>
     </div>`;
   }
@@ -490,14 +560,22 @@ function renderHub(){
     const t = TRACKS[id];
     const count = t.type === 'leveled' ? t.levels.reduce((s,l)=>s+l.lessons.length,0) + ' درس · 3 مستويات' : t.lessons.length + ' دروس';
     const pct = trackProgressPct(id, t);
-    html += `<a class="hub-card" href="course.html?track=${id}">
+    html += `<div class="hub-card" onclick="handleTrackNavigation('${id}')">
       <div class="icon">${t.icon || '📘'}</div>
       <h3>${t.title}</h3>
       <div class="meta">${count}</div>
       <div class="progress-bar-outer"><div class="progress-bar-inner" style="width:${pct}%"></div></div>
-    </a>`;
+    </div>`;
   });
   grid.innerHTML = html;
+}
+
+function handleTrackNavigation(trackId) {
+  if(!isAuthenticatedUser) {
+    triggerGuardModal();
+    return;
+  }
+  window.location.href = `course.html?track=${trackId}`;
 }
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -508,6 +586,7 @@ let currentView = "lesson";
 
 function buildSidebar(){
   const sidebar = document.getElementById('sidebar');
+  if(!sidebar) return;
   const track = TRACKS[currentTrackId];
   let html = `<div class="back-to-hub" onclick="window.location.href='course.html'">${I18N[currentLang].back_to_hub}</div>`;
   html += `<div class="course-title">${track.icon || '📘'} ${track.title}</div>`;
@@ -518,7 +597,7 @@ function buildSidebar(){
       const openClass = li === currentLevelIndex ? "open" : "";
       const lockedClass = unlocked ? "" : "locked";
       html += `<div class="level-block ${openClass} ${lockedClass}" data-level="${li}">
-        <div class="level-head" onclick="toggleLevel(${li})">
+        <div class="level-head" onclick="${unlocked ? `toggleLevel(${li})` : ''}">
           <span>${unlocked ? '' : '🔒 '}${level.name}</span>
           <span class="badge">${level.badge}</span>
         </div>
@@ -548,7 +627,15 @@ function buildSidebar(){
     });
     html += `</div>`;
   }
+  
+  // دمج زر اللغة بشكل منسق في أسفل القائمة الجانبية
+  html += `
+    <div class="sidebar-footer">
+      <button class="lang-toggle" id="langToggle">${currentLang === 'ar' ? 'EN' : 'AR'}</button>
+    </div>
+  `;
   sidebar.innerHTML = html;
+  initLangToggleListener();
 }
 
 function toggleLevel(li){
@@ -703,10 +790,16 @@ function render(){
   }
 }
 
-checkAuth().then(ok => {
-  if(!ok) return;
-  applyLang();
+async function initApp() {
+  await checkAuth();
+  
+  // فحص صارم قبل تشغيل أي مسار
   if(currentTrackId && TRACKS[currentTrackId]){
+    if(!isAuthenticatedUser) {
+      triggerGuardModal();
+      return;
+    }
+    
     document.getElementById('hubWrap').style.display = 'none';
     document.getElementById('trackWrap').style.display = 'grid';
     const track = TRACKS[currentTrackId];
@@ -722,7 +815,11 @@ checkAuth().then(ok => {
     document.getElementById('trackWrap').style.display = 'none';
     renderHub();
   }
-});
+  applyLang();
+}
+
+// البدء بعد تحميل الإعدادات بالكامل
+initApp();
 </script>
 </body>
 </html>
