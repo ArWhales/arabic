@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم | حيتان العرب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  .admin-shell{max-width:1180px;margin:0 auto;padding:30px 24px 80px;}
+  .warn-banner{
+    background:rgba(229,107,107,0.1);border:1px solid var(--down);color:var(--down);
+    padding:14px 18px;border-radius:12px;font-size:13.5px;margin-bottom:26px;line-height:1.8;
+  }
+  .metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px;}
+  .metric-card{background:var(--bg-panel);border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .metric-card .val{font-family:'JetBrains Mono',monospace;font-size:26px;color:var(--teal);}
+  .metric-card .lbl{font-size:12.5px;color:var(--text-dim);margin-top:4px;}
+  .admin-panel{background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;padding:26px;margin-bottom:20px;}
+  .admin-panel h3{font-size:17px;margin-bottom:14px;}
+  .lock-gate{
+    max-width:420px;margin:80px auto;background:var(--bg-panel);border:1px solid var(--line);
+    border-radius:16px;padding:34px;text-align:center;
+  }
+  .lock-gate input{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg-deep);color:var(--text);margin:16px 0;font-size:14px;}
+  @media (max-width:900px){.metrics-row{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+  <header class="site">
+    <nav>
+      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
+      <div class="nav-links"><a href="index.html">الرئيسية</a></div>
+    </nav>
+  </header>
+
+  <div id="gateWrap">
+    <div class="lock-gate">
+      <div style="font-size:32px;">🔒</div>
+      <h3 style="margin:12px 0 6px;">دخول المشرف</h3>
+      <p style="font-size:13px;color:var(--text-dim);">هذه بوابة عرض مؤقتة فقط للتصميم — غير آمنة للاستخدام الفعلي.</p>
+      <input type="password" id="gatePass" placeholder="كلمة مرور العرض">
+      <button class="btn-primary" style="width:100%;" onclick="tryGate()">دخول</button>
+    </div>
+  </div>
+
+  <div class="admin-shell" id="adminContent" style="display:none;">
+    <div class="warn-banner">
+      ⚠️ <b>مهم:</b> هذه لوحة تحكم تجريبية (واجهة فقط). كلمة المرور الحالية مكتوبة داخل كود الصفحة نفسها ولا تحمي أي شيء فعلياً —
+      لا تستخدمها لإدارة بيانات حقيقية. عند ربط Supabase، يجب استبدالها بتحقق صلاحية "admin" حقيقي من قاعدة البيانات
+      (role check على السيرفر)، وليس تحققاً من كلمة مرور داخل الواجهة الأمامية.
+    </div>
+
+    <h2 style="margin-bottom:20px;">لوحة تحكم حيتان العرب</h2>
+
+    <div class="metrics-row">
+      <div class="metric-card"><div class="val" id="mTotal">—</div><div class="lbl">إجمالي الطلاب المسجلين</div></div>
+      <div class="metric-card"><div class="val" id="mActive">—</div><div class="lbl">نشطون اليوم</div></div>
+      <div class="metric-card"><div class="val" id="mPass">—</div><div class="lbl">نسبة اجتياز الاختبارات</div></div>
+      <div class="metric-card"><div class="val" id="mLessons">37</div><div class="lbl">إجمالي الدروس</div></div>
+    </div>
+
+    <div class="admin-panel">
+      <h3>📚 إدارة الدروس</h3>
+      <p style="color:var(--text-dim);font-size:13.5px;margin-bottom:14px;">
+        إضافة/تعديل الدروس حالياً يتم عبر ملف <code>course-data.js</code> مباشرة. بعد ربط قاعدة البيانات،
+        سيتحول هذا القسم لنموذج تعديل حي يحفظ مباشرة في Supabase بدون الحاجة لتعديل كود.
+      </p>
+      <button class="btn-ghost" disabled style="opacity:.5;cursor:not-allowed;">إضافة درس جديد (يتطلب ربط قاعدة البيانات)</button>
+    </div>
+
+    <div class="admin-panel">
+      <h3>👥 إدارة المستخدمين</h3>
+      <p style="color:var(--text-dim);font-size:13.5px;">قائمة الطلاب، حالة التحقق من البريد، وصلاحيات الحسابات ستظهر هنا بعد ربط Supabase.</p>
+    </div>
+  </div>
+
+<script src="config.js"></script>
+<script>
+function tryGate(){
+  // DEMO ONLY — not real security. Replace with a real backend role check before going live.
+  const pass = document.getElementById('gatePass').value;
+  if(pass === 'whales2026'){
+    document.getElementById('gateWrap').style.display = 'none';
+    document.getElementById('adminContent').style.display = 'block';
+    loadMetrics();
+  } else {
+    alert('كلمة مرور غير صحيحة (تجريبية: whales2026)');
+  }
+}
+
+async function loadMetrics(){
+  if(!IS_BACKEND_CONFIGURED){
+    document.getElementById('mTotal').textContent = 'تجريبي';
+    document.getElementById('mActive').textContent = 'تجريبي';
+    document.getElementById('mPass').textContent = 'تجريبي';
+    return;
+  }
+  // Once Supabase is configured with a `users` and `exam_results` table,
+  // real counts get pulled here, e.g.:
+  // const { count } = await supabaseClient.from('users').select('*', { count: 'exact', head: true });
+  // document.getElementById('mTotal').textContent = count;
+}
+</script>
+</body>
+</html>
