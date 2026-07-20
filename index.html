@@ -29,12 +29,7 @@
         <a href="#about">من نحن</a>
         <div class="has-dd" id="eduDropdown">
           <button type="button" class="dd-trigger" id="eduTrigger">التعليم <span class="caret">▾</span></button>
-          <div class="dd">
-            <a href="course.html">مسار العملات الرقمية <span class="tag">3 مستويات</span></a>
-            <a href="education-trading.html">التحليل الفني والتداول <span class="tag">متوسط</span></a>
-            <a href="education-web3.html">Web3 والعقود الذكية <span class="tag">متقدم</span></a>
-            <a href="education-security.html">أمان المحافظ <span class="tag">أساسي</span></a>
-          </div>
+          <div class="dd" id="eduDropdownList"></div>
         </div>
         <a href="#articles">المقالات</a>
         <a href="#contact">تواصل معنا</a>
@@ -85,30 +80,33 @@
       <p>اخترنا لك أربعة مسارات واضحة بدل عشرات القوائم المتفرقة — اختر مستواك وابدأ فوراً.</p>
     </div>
     <div class="edu-grid">
-      <a class="edu-card" href="course.html">
-        <div class="edu-icon">🧭</div>
+      <a class="edu-card" href="course.html?track=digital-currencies">
+        <div class="edu-icon">🪙</div>
         <h3>مسار العملات الرقمية</h3>
         <p>3 مستويات كاملة (أساسي، متوسط، متقدم)، كل مستوى بدروسه واختبار اجتياز خاص.</p>
         <div class="level">المستوى: أساسي إلى متقدم</div>
       </a>
-      <a class="edu-card" href="education-trading.html">
+      <a class="edu-card" href="course.html?track=trading">
         <div class="edu-icon">📊</div>
-        <h3>التحليل الفني والتداول</h3>
-        <p>قراءة الشموع، الدعم والمقاومة، وبناء استراتيجية تداول واضحة.</p>
-        <div class="level">المستوى: متوسط</div>
+        <h3>التداول</h3>
+        <p>ما هو التداول، منصاته، أوامر البيع والشراء، ومخاطره وأمانه.</p>
+        <div class="level">8 دروس</div>
       </a>
-      <a class="edu-card" href="education-web3.html">
-        <div class="edu-icon">🧬</div>
-        <h3>Web3 والعقود الذكية</h3>
-        <p>DeFi، NFT، والطبقات المختلفة لعالم الويب اللامركزي.</p>
-        <div class="level">المستوى: متقدم</div>
+      <a class="edu-card" href="course.html?track=web3">
+        <div class="edu-icon">🌐</div>
+        <h3>Web3 والمستقبل</h3>
+        <p>الهوية الرقمية، الـ DAO، وفرص العمل في عالم الويب اللامركزي.</p>
+        <div class="level">5 دروس</div>
       </a>
-      <a class="edu-card" href="education-security.html">
+      <a class="edu-card" href="course.html?track=security">
         <div class="edu-icon">🛡️</div>
-        <h3>أمان المحافظ</h3>
-        <p>حماية أصولك الرقمية من الاحتيال والاختراق خطوة بخطوة.</p>
-        <div class="level">المستوى: أساسي للجميع</div>
+        <h3>الأمان وحماية الأصول</h3>
+        <p>أنواع الاحتيال، حماية المحافظ، والتحقق من المشاريع قبل الاستثمار.</p>
+        <div class="level">4 دروس</div>
       </a>
+    </div>
+    <div style="text-align:center;margin-top:26px;">
+      <a href="course.html" class="btn-ghost">عرض كل المسارات الـ 12 →</a>
     </div>
   </section>
 
@@ -202,7 +200,20 @@
     </div>
   </footer>
 
+<script src="course-data.js"></script>
 <script>
+function buildEduDropdown(){
+  const list = document.getElementById('eduDropdownList');
+  let html = '';
+  Object.keys(TRACKS).forEach(id => {
+    const t = TRACKS[id];
+    const tag = t.type === 'leveled' ? '3 مستويات' : (t.lessons.length + ' دروس');
+    html += `<a href="course.html?track=${id}">${t.icon || '📘'} ${t.title} <span class="tag">${tag}</span></a>`;
+  });
+  list.innerHTML = html;
+}
+buildEduDropdown();
+
 // Static fallback so the bar is never empty if every live source fails (e.g. offline sandbox, rate limit)
 const FALLBACK_COINS = [
   {symbol:'BTC', price:'—', chg:null},
