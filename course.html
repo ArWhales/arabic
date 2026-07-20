@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مسار العملات الرقمية | حيتان العرب</title>
+<title id="pageTitle">المسارات التعليمية | حيتان العرب</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
+  body.lang-en{font-family:'Inter',sans-serif;}
+  body.lang-en h1, body.lang-en h2, body.lang-en h3, body.lang-en .brand{font-family:'Inter',sans-serif;font-weight:800;}
+
   .course-shell{
     max-width:1180px;margin:0 auto;padding:30px 24px 80px;
     display:grid;grid-template-columns:300px 1fr;gap:24px;
@@ -18,6 +21,11 @@
     padding:18px;position:sticky;top:100px;
     max-height:calc(100vh - 120px);overflow-y:auto;
   }
+  .back-to-hub{
+    display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim);
+    margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .back-to-hub:hover{color:var(--teal);}
   .course-title{font-family:'Cairo',sans-serif;font-weight:700;font-size:16px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);}
   .level-block{margin-bottom:10px;}
   .level-head{
@@ -50,8 +58,10 @@
   .lesson-eyebrow{font-size:12px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:10px;}
   .lesson-title{font-size:26px;font-weight:900;margin-bottom:18px;font-family:'Cairo',sans-serif;}
   .lesson-content{font-size:16px;color:var(--text);line-height:2;margin-bottom:34px;}
+  .lesson-nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:22px;flex-wrap:wrap;}
+  .progress-bar-outer{height:6px;background:var(--bg-panel-2);border-radius:999px;overflow:hidden;margin-bottom:20px;}
+  .progress-bar-inner{height:100%;background:var(--teal);border-radius:999px;transition:width .3s;}
 
-  /* media block */
   .lesson-media{
     position:relative;border-radius:14px;overflow:hidden;margin-bottom:24px;
     border:1px solid var(--line);background:var(--bg-panel-2);
@@ -70,7 +80,6 @@
     display:flex;align-items:center;gap:6px;
   }
 
-  /* comments */
   .comments-section{border-top:1px solid var(--line);padding-top:24px;margin-top:10px;}
   .comments-section h4{font-size:16px;margin-bottom:6px;font-family:'Cairo',sans-serif;}
   .comments-note{font-size:12px;color:var(--gold);margin-bottom:16px;}
@@ -79,41 +88,57 @@
     flex:1;padding:11px 14px;border-radius:10px;border:1px solid var(--line);
     background:var(--bg-deep);color:var(--text);font-size:13.5px;font-family:inherit;
   }
-  .comment-item{
-    background:var(--bg-panel-2);border-radius:10px;padding:12px 14px;margin-bottom:10px;
-  }
+  .comment-item{background:var(--bg-panel-2);border-radius:10px;padding:12px 14px;margin-bottom:10px;}
   .comment-item .c-meta{font-size:11.5px;color:var(--text-dim);margin-bottom:4px;font-family:'JetBrains Mono',monospace;}
   .comment-item .c-body{font-size:14px;}
   .empty-comments{color:var(--text-dim);font-size:13px;font-style:italic;}
-  .lesson-nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:22px;flex-wrap:wrap;}
-  .progress-bar-outer{height:6px;background:var(--bg-panel-2);border-radius:999px;overflow:hidden;margin-bottom:20px;}
-  .progress-bar-inner{height:100%;background:var(--teal);border-radius:999px;transition:width .3s;}
 
-  /* exam */
   .exam-q{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line);}
   .exam-q:last-child{border-bottom:none;}
   .exam-q h4{font-size:15.5px;margin-bottom:14px;font-weight:600;}
-  .exam-opt{
-    display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;
-    cursor:pointer;font-size:14px;transition:border-color .15s,background .15s;
-  }
+  .exam-opt{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;font-size:14px;transition:border-color .15s,background .15s;}
   .exam-opt:hover{border-color:var(--teal);}
   .exam-opt.selected{border-color:var(--teal);background:rgba(45,212,191,0.08);}
   .exam-opt.correct{border-color:var(--up);background:rgba(61,220,151,0.1);}
   .exam-opt.wrong{border-color:var(--down);background:rgba(229,107,107,0.1);}
   .exam-opt input{margin-inline-end:10px;}
-  .exam-result{
-    text-align:center;padding:30px;border-radius:14px;margin-top:10px;
-  }
+  .exam-result{text-align:center;padding:30px;border-radius:14px;margin-top:10px;}
   .exam-result.pass{background:rgba(61,220,151,0.08);border:1px solid var(--up);}
   .exam-result.fail{background:rgba(229,107,107,0.08);border:1px solid var(--down);}
   .exam-result h3{font-size:22px;margin-bottom:8px;}
   .exam-result .score{font-family:'JetBrains Mono',monospace;font-size:32px;margin:12px 0;}
 
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .hub-card{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;
+    padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s;
+  }
+  .hub-card:hover{transform:translateY(-4px);border-color:var(--teal);}
+  .hub-card .icon{font-size:28px;}
+  .hub-card h3{font-size:16px;font-weight:600;}
+  .hub-card .meta{font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
+  .hub-card .progress-bar-outer{margin:6px 0 0;}
+
+  .lang-toggle{
+    background:none;border:1px solid var(--line);color:var(--text-dim);
+    padding:8px 14px;border-radius:999px;font-size:13px;cursor:pointer;font-family:'JetBrains Mono',monospace;
+  }
+  .lang-toggle:hover{border-color:var(--teal);color:var(--text);}
+  .greeting-bar{
+    max-width:1180px;margin:14px auto 0;padding:0 24px;
+    font-family:'Cairo',sans-serif;font-size:15px;color:var(--text);
+  }
+  .en-content-note{
+    background:rgba(45,212,191,0.08);border:1px solid var(--teal-dim);color:var(--teal);
+    font-size:12.5px;padding:10px 14px;border-radius:10px;margin-bottom:18px;
+  }
+
   @media (max-width:900px){
     .course-shell{grid-template-columns:1fr;}
     .course-sidebar{position:static;max-height:none;}
+    .hub-grid{grid-template-columns:1fr 1fr;}
   }
+  @media (max-width:600px){ .hub-grid{grid-template-columns:1fr;} }
 </style>
 </head>
 <body>
@@ -131,34 +156,35 @@
     <nav>
       <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
       <div class="nav-links">
-        <a href="index.html">الرئيسية</a>
-        <a href="index.html#about">من نحن</a>
+        <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a href="index.html#about" data-i18n="nav_about">من نحن</a>
         <div class="has-dd" id="eduDropdown">
-          <button type="button" class="dd-trigger" id="eduTrigger">التعليم <span class="caret">▾</span></button>
-          <div class="dd">
-            <a href="course.html">مسار العملات الرقمية <span class="tag">3 مستويات</span></a>
-            <a href="education-trading.html">التحليل الفني والتداول <span class="tag">متوسط</span></a>
-            <a href="education-web3.html">Web3 والعقود الذكية <span class="tag">متقدم</span></a>
-            <a href="education-security.html">أمان المحافظ <span class="tag">أساسي</span></a>
-          </div>
+          <button type="button" class="dd-trigger" id="eduTrigger" data-i18n="nav_edu">التعليم <span class="caret">▾</span></button>
+          <div class="dd" id="eduDropdownList"></div>
         </div>
-        <a href="index.html#articles">المقالات</a>
-        <a href="index.html#contact">تواصل معنا</a>
+        <a href="index.html#articles" data-i18n="nav_articles">المقالات</a>
+        <a href="index.html#contact" data-i18n="nav_contact">تواصل معنا</a>
       </div>
-      <a href="https://t.me/ArabicWhales" class="cta-btn" style="margin-inline-end:10px;">انضم الآن</a>
-      <a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding:9px 18px;font-size:14px;">تسجيل الدخول</a>
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <a href="https://t.me/ArabicWhales" class="cta-btn" style="margin-inline-start:10px;" data-i18n="nav_join">انضم الآن</a>
+      <a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding:9px 18px;font-size:14px;margin-inline-start:10px;" data-i18n="nav_login">تسجيل الدخول</a>
     </nav>
   </header>
 
   <div id="guardBanner"></div>
+  <div class="greeting-bar" id="greetingBar"></div>
 
-  <section style="padding-bottom:0;">
-    <div class="eyebrow">مسار تعليمي متكامل</div>
-    <h1 style="font-size:32px;font-weight:900;margin:16px 0 10px;">مسار العملات الرقمية</h1>
-    <p style="color:var(--text-dim);font-size:15.5px;max-width:640px;">3 مستويات (أساسي، متوسط، متقدم)، كل مستوى له دروسه واختبار اجتياز خاص به. أكمل الدروس بالترتيب لفتح المستوى التالي.</p>
+  <section style="padding-bottom:0;" id="pageHeadSection">
+    <div class="eyebrow" id="pageEyebrow">مسار تعليمي متكامل</div>
+    <h1 style="font-size:32px;font-weight:900;margin:16px 0 10px;" id="pageMainTitle">المسارات التعليمية</h1>
+    <p style="color:var(--text-dim);font-size:15.5px;max-width:640px;" id="pageSubtitle">اختر مساراً وابدأ التعلم خطوة بخطوة.</p>
   </section>
 
-  <div class="course-shell">
+  <div id="hubWrap" class="course-shell" style="display:none;grid-template-columns:1fr;">
+    <div class="hub-grid" id="hubGrid"></div>
+  </div>
+
+  <div id="trackWrap" class="course-shell" style="display:none;">
     <aside class="course-sidebar" id="sidebar"></aside>
     <main class="course-main" id="mainPane"></main>
   </div>
@@ -193,7 +219,62 @@
 <script src="config.js"></script>
 <script src="course-data.js"></script>
 <script>
-/* ===== Ticker (same robust logic as index.html) ===== */
+const I18N = {
+  ar: {
+    nav_home:"الرئيسية", nav_about:"من نحن", nav_edu:"التعليم ▾", nav_articles:"المقالات",
+    nav_contact:"تواصل معنا", nav_join:"انضم الآن", nav_login:"تسجيل الدخول",
+    hub_eyebrow:"مسار تعليمي متكامل", hub_title:"المسارات التعليمية",
+    hub_subtitle:"اختر مساراً وابدأ التعلم خطوة بخطوة.",
+    back_to_hub:"→ كل المسارات",
+    prev_lesson:"الدرس السابق", next_lesson:"إنهاء الدرس والانتقال للتالي", next_lesson_done:"تم ✓ — الدرس التالي",
+    exam_title:"📝 اختبار اجتياز المستوى", exam_submit:"إرسال الإجابات",
+    en_note:"محتوى هذا الدرس متاح بالعربية حالياً، والترجمة الإنجليزية قيد الإعداد.",
+    greeting:"مرحباً"
+  },
+  en: {
+    nav_home:"Home", nav_about:"About", nav_edu:"Learn ▾", nav_articles:"Articles",
+    nav_contact:"Contact", nav_join:"Join Now", nav_login:"Log In",
+    hub_eyebrow:"Full Learning Path", hub_title:"Learning Tracks",
+    hub_subtitle:"Pick a track and start learning step by step.",
+    back_to_hub:"← All Tracks",
+    prev_lesson:"Previous Lesson", next_lesson:"Finish & Continue", next_lesson_done:"Done ✓ — Next Lesson",
+    exam_title:"📝 Level Exam", exam_submit:"Submit Answers",
+    en_note:"This lesson's content is currently available in Arabic only — English translation is in progress.",
+    greeting:"Welcome"
+  }
+};
+let currentLang = localStorage.getItem('aw_lang') || 'ar';
+
+function applyLang(){
+  const t = I18N[currentLang];
+  document.getElementById('htmlRoot').lang = currentLang;
+  document.getElementById('htmlRoot').dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('lang-en', currentLang === 'en');
+  document.getElementById('langToggle').textContent = currentLang === 'ar' ? 'EN' : 'AR';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(t[key]){
+      if(key === 'nav_edu'){
+        el.childNodes[0].nodeValue = t[key].replace('▾','').trim() + ' ';
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  if(!currentTrackId){
+    document.getElementById('pageEyebrow').textContent = t.hub_eyebrow;
+    document.getElementById('pageMainTitle').textContent = t.hub_title;
+    document.getElementById('pageSubtitle').textContent = t.hub_subtitle;
+  }
+  renderGreeting();
+  if(currentTrackId) render();
+}
+document.getElementById('langToggle').addEventListener('click', () => {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  localStorage.setItem('aw_lang', currentLang);
+  applyLang();
+});
+
 const FALLBACK_COINS = [
   {symbol:'BTC', price:'—', chg:null},{symbol:'ETH', price:'—', chg:null},
   {symbol:'USDT', price:'—', chg:null},{symbol:'BNB', price:'—', chg:null},
@@ -262,16 +343,23 @@ async function loadTicker(){
 loadTicker();
 setInterval(loadTicker, 60000);
 
+function buildEduDropdown(){
+  const list = document.getElementById('eduDropdownList');
+  let html = '';
+  Object.keys(TRACKS).forEach(id => {
+    const t = TRACKS[id];
+    const tag = t.type === 'leveled' ? '3 مستويات' : (t.lessons.length + ' دروس');
+    html += `<a href="course.html?track=${id}">${t.icon || '📘'} ${t.title} <span class="tag">${tag}</span></a>`;
+  });
+  list.innerHTML = html;
+}
+buildEduDropdown();
+
 const eduDropdown = document.getElementById('eduDropdown');
 const eduTrigger = document.getElementById('eduTrigger');
 eduTrigger.addEventListener('click', (e) => { e.stopPropagation(); eduDropdown.classList.toggle('open'); });
 document.addEventListener('click', (e) => { if(!eduDropdown.contains(e.target)){ eduDropdown.classList.remove('open'); } });
-eduDropdown.querySelectorAll('.dd a').forEach(link => { link.addEventListener('click', () => eduDropdown.classList.remove('open')); });
 
-/* ===== Route Guard =====
-   - IS_BACKEND_CONFIGURED === true  -> strict Supabase session check, redirects if not logged in/verified
-   - IS_BACKEND_CONFIGURED === false -> demo mode, browsing is allowed without forcing login
-*/
 async function checkAuth(){
   const banner = document.getElementById('guardBanner');
   const authBtn = document.getElementById('authNavBtn');
@@ -282,18 +370,19 @@ async function checkAuth(){
       window.location.href = 'auth.html';
       return false;
     }
-    authBtn.textContent = 'حسابي (' + session.user.email + ')';
+    const uname = session.user.user_metadata?.username || session.user.email.split('@')[0];
+    localStorage.setItem('aw_username', uname);
+    authBtn.textContent = '👤 ' + uname;
     authBtn.href = '#';
     return true;
   }
 
-  // Demo mode: no real backend/database configured yet, so the course stays
-  // browsable without forcing a login. If a demo session exists (user went
-  // through auth.html), show their email on the nav button as a nice touch.
   const demoSession = localStorage.getItem('aw_demo_session');
   if(demoSession){
     const s = JSON.parse(demoSession);
-    authBtn.textContent = 'حسابي (' + s.email + ')';
+    const uname = s.username || s.email.split('@')[0];
+    localStorage.setItem('aw_username', uname);
+    authBtn.textContent = '👤 ' + uname;
     authBtn.href = '#';
   }
   banner.innerHTML = `<div style="max-width:1180px;margin:10px auto 0;padding:0 24px;">
@@ -304,27 +393,36 @@ async function checkAuth(){
   </div>`;
   return true;
 }
-checkAuth().then(ok => {
-  if(ok){
-    buildSidebar();
-    render();
-  }
-});
 
-/* ===== Comments (demo, localStorage-based — needs backend for real persistence across users) ===== */
-function getComments(lessonId){
-  return JSON.parse(localStorage.getItem('aw_comments_' + lessonId) || '[]');
+function renderGreeting(){
+  const bar = document.getElementById('greetingBar');
+  const uname = localStorage.getItem('aw_username');
+  bar.textContent = uname ? `${I18N[currentLang].greeting}، ${uname} 🐳` : '';
 }
-function addComment(lessonId, text){
-  const comments = getComments(lessonId);
+
+const STORAGE_PREFIX = "aw_course_";
+function isLessonDone(trackId, lessonId){ return localStorage.getItem(STORAGE_PREFIX + trackId + "_" + lessonId) === "1"; }
+function markLessonDone(trackId, lessonId){ localStorage.setItem(STORAGE_PREFIX + trackId + "_" + lessonId, "1"); }
+function isExamPassed(trackId){ return localStorage.getItem(STORAGE_PREFIX + trackId + "_exam_passed") === "1"; }
+function markExamPassed(trackId){ localStorage.setItem(STORAGE_PREFIX + trackId + "_exam_passed", "1"); }
+function isLevelUnlocked(track, levelIndex){
+  if(levelIndex === 0) return true;
+  return isExamPassed(track.levels[levelIndex - 1].id);
+}
+
+function getComments(key){ return JSON.parse(localStorage.getItem('aw_comments_' + key) || '[]'); }
+function addComment(key, text){
+  const comments = getComments(key);
   comments.push({text, ts: new Date().toLocaleString('ar-EG')});
-  localStorage.setItem('aw_comments_' + lessonId, JSON.stringify(comments));
+  localStorage.setItem('aw_comments_' + key, JSON.stringify(comments));
 }
-function renderComments(lessonId){
-  const comments = getComments(lessonId);
-  const list = comments.length
+function commentsListHtml(key){
+  const comments = getComments(key);
+  return comments.length
     ? comments.map(c => `<div class="comment-item"><div class="c-meta">${c.ts}</div><div class="c-body">${c.text.replace(/</g,'&lt;')}</div></div>`).join('')
     : '<div class="empty-comments">لا توجد تعليقات بعد — كن أول من يبدأ النقاش.</div>';
+}
+function renderComments(key){
   return `
     <div class="comments-section">
       <h4>💬 النقاش حول هذا الدرس</h4>
@@ -333,20 +431,17 @@ function renderComments(lessonId){
         <input type="text" id="commentInput" placeholder="اكتب تعليقك أو سؤالك...">
         <button class="btn-primary" id="commentSubmit" style="padding:11px 20px;">إرسال</button>
       </div>
-      <div id="commentsList">${list}</div>
+      <div id="commentsList">${commentsListHtml(key)}</div>
     </div>
   `;
 }
-function wireCommentForm(lessonId){
+function wireCommentForm(key){
   document.getElementById('commentSubmit').onclick = () => {
     const input = document.getElementById('commentInput');
     if(input.value.trim() === '') return;
-    addComment(lessonId, input.value.trim());
+    addComment(key, input.value.trim());
     input.value = '';
-    const comments = getComments(lessonId);
-    document.getElementById('commentsList').innerHTML = comments.length
-      ? comments.map(c => `<div class="comment-item"><div class="c-meta">${c.ts}</div><div class="c-body">${c.text.replace(/</g,'&lt;')}</div></div>`).join('')
-      : '<div class="empty-comments">لا توجد تعليقات بعد — كن أول من يبدأ النقاش.</div>';
+    document.getElementById('commentsList').innerHTML = commentsListHtml(key);
   };
 }
 
@@ -373,130 +468,187 @@ function renderMediaBlock(lesson){
   }
   return '';
 }
-const TRACK = TRACKS["digital-currencies"];
-const STORAGE_PREFIX = "aw_course_";
 
-function isLessonDone(levelId, lessonId){
-  return localStorage.getItem(STORAGE_PREFIX + levelId + "_" + lessonId) === "1";
+function trackProgressPct(id, track){
+  if(track.type === 'leveled'){
+    const total = track.levels.reduce((s,l) => s + l.lessons.length + 1, 0);
+    let done = 0;
+    track.levels.forEach(l => {
+      done += l.lessons.filter(les => isLessonDone(l.id, les.id)).length;
+      if(isExamPassed(l.id)) done++;
+    });
+    return Math.round((done/total)*100);
+  } else {
+    const done = track.lessons.filter(l => isLessonDone(id, l.id)).length;
+    return Math.round((done/track.lessons.length)*100);
+  }
 }
-function markLessonDone(levelId, lessonId){
-  localStorage.setItem(STORAGE_PREFIX + levelId + "_" + lessonId, "1");
-}
-function isExamPassed(levelId){
-  return localStorage.getItem(STORAGE_PREFIX + levelId + "_exam_passed") === "1";
-}
-function markExamPassed(levelId){
-  localStorage.setItem(STORAGE_PREFIX + levelId + "_exam_passed", "1");
-}
-function isLevelUnlocked(levelIndex){
-  if(levelIndex === 0) return true;
-  const prevLevel = TRACK.levels[levelIndex - 1];
-  return isExamPassed(prevLevel.id);
+function renderHub(){
+  const grid = document.getElementById('hubGrid');
+  let html = '';
+  Object.keys(TRACKS).forEach(id => {
+    const t = TRACKS[id];
+    const count = t.type === 'leveled' ? t.levels.reduce((s,l)=>s+l.lessons.length,0) + ' درس · 3 مستويات' : t.lessons.length + ' دروس';
+    const pct = trackProgressPct(id, t);
+    html += `<a class="hub-card" href="course.html?track=${id}">
+      <div class="icon">${t.icon || '📘'}</div>
+      <h3>${t.title}</h3>
+      <div class="meta">${count}</div>
+      <div class="progress-bar-outer"><div class="progress-bar-inner" style="width:${pct}%"></div></div>
+    </a>`;
+  });
+  grid.innerHTML = html;
 }
 
+const urlParams = new URLSearchParams(window.location.search);
+const currentTrackId = urlParams.get('track');
 let currentLevelIndex = 0;
 let currentLessonIndex = 0;
-let currentView = "lesson"; // "lesson" or "exam"
+let currentView = "lesson";
 
 function buildSidebar(){
   const sidebar = document.getElementById('sidebar');
-  let html = `<div class="course-title">📚 ${TRACK.title}</div>`;
-  TRACK.levels.forEach((level, li) => {
-    const unlocked = isLevelUnlocked(li);
-    const openClass = li === currentLevelIndex ? "open" : "";
-    const lockedClass = unlocked ? "" : "locked";
-    html += `<div class="level-block ${openClass} ${lockedClass}" data-level="${li}">
-      <div class="level-head" onclick="toggleLevel(${li})">
-        <span>${unlocked ? '' : '🔒 '}${level.name}</span>
-        <span class="badge">${level.badge}</span>
-      </div>
-      <div class="level-lessons">`;
-    level.lessons.forEach((lesson, lidx) => {
-      const done = isLessonDone(level.id, lesson.id);
-      const active = (li === currentLevelIndex && lidx === currentLessonIndex && currentView === "lesson") ? "active" : "";
-      html += `<div class="lesson-link ${done ? 'done' : ''} ${active}" onclick="${unlocked ? `goToLesson(${li}, ${lidx})` : ''}">
+  const track = TRACKS[currentTrackId];
+  let html = `<div class="back-to-hub" onclick="window.location.href='course.html'">${I18N[currentLang].back_to_hub}</div>`;
+  html += `<div class="course-title">${track.icon || '📘'} ${track.title}</div>`;
+
+  if(track.type === 'leveled'){
+    track.levels.forEach((level, li) => {
+      const unlocked = isLevelUnlocked(track, li);
+      const openClass = li === currentLevelIndex ? "open" : "";
+      const lockedClass = unlocked ? "" : "locked";
+      html += `<div class="level-block ${openClass} ${lockedClass}" data-level="${li}">
+        <div class="level-head" onclick="toggleLevel(${li})">
+          <span>${unlocked ? '' : '🔒 '}${level.name}</span>
+          <span class="badge">${level.badge}</span>
+        </div>
+        <div class="level-lessons">`;
+      level.lessons.forEach((lesson, lidx) => {
+        const done = isLessonDone(level.id, lesson.id);
+        const active = (li === currentLevelIndex && lidx === currentLessonIndex && currentView === "lesson") ? "active" : "";
+        html += `<div class="lesson-link ${done ? 'done' : ''} ${active}" onclick="${unlocked ? `goToLesson(${li}, ${lidx})` : ''}">
+          <span class="check">${done ? '✓' : ''}</span> ${lesson.title}
+        </div>`;
+      });
+      const examDone = isExamPassed(level.id);
+      const examActive = (li === currentLevelIndex && currentView === "exam") ? "active" : "";
+      html += `<div class="lesson-link exam-link ${examDone ? 'done' : ''} ${examActive}" onclick="${unlocked ? `goToExam(${li})` : ''}">
+          <span class="check">${examDone ? '✓' : ''}</span> 📝 اختبار اجتياز المستوى
+        </div>`;
+      html += `</div></div>`;
+    });
+  } else {
+    html += `<div class="level-lessons open" style="display:block;">`;
+    track.lessons.forEach((lesson, lidx) => {
+      const done = isLessonDone(currentTrackId, lesson.id);
+      const active = (lidx === currentLessonIndex) ? "active" : "";
+      html += `<div class="lesson-link ${done ? 'done' : ''} ${active}" onclick="goToFlatLesson(${lidx})">
         <span class="check">${done ? '✓' : ''}</span> ${lesson.title}
       </div>`;
     });
-    const examDone = isExamPassed(level.id);
-    const examActive = (li === currentLevelIndex && currentView === "exam") ? "active" : "";
-    html += `<div class="lesson-link exam-link ${examDone ? 'done' : ''} ${examActive}" onclick="${unlocked ? `goToExam(${li})` : ''}">
-        <span class="check">${examDone ? '✓' : ''}</span> 📝 اختبار اجتياز المستوى
-      </div>`;
-    html += `</div></div>`;
-  });
+    html += `</div>`;
+  }
   sidebar.innerHTML = html;
 }
 
 function toggleLevel(li){
-  const blocks = document.querySelectorAll('.level-block');
-  blocks.forEach((b, idx) => {
-    if(idx === li) b.classList.toggle('open');
-    else b.classList.remove('open');
+  document.querySelectorAll('.level-block').forEach((b, idx) => {
+    if(idx === li) b.classList.toggle('open'); else b.classList.remove('open');
   });
 }
+function goToLesson(li, lidx){ currentLevelIndex = li; currentLessonIndex = lidx; currentView = "lesson"; render(); }
+function goToExam(li){ currentLevelIndex = li; currentView = "exam"; render(); }
+function goToFlatLesson(lidx){ currentLessonIndex = lidx; render(); }
 
-function goToLesson(li, lidx){
-  currentLevelIndex = li; currentLessonIndex = lidx; currentView = "lesson";
-  render();
-}
-function goToExam(li){
-  currentLevelIndex = li; currentView = "exam";
-  render();
+function lessonBodyOrNote(lesson){
+  if(currentLang === 'en'){
+    return `<div class="en-content-note">ℹ️ ${I18N.en.en_note}</div><p class="lesson-content" dir="rtl" style="text-align:right;font-family:'IBM Plex Sans Arabic',sans-serif;">${lesson.content}</p>`;
+  }
+  return `<p class="lesson-content">${lesson.content}</p>`;
 }
 
-function renderLesson(){
-  const level = TRACK.levels[currentLevelIndex];
+function renderLeveledLesson(){
+  const track = TRACKS[currentTrackId];
+  const level = track.levels[currentLevelIndex];
   const lesson = level.lessons[currentLessonIndex];
   const totalItems = level.lessons.length + 1;
   const doneCount = level.lessons.filter(l => isLessonDone(level.id, l.id)).length + (isExamPassed(level.id) ? 1 : 0);
   const pct = Math.round((doneCount / totalItems) * 100);
+  const t = I18N[currentLang];
 
   const main = document.getElementById('mainPane');
   main.innerHTML = `
     <div class="progress-bar-outer"><div class="progress-bar-inner" style="width:${pct}%"></div></div>
-    <div class="lesson-eyebrow">${level.name} · درس ${currentLessonIndex + 1} من ${level.lessons.length}</div>
+    <div class="lesson-eyebrow">${level.name} · ${currentLessonIndex + 1}/${level.lessons.length}</div>
     <h2 class="lesson-title">${lesson.title}</h2>
     ${renderMediaBlock(lesson)}
-    <p class="lesson-content">${lesson.content}</p>
+    ${lessonBodyOrNote(lesson)}
     <div class="lesson-nav">
-      <button class="btn-ghost" id="prevBtn" ${currentLessonIndex === 0 ? 'disabled style="opacity:.4;cursor:not-allowed;"' : ''}>الدرس السابق</button>
-      <button class="btn-primary" id="nextBtn">${isLessonDone(level.id, lesson.id) ? 'تم ✓ — الدرس التالي' : 'إنهاء الدرس والانتقال للتالي'}</button>
+      <button class="btn-ghost" id="prevBtn" ${currentLessonIndex === 0 ? 'disabled style="opacity:.4;cursor:not-allowed;"' : ''}>${t.prev_lesson}</button>
+      <button class="btn-primary" id="nextBtn">${isLessonDone(level.id, lesson.id) ? t.next_lesson_done : t.next_lesson}</button>
     </div>
-    ${renderComments(lesson.id)}
+    ${renderComments(level.id + '_' + lesson.id)}
   `;
   markLessonDone(level.id, lesson.id);
   buildSidebar();
-  wireCommentForm(lesson.id);
+  wireCommentForm(level.id + '_' + lesson.id);
 
-  document.getElementById('prevBtn').onclick = () => {
-    if(currentLessonIndex > 0){ currentLessonIndex--; render(); }
-  };
+  document.getElementById('prevBtn').onclick = () => { if(currentLessonIndex > 0){ currentLessonIndex--; render(); } };
   document.getElementById('nextBtn').onclick = () => {
     if(currentLessonIndex < level.lessons.length - 1){ currentLessonIndex++; render(); }
     else { currentView = "exam"; render(); }
   };
 }
 
+function renderFlatLesson(){
+  const track = TRACKS[currentTrackId];
+  const lesson = track.lessons[currentLessonIndex];
+  const doneCount = track.lessons.filter(l => isLessonDone(currentTrackId, l.id)).length;
+  const pct = Math.round((doneCount / track.lessons.length) * 100);
+  const t = I18N[currentLang];
+
+  const main = document.getElementById('mainPane');
+  main.innerHTML = `
+    <div class="progress-bar-outer"><div class="progress-bar-inner" style="width:${pct}%"></div></div>
+    <div class="lesson-eyebrow">${track.title} · ${currentLessonIndex + 1}/${track.lessons.length}</div>
+    <h2 class="lesson-title">${lesson.title}</h2>
+    ${renderMediaBlock(lesson)}
+    ${lessonBodyOrNote(lesson)}
+    <div class="lesson-nav">
+      <button class="btn-ghost" id="prevBtn" ${currentLessonIndex === 0 ? 'disabled style="opacity:.4;cursor:not-allowed;"' : ''}>${t.prev_lesson}</button>
+      <button class="btn-primary" id="nextBtn" ${currentLessonIndex === track.lessons.length - 1 ? 'style="opacity:.6;"' : ''}>${isLessonDone(currentTrackId, lesson.id) ? t.next_lesson_done : t.next_lesson}</button>
+    </div>
+    ${renderComments(currentTrackId + '_' + lesson.id)}
+  `;
+  markLessonDone(currentTrackId, lesson.id);
+  buildSidebar();
+  wireCommentForm(currentTrackId + '_' + lesson.id);
+
+  document.getElementById('prevBtn').onclick = () => { if(currentLessonIndex > 0){ currentLessonIndex--; render(); } };
+  document.getElementById('nextBtn').onclick = () => {
+    if(currentLessonIndex < track.lessons.length - 1){ currentLessonIndex++; render(); }
+  };
+}
+
 function renderExam(){
-  const level = TRACK.levels[currentLevelIndex];
+  const track = TRACKS[currentTrackId];
+  const level = track.levels[currentLevelIndex];
+  const t = I18N[currentLang];
   const main = document.getElementById('mainPane');
   let html = `
     <div class="lesson-eyebrow">${level.name}</div>
-    <h2 class="lesson-title">📝 اختبار اجتياز المستوى</h2>
+    <h2 class="lesson-title">${t.exam_title}</h2>
     <p class="lesson-content" style="margin-bottom:20px;">أجب عن الأسئلة التالية، وتحتاج ${level.exam.pass}% على الأقل للنجاح وفتح المستوى التالي.</p>
     <form id="examForm">
   `;
   level.exam.questions.forEach((q, qi) => {
     html += `<div class="exam-q"><h4>${qi+1}. ${q.q}</h4>`;
     q.options.forEach((opt, oi) => {
-      html += `<label class="exam-opt" data-q="${qi}" data-o="${oi}">
-        <input type="radio" name="q${qi}" value="${oi}"> ${opt}
-      </label>`;
+      html += `<label class="exam-opt" data-q="${qi}" data-o="${oi}"><input type="radio" name="q${qi}" value="${oi}"> ${opt}</label>`;
     });
     html += `</div>`;
   });
-  html += `</form><button class="btn-primary" id="submitExamBtn">إرسال الإجابات</button><div id="examResult"></div>`;
+  html += `</form><button class="btn-primary" id="submitExamBtn">${t.exam_submit}</button><div id="examResult"></div>`;
   main.innerHTML = html;
   buildSidebar();
 
@@ -525,7 +677,7 @@ function renderExam(){
     const passed = scorePct >= level.exam.pass;
     if(passed) markExamPassed(level.id);
     const resultDiv = document.getElementById('examResult');
-    const nextLevel = TRACK.levels[currentLevelIndex + 1];
+    const nextLevel = track.levels[currentLevelIndex + 1];
     resultDiv.innerHTML = `
       <div class="exam-result ${passed ? 'pass' : 'fail'}">
         <h3>${passed ? '🎉 مبروك، لقد اجتزت المستوى!' : '😕 لم تحقق النسبة المطلوبة بعد'}</h3>
@@ -543,10 +695,34 @@ function renderExam(){
 }
 
 function render(){
-  if(currentView === "exam") renderExam();
-  else renderLesson();
+  const track = TRACKS[currentTrackId];
+  if(track.type === 'leveled'){
+    if(currentView === "exam") renderExam(); else renderLeveledLesson();
+  } else {
+    renderFlatLesson();
+  }
 }
 
+checkAuth().then(ok => {
+  if(!ok) return;
+  applyLang();
+  if(currentTrackId && TRACKS[currentTrackId]){
+    document.getElementById('hubWrap').style.display = 'none';
+    document.getElementById('trackWrap').style.display = 'grid';
+    const track = TRACKS[currentTrackId];
+    document.getElementById('pageEyebrow').textContent = track.type === 'leveled' ? 'مسار تعليمي متكامل' : 'مسار تعليمي';
+    document.getElementById('pageMainTitle').textContent = track.icon + ' ' + track.title;
+    document.getElementById('pageSubtitle').textContent = track.type === 'leveled'
+      ? '3 مستويات، كل مستوى له دروسه واختبار اجتياز خاص به.'
+      : `${track.lessons.length} دروس — أكملها بالترتيب حسب رغبتك.`;
+    buildSidebar();
+    render();
+  } else {
+    document.getElementById('hubWrap').style.display = 'block';
+    document.getElementById('trackWrap').style.display = 'none';
+    renderHub();
+  }
+});
 </script>
 </body>
 </html>
