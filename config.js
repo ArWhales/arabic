@@ -1,28 +1,27 @@
-/* ============================================================
-   إعدادات المشروع — حيتان العرب
-   ============================================================
-   عشان تفعّل تسجيل الدخول الحقيقي وقاعدة البيانات:
-   1. أنشئ حساب مجاني على https://supabase.com
-   2. أنشئ مشروع جديد (Project)
-   3. من Settings > API انسخ:
-      - Project URL
-      - anon public key
-   4. الصقهم مكان القيم أدناه
-
-   طالما القيم لسه فاضية أو تحمل الكلمة PASTE_HERE، الموقع
-   يعمل بوضع تجريبي (Demo Mode): يعرض كل الميزات لكن بدون حفظ
-   حقيقي في قاعدة بيانات، وبدون فرض تسجيل دخول إجباري.
-   ============================================================ */
-
-const SUPABASE_URL = "PASTE_HERE";       // مثال: https://xxxxx.supabase.co
-const SUPABASE_ANON_KEY = "PASTE_HERE";  // مفتاح anon public من إعدادات المشروع
-
+ArabicWhales.com
+حيتان العرب - اعدادات المشروع
+عشان تفعل تسجيل الدخول الحقيقى وقاعدة البيانات
+1. انشئ حساب مجاني على https://supabase.com
+(Project) ان شئ مشروع جدید 20
+3. من Settings > API انسخ
+Project URL
+anon public key
+الحاقهم مكان القيم ادناه .4
+ال موقع PASTE HERE طالما القيم لسه فاضية أو تحمل الكلمة
+ماع رض كل ال م ی زات لكن بدون حفظ : Demo Mode)   م ل ب وضع تجريبي
+حقيقي في قاعدة بيانات وبدون فرض تسج یا ال دخول اجباری
+*/
+const SUPABASE_URL  "PASTE_HERE";
+const SUPABASE_ANON_KEY "PASTE_HERE" 
 const IS_BACKEND_CONFIGURED =
-  SUPABASE_URL !== "PASTE_HERE" &&
-  SUPABASE_ANON_KEY !== "PASTE_HERE" &&
-  SUPABASE_URL.startsWith("https://");
-
-let supabaseClient = null;
+SUPABASE_URL !== "PASTE_HERE" &&
+SUPABASE_ANON_KEY !== "PASTE_HERE" &&
+SUPABASE_URL.startsWith("https://");
+let supabaseClient null;
+ مثال https://xxxxx.supabase.co
+// مفتاح anon public من إعدادات المشروع
 if (IS_BACKEND_CONFIGURED && window.supabase) {
-  supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }
+supabaseClient  window.supabase.createClient (SUPABASE_URL, SUPABASE_ANON_KEY);
+Page 1
+config.js
