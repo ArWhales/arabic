@@ -1,192 +1,230 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أمان المحافظ | حيتان العرب</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="ticker-wrap">
-    <div class="ticker-label">أعلى 10 عملات</div>
-    <div class="ticker-track-outer">
-      <div class="ticker-track" id="tickerTrack">
-        <div class="tick-item mono">جاري تحميل الأسعار...</div>
-      </div>
-    </div>
-  </div>
-  <header class="site">
-    <nav>
-      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
-      <div class="nav-links">
-        <a href="index.html">الرئيسية</a>
-        <a href="index.html#about">من نحن</a>
-        <div class="has-dd" id="eduDropdown">
-          <button type="button" class="dd-trigger" id="eduTrigger">التعليم <span class="caret">▾</span></button>
-          <div class="dd">
-            <a href="course.html">مسار العملات الرقمية <span class="tag">3 مستويات</span></a>
-            <a href="education-trading.html">التحليل الفني والتداول <span class="tag">متوسط</span></a>
-            <a href="education-web3.html">Web3 والعقود الذكية <span class="tag">متقدم</span></a>
-            <a href="education-security.html">أمان المحافظ <span class="tag">أساسي</span></a>
-          </div>
-        </div>
-        <a href="index.html#articles">المقالات</a>
-        <a href="index.html#contact">تواصل معنا</a>
-      </div>
-      <a href="https://t.me/ArabicWhales" class="cta-btn">انضم الآن</a>
-    </nav>
-  </header>
-
-  <section style="padding-top:60px;">
-    <div class="eyebrow">المستوى: أساسي للجميع</div>
-    <h1 style="font-size:36px;font-weight:900;line-height:1.4;margin:18px 0 14px;">احمِ أصولك الرقمية</h1>
-    <p style="color:var(--text-dim);font-size:16px;max-width:640px;">الأخطاء الأمنية هي السبب الأول لخسارة الأموال في الكريبتو — إليك القواعد التي تحميك منها.</p>
-  </section>
-
-  <section>
-    <div class="edu-grid" style="grid-template-columns:repeat(2,1fr);">
-      <div class="edu-card" style="cursor:default;">
-        <div class="edu-icon">🔑</div>
-        <h3>العبارة السرية (Seed Phrase)</h3>
-        <p>المفتاح الوحيد لاسترجاع محفظتك — لا تشاركها مع أي شخص أو موقع مهما كان السبب، ولا تُخزَّن أبداً على الإنترنت.</p>
-      </div>
-      <div class="edu-card" style="cursor:default;">
-        <div class="edu-icon">🎣</div>
-        <h3>التعرّف على عمليات الاحتيال</h3>
-        <p>احذر من الروابط المزيّفة والرسائل التي تعدك بأرباح مضمونة أو تطلب منك "التحقق" من محفظتك بشكل عاجل.</p>
-      </div>
-      <div class="edu-card" style="cursor:default;">
-        <div class="edu-icon">🧊</div>
-        <h3>متى تستخدم محفظة باردة</h3>
-        <p>لأي مبلغ لا تحتاج تحريكه يومياً، التخزين البارد (جهاز فيزيائي غير متصل بالإنترنت) هو الخيار الأكثر أماناً.</p>
-      </div>
-      <div class="edu-card" style="cursor:default;">
-        <div class="edu-icon">✅</div>
-        <h3>عادات أمان يومية</h3>
-        <p>تفعيل التحقق بخطوتين، فحص روابط المواقع بدقة قبل ربط المحفظة، وتحديث التطبيقات باستمرار من مصادرها الرسمية فقط.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="cta-band">
-      <div>
-        <h2>عايز تكمل مسارك التعليمي؟</h2>
-        <p>ارجع لصفحة التعليم الرئيسية لاختيار مسار آخر، أو انضم لمجتمعنا لمتابعة الدروس أولاً بأول.</p>
-      </div>
-      <a href="index.html#education" class="btn-primary">كل المسارات التعليمية</a>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-col">
-        <div class="brand" style="font-size:17px;margin-bottom:14px;">🐋 حيتان العرب</div>
-        <p style="font-size:13px;color:var(--text-dim);max-width:260px;">أكبر منصة عربية تعليمية بمجال العملات الرقمية، تأسست 2020.</p>
-      </div>
-      <div class="footer-col">
-        <h4>روابط</h4>
-        <a href="index.html#about">من نحن</a>
-        <a href="index.html#education">التعليم</a>
-        <a href="index.html#articles">المقالات</a>
-        <a href="index.html#contact">تواصل معنا</a>
-      </div>
-      <div class="footer-col">
-        <h4>تابعنا</h4>
-        <a href="https://t.me/ArabicWhales">تيليجرام</a>
-        <a href="https://x.com/ArabicWhales">X (تويتر)</a>
-        <a href="https://www.instagram.com/arabic.whales">إنستغرام</a>
-        <a href="https://www.binance.com/ar/square/profile/Arabicwhales">Binance Square</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 جميع الحقوق محفوظة لمجتمع حيتان العرب</div>
-      <div>الأسعار مقدّمة لأغراض تعليمية وليست نصيحة استثمارية</div>
-    </div>
-  </footer>
-<script>
-const FALLBACK_COINS = [
-  {symbol:'BTC', price:'—', chg:null},{symbol:'ETH', price:'—', chg:null},
-  {symbol:'USDT', price:'—', chg:null},{symbol:'BNB', price:'—', chg:null},
-  {symbol:'SOL', price:'—', chg:null},{symbol:'XRP', price:'—', chg:null},
-  {symbol:'USDC', price:'—', chg:null},{symbol:'ADA', price:'—', chg:null},
-  {symbol:'DOGE', price:'—', chg:null},{symbol:'TRX', price:'—', chg:null},
-];
-function fetchWithTimeout(url, ms=8000){
-  const controller = new AbortController();
-  const id = setTimeout(()=>controller.abort(), ms);
-  return fetch(url, {signal:controller.signal}).finally(()=>clearTimeout(id));
-}
-function renderTicker(coins){
-  const track = document.getElementById('tickerTrack');
-  const items = coins.map(c => {
-    if(c.chg === null){
-      return `<div class="tick-item"><span class="tick-sym">${c.symbol}</span><span class="tick-price">${c.price}</span></div>`;
-    }
-    const chgClass = c.chg >= 0 ? 'up' : 'down';
-    const arrow = c.chg >= 0 ? '▲' : '▼';
-    return `<div class="tick-item"><span class="tick-sym">${c.symbol}</span><span class="tick-price">$${c.price}</span><span class="tick-chg ${chgClass}">${arrow} ${Math.abs(c.chg).toFixed(2)}%</span></div>`;
-  }).join('');
-  track.innerHTML = items + items;
-}
-async function tryCoinGecko(){
-  const res = await fetchWithTimeout('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&price_change_percentage=24h');
-  if(!res.ok) throw new Error('coingecko http ' + res.status);
-  const data = await res.json();
-  if(!Array.isArray(data) || data.length === 0) throw new Error('coingecko empty response');
-  return data.map(c => ({
-    symbol: c.symbol.toUpperCase(),
-    price: c.current_price >= 1 ? c.current_price.toLocaleString('en-US',{maximumFractionDigits:2}) : c.current_price.toPrecision(4),
-    chg: c.price_change_percentage_24h ?? 0
-  }));
-}
-async function tryCoinCap(){
-  const res = await fetchWithTimeout('https://api.coincap.io/v2/assets?limit=10');
-  if(!res.ok) throw new Error('coincap http ' + res.status);
-  const json = await res.json();
-  const data = json.data;
-  if(!Array.isArray(data) || data.length === 0) throw new Error('coincap empty response');
-  return data.map(c => {
-    const price = parseFloat(c.priceUsd);
-    const chg = parseFloat(c.changePercent24Hr);
-    return {
-      symbol: c.symbol.toUpperCase(),
-      price: price >= 1 ? price.toLocaleString('en-US',{maximumFractionDigits:2}) : price.toPrecision(4),
-      chg: isNaN(chg) ? 0 : chg
-    };
-  });
-}
-let tickerRetries = 0;
-async function loadTicker(){
-  const track = document.getElementById('tickerTrack');
-  try{
-    const coins = await tryCoinGecko();
-    renderTicker(coins); tickerRetries = 0; return;
-  }catch(e1){
-    try{
-      const coins = await tryCoinCap();
-      renderTicker(coins); tickerRetries = 0; return;
-    }catch(e2){
-      tickerRetries++;
-      if(tickerRetries === 1){
-        track.innerHTML = '<div class="tick-item mono">جاري إعادة محاولة تحميل الأسعار...</div>';
-      }else{
-        renderTicker(FALLBACK_COINS);
-      }
-      setTimeout(loadTicker, 12000);
-    }
-  }
-}
-loadTicker();
-setInterval(loadTicker, 60000);
-
-const eduDropdown = document.getElementById('eduDropdown');
-const eduTrigger = document.getElementById('eduTrigger');
-eduTrigger.addEventListener('click', (e) => { e.stopPropagation(); eduDropdown.classList.toggle('open'); });
-document.addEventListener('click', (e) => { if(!eduDropdown.contains(e.target)){ eduDropdown.classList.remove('open'); } });
-eduDropdown.querySelectorAll('.dd a').forEach(link => { link.addEventListener('click', () => eduDropdown.classList.remove('open')); });
-</script>
-</body>
-</html>
+ArabicWhales.com[span_229](start_span)[span_229](end_span)
+<!DOCTYPE html>[span_230](start_span)[span_230](end_span)
+<html lang="ar" dir="rtl">[span_231](start_span)[span_231](end_span)
+<head>[span_232](start_span)[span_232](end_span)
+<meta charset="UTF-8">[span_233](start_span)[span_233](end_span)
+<meta name="viewport" content="width=device-width, initial-scale=1.0">[span_234](start_span)[span_234](end_span)
+<title/>حيتان العرب | امان المحافظ <title>[span_235](start_span)[span_235](end_span)
+<link rel="preconnect" href="https://fonts.googleapis.com">[span_236](start_span)[span_236](end_span)
+education-security.html[span_237](start_span)[span_237](end_span)
+<link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&fam
+ily JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">[span_238](start_span)[span_238](end_span)
+<link rel="stylesheet" href="styles.css">[span_239](start_span)[span_239](end_span)
+</head>[span_240](start_span)[span_240](end_span)
+<body>[span_241](start_span)[span_241](end_span)
+<div class="ticker-wrap">[span_242](start_span)[span_242](end_span)
+>div class="ticker-label"<عمل ات 10 أعلى >/div<[span_243](start_span)[span_243](end_span)
+<div class="ticker-track-outer">[span_244](start_span)[span_244](end_span)
+<div class="ticker-track" id="tickerTrack">[span_245](start_span)[span_245](end_span)
+>div class="tick-item mono"<  جاری ت ح م عل الأسعار /div<[span_246](start_span)[span_246](end_span)
+</div>[span_247](start_span)[span_247](end_span)
+</div>[span_248](start_span)[span_248](end_span)
+</div>[span_249](start_span)[span_249](end_span)
+<header class="site">[span_250](start_span)[span_250](end_span)
+<nav>[span_251](start_span)[span_251](end_span)
+>div class="brand" تان[span_252](start_span)[span_252](end_span)
+<div class="nav-links">[span_253](start_span)[span_253](end_span)
+span class="dot" العرب  /span></div<[span_254](start_span)[span_254](end_span)
+>a href="index.html"<ال رئيسية >/a<[span_255](start_span)[span_255](end_span)
+>a href="index.html#about"< من نحن>/a<[span_256](start_span)[span_256](end_span)
+<div class="has-dd" id="eduDropdown">[span_257](start_span)[span_257](end_span)
+>button type="button" class="dd-trigger" id="eduTrigger  العلم >span class="caret"> </span></button<[span_258](start_span)[span_258](end_span)
+<div class="dd">[span_259](start_span)[span_259](end_span)
+>a href="course.html"< مسار العملات الرقمية >span class="tag"< مست وی ات >/span></a<[span_260](start_span)[span_260](end_span)
+>a href="education-trading.html"<التحليل الفني والتداول  span class="tag"<متوسط  /span></a<[span_261](start_span)[span_261](end_span)
+>a href="education-web3.html">Web3 وال عقود الذكية  span class="tag"<متقدم  /span></a<[span_262](start_span)[span_262](end_span)
+>a href="education-security.html"<أمان المحافظ  span class="tag"<أس أسرى >/span></a<[span_263](start_span)[span_263](end_span)
+</div>[span_264](start_span)[span_264](end_span)
+</div>[span_265](start_span)[span_265](end_span)
+>a href="index.html#articles" المقالات >/a<[span_266](start_span)[span_266](end_span)
+>a href="index.html#contact"< | ت و اصل معن /a<[span_267](start_span)[span_267](end_span)
+</div>[span_268](start_span)[span_268](end_span)
+>a href="https://t.me/ArabicWhales" class="cta-btn"< ان ضم الآن /a<[span_269](start_span)[span_269](end_span)
+</nav>[span_270](start_span)[span_270](end_span)
+</header>[span_271](start_span)[span_271](end_span)
+<section style="padding-top:60px;">[span_272](start_span)[span_272](end_span)
+>div class="eyebrow" <أساسي ل ل ج م ی ع : ال م سرت و ی >/div<[span_273](start_span)[span_273](end_span)
+Page 1[span_274](start_span)[span_274](end_span)
+ArabicWhales.com[span_275](start_span)[span_275](end_span)
+>h1 style="font-size:36px; font-weight: 900;line-height: 1.4;margin:18px 0 14px;" احم أمى ولك الرقمية>/h1<[span_276](start_span)[span_276](end_span)
+education-security.html[span_277](start_span)[span_277](end_span)
+>p style="color:var(--text-dim); font-size:16px;max-width: 640px;"< الأخطاء الامنية هي السبب الاول لخسارة الأموال في الكريبت و[span_278](start_span)[span_278](end_span)
+<p/> البريك القواعد التي تحميك من ۱۰[span_279](start_span)[span_279](end_span)
+</section>[span_280](start_span)[span_280](end_span)
+<section>[span_281](start_span)[span_281](end_span)
+<div class="edu-grid" style="grid-template-columns: repeat (2,1fr);">[span_282](start_span)[span_282](end_span)
+<div class="edu-card" style="cursor: default; ">[span_283](start_span)[span_283](end_span)
+<div class="edu-icon"></div>[span_284](start_span)[span_284](end_span)
+>h3< العبارة السرية Seed Phrase)</h3<[span_285](start_span)[span_285](end_span)
+<p/>. تشاركها مع أي شخص أو موقع مهما كان السبب، ولا تخزن أبداً على الانترنت ال مفتاح الوحید لاسترجاع محفظتك <p>[span_286](start_span)[span_286](end_span)
+</div>[span_287](start_span)[span_287](end_span)
+<div class="edu-card" style="cursor: default;">[span_288](start_span)[span_288](end_span)
+<div class="edu-icon"></div>[span_289](start_span)[span_289](end_span)
+<h3/> التعرف على عمليات الاحتيال <h3>[span_290](start_span)[span_290](end_span)
+<p/> . من محفظتك بشكل عاجل " التحقق" احذر من الروابط المزيفة والرسائل التي تع دك ب أرباح مضمونة أو تطلب منك <p>[span_291](start_span)[span_291](end_span)
+</div>[span_292](start_span)[span_292](end_span)
+<div class="edu-card" style="cursor: default; ">[span_293](start_span)[span_293](end_span)
+<div class="edu-icon"></div>[span_294](start_span)[span_294](end_span)
+<h3/> متى تستخدم محفظة باردة <h3>[span_295](start_span)[span_295](end_span)
+<p/>.. و الخيار الأكثر امانا (جه از فیزیایی غير متصل بالانترنت لأي مبالغ لا تحتاج تجريده يوميا، التخزين البارد <p>[span_296](start_span)[span_296](end_span)
+</div>[span_297](start_span)[span_297](end_span)
+<div class="edu-card" style="cursor: default; ">[span_298](start_span)[span_298](end_span)
+<div class="edu-icon"></div>[span_299](start_span)[span_299](end_span)
+<h3/> عادات أمان يومية <h3>[span_300](start_span)[span_300](end_span)
+<p/> . تفعيل التحقق بخطوتين فحص روابط المواقع بدقة قبل ربط المحافظة، وتحديت التطبيقات باستمرار من مصادرها الرسمية فقط <p>[span_301](start_span)[span_301](end_span)
+</div>[span_302](start_span)[span_302](end_span)
+</div>[span_303](start_span)[span_303](end_span)
+</section>[span_304](start_span)[span_304](end_span)
+<section>[span_305](start_span)[span_305](end_span)
+<div class="cta-band">[span_306](start_span)[span_306](end_span)
+<div>[span_307](start_span)[span_307](end_span)
+<h2 > ای از تلام ل م س ا رك ال ت ع ل ی م ی ؟ <h2>[span_308](start_span)[span_308](end_span)
+<p/>. ارجع الصفحة التعليم الرئ مسيئة لاختيار مسار آخر، أو أن قام ل م ج ت م ع ن ا ل م تابعة الدروس أولاً بأول <p>[span_309](start_span)[span_309](end_span)
+</div>[span_310](start_span)[span_310](end_span)
+>a href="index.html#education" class="btn-primary"< كال المسارات الت على   /a<[span_311](start_span)[span_311](end_span)
+</div>[span_312](start_span)[span_312](end_span)
+</section>[span_313](start_span)[span_313](end_span)
+<footer>[span_314](start_span)[span_314](end_span)
+<div class="footer-inner">[span_315](start_span)[span_315](end_span)
+<div class="footer-col">[span_316](start_span)[span_316](end_span)
+>div class="brand" style="font-size:17px;margin-bottom:14px;"  حيتان العرب /div<[span_317](start_span)[span_317](end_span)
+Page 2[span_318](start_span)[span_318](end_span)
+ArabicWhales.com[span_319](start_span)[span_319](end_span)
+education-security.html[span_320](start_span)[span_320](end_span)
+>p style="font-size:13px;color: var(--text-dim); max-width:260px;"< امبر منصة عربية شع لي مية بمجال العملات الرقمية تأسست[span_321](start_span)[span_321](end_span)
+2020.</p>[span_322](start_span)[span_322](end_span)
+</div>[span_323](start_span)[span_323](end_span)
+<div class="footer-col">[span_324](start_span)[span_324](end_span)
+>h4<روابط >/h4<[span_325](start_span)[span_325](end_span)
+>a href="index.html#about"< من نحن>/a<[span_326](start_span)[span_326](end_span)
+>a href="index.html#education" ال تعلیم  a<[span_327](start_span)[span_327](end_span)
+>a href="index.html#articles المقالات  /a<[span_328](start_span)[span_328](end_span)
+>a href="index.html#contact"< | تو اصل معن   a<[span_329](start_span)[span_329](end_span)
+</div>[span_330](start_span)[span_330](end_span)
+<div class="footer-col">[span_331](start_span)[span_331](end_span)
+>h4< | تاب عن>/h4<[span_332](start_span)[span_332](end_span)
+>a href="https://t.me/ArabicWhales" <تیل عرج رام >/a<[span_333](start_span)[span_333](end_span)
+>a href="https://x.com/ArabicWhales"< )تویتر(  /a<[span_334](start_span)[span_334](end_span)
+>a href="https://www.instagram.com/arabic.whales"< نستغرام>/a<[span_335](start_span)[span_335](end_span)
+<a href="https://www.binance.com/ar/square/profile/Arabicwhales">Bina Square</a>[span_336](start_span)[span_336](end_span)
+</div>[span_337](start_span)[span_337](end_span)
+</div>[span_338](start_span)[span_338](end_span)
+<div class="footer-bottom">[span_339](start_span)[span_339](end_span)
+<div /> جميع الحقوق محفوظة ل م ج ت م ع حيتان العرب 2026 <div>[span_340](start_span)[span_340](end_span)
+<div/> ال اس ع از مقدمة لأغراض تعليمية وليست الصريحة استتم ا رية <div>[span_341](start_span)[span_341](end_span)
+</div>[span_342](start_span)[span_342](end_span)
+</footer>[span_343](start_span)[span_343](end_span)
+<script>[span_344](start_span)[span_344](end_span)
+const FALLBACK_COINS = [[span_345](start_span)[span_345](end_span)
+1;[span_346](start_span)[span_346](end_span)
+price:'-',[span_347](start_span)[span_347](end_span)
+chg:null},[span_348](start_span)[span_348](end_span)
+{symbol: 'BTC', price: - ,[span_349](start_span)[span_349](end_span)
+chg:null},{symbol: 'ETH',[span_350](start_span)[span_350](end_span)
+ symbol: 'USDT', price:'-', chg:null}, {symbol: 'BNB', price:'-', chg:null},[span_351](start_span)[span_351](end_span)
+ symbol: 'SOL', price: -',[span_352](start_span)[span_352](end_span)
+chg:null},{symbol: 'XRP',[span_353](start_span)[span_353](end_span)
+price:'-',[span_354](start_span)[span_354](end_span)
+chg:null},[span_355](start_span)[span_355](end_span)
+ symbol: 'USDC', price:'-[span_356](start_span)'[span_356](end_span)
+,[span_357](start_span)[span_357](end_span)
+chg:null}, {symbol: 'ADA[span_358](start_span)'[span_358](end_span)
+,[span_359](start_span)[span_359](end_span)
+price:'-[span_360](start_span)'[span_360](end_span)
+,[span_361](start_span)[span_361](end_span)
+chg:null},[span_362](start_span)[span_362](end_span)
+{symbol: 'DOGE', price:'-',[span_363](start_span)[span_363](end_span)
+chg:null}, {symbol: 'TRX',[span_364](start_span)[span_364](end_span)
+price:'-',[span_365](start_span)[span_365](end_span)
+chg:null},[span_366](start_span)[span_366](end_span)
+function fetchWithTimeout (url, $ms=8000)${[span_367](start_span)[span_367](end_span)
+}[span_368](start_span)[span_368](end_span)
+const controller  new AbortController();[span_369](start_span)[span_369](end_span)
+const id setTimeout(()=>controller.abort(), ms);[span_370](start_span)[span_370](end_span)
+return fetch(url, {signal:controller.signal ).finally(()=>clearTimeout (id));[span_371](start_span)[span_371](end_span)
+function renderTicker (coins) {[span_372](start_span)[span_372](end_span)
+const track document.getElementById('tickerTrack');[span_373](start_span)[span_373](end_span)
+const items coins.map(c => {[span_374](start_span)[span_374](end_span)
+return '<div class="tick-item"><span class="tick-sym">\${c.symbol}</span><span class="tick-price">\${c.price}</span></div>';[span_375](start_span)[span_375](end_span)
+if(c.chg=== null) {[span_376](start_span)[span_376](end_span)
+}[span_377](start_span)[span_377](end_span)
+const chgClass[span_378](start_span)[span_378](end_span)
+c.chg $>=0$ ? 'up': 'down';[span_379](start_span)[span_379](end_span)
+const arrow c.chg >=0? 'A': '';[span_380](start_span)[span_380](end_span)
+Page 3[span_381](start_span)[span_381](end_span)
+ArabicWhales.com[span_382](start_span)[span_382](end_span)
+}[span_383](start_span)[span_383](end_span)
+education-security.html[span_384](start_span)[span_384](end_span)
+return '<div class="tick-item"><span class="tick-sym">\${c.symbol}</span><span class="tick-price">\$\${c.price}</span><span[span_385](start_span)[span_385](end_span)
+class="tick-chg \${chgClass}">\${arrow} \${Math.abs(c.chg).toFixed(2)}</span></div>';[span_386](start_span)[span_386](end_span)
+}).join('');[span_387](start_span)[span_387](end_span)
+track.innerHTML items + items;[span_388](start_span)[span_388](end_span)
+async function tryCoinGecko () {[span_389](start_span)[span_389](end_span)
+}[span_390](start_span)[span_390](end_span)
+const res await fetchWithTimeout('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=[span_391](start_span)[span_391](end_span)
+10&page=1&price_change_percentage=24h');[span_392](start_span)[span_392](end_span)
+if(!res.ok) throw new Error('coingecko http' + res.status);[span_393](start_span)[span_393](end_span)
+const data await res.json();[span_394](start_span)[span_394](end_span)
+if(!Array.isArray (data) | data.length == 0) throw new Error('coingecko empty response');[span_395](start_span)[span_395](end_span)
+return data.map( $(c=>$ {[span_396](start_span)[span_396](end_span)
+symbol: c.symbol.toUpperCase(),[span_397](start_span)[span_397](end_span)
+price: c.current_price $>=1$? c.current_price.toLocaleString('en-US', {maximumFractionDigits:2 ):[span_398](start_span)[span_398](end_span)
+c.current_price.toPrecision(4),[span_399](start_span)[span_399](end_span)
+chg: c.price_change_percentage_24h ?? 0[span_400](start_span)[span_400](end_span)
+}));[span_401](start_span)[span_401](end_span)
+async function tryCoinCap() {[span_402](start_span)[span_402](end_span)
+const res await fetchWithTimeout('https://api.coincap.io/v2/assets?limit=10');[span_403](start_span)[span_403](end_span)
+if(!res.ok) throw new Error('coincap http+res.status);[span_404](start_span)[span_404](end_span)
+const json await res.json();[span_405](start_span)[span_405](end_span)
+const data  json.data;[span_406](start_span)[span_406](end_span)
+if(!Array.isArray(data) || data.length == 0) throw new Error('coincap empty response');[span_407](start_span)[span_407](end_span)
+return data.map(c => {[span_408](start_span)[span_408](end_span)
+const price[span_409](start_span)[span_409](end_span)
+parseFloat (c.priceUsd);[span_410](start_span)[span_410](end_span)
+const chg parseFloat(c.changePercent24Hr);[span_411](start_span)[span_411](end_span)
+return {[span_412](start_span)[span_412](end_span)
+symbol: c.symbol.toUpperCase(),[span_413](start_span)[span_413](end_span)
+price: price $>=1$? price.toLocaleString('en-US', {maximum FractionDigits:2}): price.toPrecision(4),[span_414](start_span)[span_414](end_span)
+chg: isNaN(chg) ? 0: chg[span_415](start_span)[span_415](end_span)
+};[span_416](start_span)[span_416](end_span)
+});[span_417](start_span)[span_417](end_span)
+}[span_418](start_span)[span_418](end_span)
+let tickerRetries[span_419](start_span)[span_419](end_span)
+$=0$;[span_420](start_span)[span_420](end_span)
+async function loadTicker(){[span_421](start_span)[span_421](end_span)
+const track[span_422](start_span)[span_422](end_span)
+try{[span_423](start_span)[span_423](end_span)
+document.getElementById('tickerTrack');[span_424](start_span)[span_424](end_span)
+const coins await tryCoinGecko();[span_425](start_span)[span_425](end_span)
+renderTicker(coins); tickerRetries $=0;$ return;[span_426](start_span)[span_426](end_span)
+ catch(el) {[span_427](start_span)[span_427](end_span)
+try{[span_428](start_span)[span_428](end_span)
+const coins await tryCoinCap();[span_429](start_span)[span_429](end_span)
+renderTicker (coins); tickerRetries $=0$; return;[span_430](start_span)[span_430](end_span)
+Page 4[span_431](start_span)[span_431](end_span)
+ArabicWhales.com[span_432](start_span)[span_432](end_span)
+ catch(e2) {[span_433](start_span)[span_433](end_span)
+tickerRetries++;[span_434](start_span)[span_434](end_span)
+if (tickerRetries  1){[span_435](start_span)[span_435](end_span)
+track.innerHTML='<div class="tick-item mono"< جاری اعادة محاولة تح مريل ال أسعار /div<';[span_436](start_span)[span_436](end_span)
+}else{[span_437](start_span)[span_437](end_span)
+renderTicker (FALLBACK_COINS);[span_438](start_span)[span_438](end_span)
+setTimeout (loadTicker, 12000);[span_439](start_span)[span_439](end_span)
+}[span_440](start_span)[span_440](end_span)
+}[span_441](start_span)[span_441](end_span)
+}[span_442](start_span)[span_442](end_span)
+loadTicker();[span_443](start_span)[span_443](end_span)
+set Interval (loadTicker, 60000);[span_444](start_span)[span_444](end_span)
+const eduDropdown[span_445](start_span)[span_445](end_span)
+document.getElementById('eduDropdown');[span_446](start_span)[span_446](end_span)
+education-security.html[span_447](start_span)[span_447](end_span)
+const eduTrigger[span_448](start_span)[span_448](end_span)
+document.getElementById('eduTrigger');[span_449](start_span)[span_449](end_span)
+eduTrigger.addEventListener('click', (e) => { e.stopPropagation(); eduDropdown.classList.toggle('open'); });[span_450](start_span)[span_450](end_span)
+document.addEventListener('click', $(e)\Rightarrow\{$ if(!eduDropdown.contains(e.target)) { eduDropdown.classList.remove('open'); } });[span_451](start_span)[span_451](end_span)
+eduDropdown.querySelectorAll('.dd a').forEach (link > (link.addEventListener('click', $()=>$ eduDropdown.classList.remove('open'));[span_452](start_span)[span_452](end_span)
+});[span_453](start_span)[span_453](end_span)
+</script>[span_454](start_span)[span_454](end_span)
+</body>[span_455](start_span)[span_455](end_span)
+</html>[span_456](start_span)[span_456](end_span)
+Page 5[span_457](start_span)[span_457](end_span)
