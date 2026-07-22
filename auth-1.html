@@ -1,148 +1,190 @@
+ArabicWhales.com
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تسجيل الدخول | حيتان العرب</title>
+ title<یتان العرب | تسجيل الدخول /title<
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+auth.html
+<link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&fam
+ily-JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-  .auth-shell{
-    min-height:calc(100vh - 200px);
-    display:flex;align-items:center;justify-content:center;
-    padding:60px 24px;
-  }
-  .auth-card{
-    width:100%;max-width:420px;
-    background:var(--bg-panel);border:1px solid var(--line);border-radius:20px;
-    padding:38px 34px;
-  }
-  .auth-tabs{display:flex;gap:8px;margin-bottom:26px;background:var(--bg-panel-2);border-radius:12px;padding:4px;}
-  .auth-tab{flex:1;text-align:center;padding:10px;border-radius:9px;cursor:pointer;font-family:'Cairo',sans-serif;font-weight:600;font-size:14px;color:var(--text-dim);}
-  .auth-tab.active{background:var(--teal);color:#03110f;}
-  .field{margin-bottom:16px;}
-  .field label{display:block;font-size:13px;color:var(--text-dim);margin-bottom:6px;}
-  .field input{
-    width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);
-    background:var(--bg-deep);color:var(--text);font-size:14px;font-family:inherit;
-  }
-  .field input:focus{outline:none;border-color:var(--teal);}
-  .auth-submit{width:100%;margin-top:6px;}
-  .auth-note{
-    font-size:12.5px;color:var(--text-dim);text-align:center;margin-top:18px;line-height:1.8;
-  }
-  .demo-banner{
-    background:rgba(212,162,76,0.1);border:1px solid rgba(212,162,76,0.35);
-    color:var(--gold);font-size:12.5px;padding:10px 14px;border-radius:10px;
-    margin-bottom:20px;text-align:center;
-  }
-  .msg{font-size:13.5px;padding:10px 12px;border-radius:8px;margin-bottom:16px;display:none;}
-  .msg.error{background:rgba(229,107,107,0.1);border:1px solid var(--down);color:var(--down);display:block;}
-  .msg.success{background:rgba(61,220,151,0.1);border:1px solid var(--up);color:var(--up);display:block;}
+.auth-shell{
+}
+min-height:calc(100vh
+200px);
+display: flex; align-items: center; justify-content:center;
+padding: 60px 24px;
+.auth-card{
+}
+width: 100%; max-width:420px;
+background: var (--bg-panel); border:1px solid var(--line); border-radius: 20px;
+padding: 38px 34px;
+.auth-tabs display: flex; gap:8px;margin-bottom: 26px; background: var(--bg-panel-2); border-radius: 12px;padding:4px;}
+.auth-tab flex:1;text-align:center; padding:10px;border-radius: 9px; cursor:pointer; font-family: 'Cairo', sans-serif; font-weight: 600; fo
+nt-size:14px;color:var(--text-dim);}
+.auth-tab.active background: var (--teal); color:#03110f;}
+.field(margin-bottom:16px;}
+.field label display:block;font-size:13px;color:var(--text-dim); margin-bottom: 6px;}
+.field input {
+}
+width: 100%; padding:12px 14px; border-radius: 10px; border:1px solid var(--line);
+background: var(--bg-deep);color:var(text); font-size:14px; font-family: inherit;
+.field input:focus{outline: none; border-color:var(--teal); }
+auth-submit width:100%; margin-top:6px;}
+.auth-note(
+}
+font-size:12.5px;color: var(--text-dim); text-align:center;margin-top:18px; line-height:1.8;
+.demo-banner{
+}
+background: rgba(212,162,76,0.1); border:1px solid rgba(212,162,76,0.35);
+color:var(--gold); font-size:12.5px;padding: 10px 14px; border-radius:10px;
+margin-bottom:20px;text-align:center;
+.msg{font-size: 13.5px;padding:10px 12px; border-radius:8px;margin-bottom:16px;display:none;}
+.msg.error{background: rgba(229,107,107,0.1); border:1px solid var(--down); color: var(--down); display:block;}
+Page 1
+ArabicWhales.com
+.msg.success(background: rgba(61,220,151,0.1); border:1px solid var(--up);color:var(--up); display:block;}
 </style>
 </head>
 <body>
-  <header class="site">
-    <nav>
-      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
-      <div class="nav-links">
-        <a href="index.html">الرئيسية</a>
-        <a href="course.html">المسارات التعليمية</a>
-      </div>
-    </nav>
-  </header>
-
-  <div class="auth-shell">
-    <div class="auth-card">
-      <div id="demoBanner" class="demo-banner" style="display:none;">
-        🔧 وضع تجريبي — لم يتم ربط قاعدة بيانات بعد. راجع ملف <code>config.js</code> لتفعيل حسابات حقيقية.
-      </div>
-      <div class="auth-tabs">
-        <div class="auth-tab active" id="tabLogin" onclick="switchTab('login')">تسجيل الدخول</div>
-        <div class="auth-tab" id="tabSignup" onclick="switchTab('signup')">إنشاء حساب</div>
-      </div>
-
-      <div id="msgBox" class="msg"></div>
-
-      <form id="authForm">
-        <div class="field">
-          <label>البريد الإلكتروني</label>
-          <input type="email" id="email" required placeholder="you@example.com">
-        </div>
-        <div class="field">
-          <label>كلمة المرور</label>
-          <input type="password" id="password" required placeholder="••••••••" minlength="6">
-        </div>
-        <button type="submit" class="btn-primary auth-submit" id="submitBtn">تسجيل الدخول</button>
-      </form>
-
-      <p class="auth-note" id="verifyNote" style="display:none;">
-        تم إرسال رابط تحقق إلى بريدك الإلكتروني. افتح بريدك واضغط الرابط لتفعيل حسابك قبل الدخول للمسارات التعليمية.
-      </p>
-    </div>
-  </div>
-
+<header class="site">
+<nav>
+>div class="brand" تان
+ class="dot" العرب  /span></div<
+<div class="nav-links" id="navLinks">
+>a href="index.html"< ال رئيسرية>/a<
+>a href="course.html"< المسارات ال ت على  >/a<
+</div>
+>button class="nav-hamburger" id="navHamburger" aria-label=" القائمة" style="margin-inline-start:auto;"<
+<span></span><span></span><span></span>
+</button>
+</nav>
+</header>
+<div class="auth-shell">
+<div class="auth-card">
+<div id="demoBanner" class="demo-banner" style="display:none;">
+auth.html
+وضاع تج ريبي  ل تفعيل حسابات حقيقية <code>config.js<code> راج ملف . لم يتم ربط قاعدة بيانات بعد
+</div>
+<div class="auth-tabs">
+>div class="auth-tab active" id="tabLogin" onclick="switchTab('login'("< تسجيل الدخول >/div<
+>div class="auth-tab" id="tabSignup" onclick="switchTab('signup'("< إنشاء حساب >/div<
+</div>
+<div id="msgBox" class="msg"></div>
+<form id="authForm">
+<div class="field" id="usernameField" style="display:none;">
+<label/> اسم ال صرت خدم <label>
+>input type="text" id="username" placeholder   
+</div>
+<div class="field">
+<label/> البريد الالكتروني label>
+ahmed_crypto"<
+<input type="email" id="email" required placeholder="you@example.com">
+</div>
+<div class="field">
+>label<كلمة ال م روز /label<
+<input type="password" id="password" required placeholder="........" minlength="6">
+</div>
+>button type="submit" class="btn-primary auth-submit" id="submitBtn"< تسجيل الدخول >/button<
+</form>
+Page 2
+ArabicWhales.com
+<p class="auth-note" id="verifyNote" style="display:none;">
+افتح بريدك و اضغط الرابط لتفعيل حسابك قبل الدخول ل ل مسارات التعلى مرية . تم ارسال رابط تحقق الى بريدك الالكتروني
+</p>
+</div>
+</div>
 <script src="config.js"></script>
 <script>
-let mode = "login";
-
-function switchTab(m){
-  mode = m;
-  document.getElementById('tabLogin').classList.toggle('active', m === 'login');
-  document.getElementById('tabSignup').classList.toggle('active', m === 'signup');
-  document.getElementById('submitBtn').textContent = m === 'login' ? 'تسجيل الدخول' : 'إنشاء الحساب';
-  document.getElementById('msgBox').style.display = 'none';
-  document.getElementById('verifyNote').style.display = 'none';
+document.getElementById('navHamburger').addEventListener('click', () => {
+document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+</script>
+<script>
+let mode "login";
+function switchTab(m) {
+mode m;
+document.getElementById('tabLogin').classList.toggle('active', m === 'login');
+document.getElementById('tabSignup').classList.toggle('active', m === 'signup');
+document.getElementById('submitBtn').textContentm === 'login'  ان شاء ال حساب : تص جی ال ال دخول:
+document.getElementById('usernameField').style.display
+document.getElementById('msgBox').style.display = 'none';
+=== 'signup'? 'block'
+: 'none';
+document.getElementById('verifyNote').style.display 'none';
 }
-
-if(!IS_BACKEND_CONFIGURED){
-  document.getElementById('demoBanner').style.display = 'block';
+if (!IS_BACKEND_CONFIGURED) {
 }
-
+document.getElementById('demoBanner').style.display 'block';
 document.getElementById('authForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const email = document.getElementById('email').value.trim();
-  const password = document.getElementById('password').value;
-  const msgBox = document.getElementById('msgBox');
-  msgBox.style.display = 'none';
-
-  if(!IS_BACKEND_CONFIGURED){
-    // Demo mode: fake a local "session" so the rest of the UI (route guard) has something to check.
-    localStorage.setItem('aw_demo_session', JSON.stringify({email, ts: Date.now()}));
-    msgBox.className = 'msg success';
-    msgBox.textContent = 'تم تسجيل الدخول (وضع تجريبي — لا يوجد تحقق حقيقي من البريد بعد).';
-    msgBox.style.display = 'block';
-    setTimeout(() => window.location.href = 'course.html', 900);
-    return;
-  }
-
-  try{
-    if(mode === 'signup'){
-      const { data, error } = await supabaseClient.auth.signUp({ email, password });
-      if(error) throw error;
-      document.getElementById('verifyNote').style.display = 'block';
-      msgBox.className = 'msg success';
-      msgBox.textContent = 'تم إنشاء الحساب بنجاح.';
-      msgBox.style.display = 'block';
-    } else {
-      const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
-      if(error) throw error;
-      if(!data.user.email_confirmed_at){
-        document.getElementById('verifyNote').style.display = 'block';
-        return;
-      }
-      window.location.href = 'course.html';
-    }
-  }catch(err){
-    msgBox.className = 'msg error';
-    msgBox.textContent = err.message === 'Invalid login credentials'
-      ? 'البريد الإلكتروني أو كلمة المرور غير صحيحة.'
-      : (err.message || 'حدث خطأ، حاول مرة أخرى.');
-    msgBox.style.display = 'block';
-  }
+e.preventDefault();
+const email document.getElementById('email').value.trim();
+const password document.getElementById('password').value;
+const usernameInput document.getElementById('username').value.trim();
+const msgBox document.getElementById('msgBox');
+msgBox.style.display= 'none';
+if(!IS_BACKEND_CONFIGURED) {
+// Demo mode: keep a simple email -> username directory so returning users
+// (logging in, not signing up) still get their username back.
+const directory JSON.parse(localStorage.getItem('aw_username_directory') || '{}');
+let username;
+if (mode === 'signup') {
+Page 3
+auth.html
+ArabicWhales.com
+username username Input email.split('@')[0];
+directory [email] username;
+localStorage.setItem('aw_username_directory', JSON.stringify (directory));
+} else {
+}
+username
+}
+directory [email] email.split('@')[0];
+localStorage.setItem('aw_demo_session', JSON.stringify({email, username, ts: Date.now()}));
+msgBox.className  'msg success';
+msgBox.text.Content = وضع تجريبي تم تسجيل الدخول
+msgBox.style.display 'block';
+ال يوجد تحقق حقی قرى من البريد بعد
+setTimeout(() => window.location.href  'course.html', 900);
+return;
+try{
+if (mode == 'signup') {
+const (data, error } await supabaseClient.auth.signUp({
+email, password,
+options: {data: (username: usernameInput || email.split('@')[0] } }
+});
+if (error) throw error;
+document.getElementById('verifyNote').style.display 'block';
+msgBox.className  'msg success';
+msgBox.textContent = تم إنشاء الحساب بنجاح
+msgBox.style.display= 'block';
+} else {
+const { data, error await supabaseClient.auth.signInWithPassword({ email, password });
+$y=$
+if (error) throw error;
+if(!data.user.email_confirmed_at) {
+document.getElementById('verifyNote').style.display 'block';
+return;
+window.location.href 'course.html';
+}
+}
+}catch(err) {
+msgBox.className  'msg error';
+msgBox.textContent err.message  'Invalid login credentials'
+. البريد الالكتروني أو لالمة المرور عمار صحيحة ?
+: )err.message || محدث خطأ حاول مرة أخرى  
+msgBox.style.display  'block';
+}
 });
 </script>
 </body>
+Page 4
+auth.html
+ArabicWhales.com
 </html>
+Page 5
+auth.html
