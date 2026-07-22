@@ -819,6 +819,35 @@ async function initApp() {
 }
 
 // البدء بعد تحميل الإعدادات بالكامل
+        <div class="tick-item mono">جاري تحميل الأسعار...</div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site">
+    <nav>
+      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
+      <div class="nav-links">
+        <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+        <div class="has-dd" id="eduDropdown">
+          <button type="button" class="dd-trigger" id="eduTrigger" data-i18n="nav_edu">التعليم <span class="caret">▾</span></button>
+          <div class="dd" id="eduDropdownList"></div>
+        </div>
+        <a href="index.html#articles" data-i18n="nav_articles">المقالات</a>
+        <a href="index.html#contact" data-i18n="nav_contact">تواصل معنا</a>
+      </div>
+      <button class="lang-toggle" id="langToggle">EN</button>
+      <a href="https://t.me/ArabicWhales" class="cta-btn" style="margin-inline-start:10px;" data-i18n="nav_join">انضم الآن</a>
+      <a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding:9px 18px;font-size:14px;margin-inline-start:10px;" data-i18n="nav_login">تسجيل الدخول</a>
+    </nav>
+  </header>
+
+  <div id="guardBanner"></div>
+  <div class="greeting-bar" id="greetingBar"></div>
+
+  <section style="padding-bottom:0;" id="pageHeadSection">
+    <div class="eyebrow" id="pageEyebrow">مسار تعليمي متكامل</div>
 initApp();
 </script>
 </body>
