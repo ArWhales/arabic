@@ -1,338 +1,418 @@
+ArabicWhales.com
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حيتان العرب | البوابة العربية لتعلم الكريبتو والويب 3</title>
+<title/>3 البوابة العربية لتعلم الكريبت و وال وعب | حيتان العرب <title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+index.html
+<link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&fam
+ily-JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker-label">أعلى 10 عملات</div>
-    <div class="ticker-track-outer">
-      <div class="ticker-track" id="tickerTrack">
-        <div class="tick-item mono">جاري تحميل الأسعار...</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- NAV -->
-  <header class="site">
-    <nav>
-      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
-      <div class="nav-links">
-        <a href="#home">الرئيسية</a>
-        <a href="#about">من نحن</a>
-        <div class="has-dd" id="eduDropdown">
-          <button type="button" class="dd-trigger" id="eduTrigger">التعليم <span class="caret">▾</span></button>
-          <div class="dd" id="eduDropdownList"></div>
-        </div>
-        <a href="#articles">المقالات</a>
-        <a href="#contact">تواصل معنا</a>
-      </div>
-      <a href="https://t.me/ArabicWhales" class="cta-btn">انضم الآن</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="home" style="padding-top:70px;">
-    <div>
-      <div class="eyebrow"><span class="pulse"></span> أكثر من 100,000 يثقون بنا منذ 2020</div>
-      <h1>بوابتك العربية لفهم <span class="accent">الكريبتو</span> والويب 3 من الصفر</h1>
-      <p class="lead">حيتان العرب مجتمع ومنصة تعليمية عربية متخصصة بالعملات الرقمية والاستثمار — محتوى مبسّط، تحليلات أسبوعية، ومسار تعلّم واضح من المبتدئ إلى المحترف.</p>
-      <div class="actions">
-        <a href="#education" class="btn-primary">ابدأ التعلّم الآن</a>
-        <a href="https://t.me/ArabicWhales" class="btn-ghost">انضم لمجتمع تيليجرام</a>
-      </div>
-      <div class="stat-row">
-        <div class="stat"><b>+100K</b><span>عضو نشط</span></div>
-        <div class="stat"><b>32</b><span>درساً تعليمياً</span></div>
-        <div class="stat"><b>2020</b><span>سنة التأسيس</span></div>
-      </div>
-    </div>
-    <div class="sonar-wrap">
-      <div class="sonar-ring"></div>
-      <div class="sonar-ring"></div>
-      <div class="sonar-ring"></div>
-      <div class="sonar-core">🐋</div>
-      <div class="sonar-tag">SIGNAL // ARAB_WHALES</div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-head">
-      <div class="eyebrow">من نحن</div>
-      <h2>أكبر مجتمع عربي متفاعل في مجال الكريبتو بالشرق الأوسط</h2>
-      <p>حيتان العرب هي أكبر منصة عربية تعليمية ومركز تثقيفي بمجال العملات الرقمية والاستثمار بشتى أشكاله، تأسست عام 2020 لتكون دليلك الشامل من الألف إلى الياء.</p>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-head">
-      <div class="eyebrow">مسار التعلّم</div>
-      <h2>قوائم تعليمية مبسّطة، خطوة بخطوة</h2>
-      <p>اخترنا لك أربعة مسارات واضحة بدل عشرات القوائم المتفرقة — اختر مستواك وابدأ فوراً.</p>
-    </div>
-    <div class="edu-grid">
-      <a class="edu-card" href="course.html?track=digital-currencies">
-        <div class="edu-icon">🪙</div>
-        <h3>مسار العملات الرقمية</h3>
-        <p>3 مستويات كاملة (أساسي، متوسط، متقدم)، كل مستوى بدروسه واختبار اجتياز خاص.</p>
-        <div class="level">المستوى: أساسي إلى متقدم</div>
-      </a>
-      <a class="edu-card" href="course.html?track=trading">
-        <div class="edu-icon">📊</div>
-        <h3>التداول</h3>
-        <p>ما هو التداول، منصاته، أوامر البيع والشراء، ومخاطره وأمانه.</p>
-        <div class="level">8 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=web3">
-        <div class="edu-icon">🌐</div>
-        <h3>Web3 والمستقبل</h3>
-        <p>الهوية الرقمية، الـ DAO، وفرص العمل في عالم الويب اللامركزي.</p>
-        <div class="level">5 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=security">
-        <div class="edu-icon">🛡️</div>
-        <h3>الأمان وحماية الأصول</h3>
-        <p>أنواع الاحتيال، حماية المحافظ، والتحقق من المشاريع قبل الاستثمار.</p>
-        <div class="level">4 دروس</div>
-      </a>
-    </div>
-    <div style="text-align:center;margin-top:26px;">
-      <a href="course.html" class="btn-ghost">عرض كل المسارات الـ 12 →</a>
-    </div>
-  </section>
-
-  <!-- ARTICLES -->
-  <section id="articles">
-    <div class="section-head">
-      <div class="eyebrow">أحدث المحتوى</div>
-      <h2>أبرز المقالات</h2>
-    </div>
-    <div class="articles-grid">
-      <div class="article-card main">
-        <div class="article-img">📈 صورة المقال</div>
-        <div class="article-body">
-          <span class="article-tag">اكاديمية الحيتان</span>
-          <h3>مشروع Bedrock 2.0: محرّك العوائد الذكي لرأس مال البيتكوين</h3>
-          <p>هل ما زلت تطارد أعلى نسبة عائد سنوي دون أن تسأل عن مدى استدامتها؟</p>
-          <span class="article-meta">يونيو 2026</span>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-img">🔐</div>
-        <div class="article-body">
-          <span class="article-tag">اكاديمية الحيتان</span>
-          <h3>دليلك النهائي لتأمين محفظتك قبل فوات الأوان</h3>
-          <span class="article-meta">أبريل 2026</span>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-img">🥇</div>
-        <div class="article-body">
-          <span class="article-tag">اكاديمية الحيتان</span>
-          <h3>الذهب يسجل أسوأ أداء أسبوعي منذ 4 عقود</h3>
-          <span class="article-meta">مارس 2026</span>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-img">₿</div>
-        <div class="article-body">
-          <span class="article-tag">التداول</span>
-          <h3>أول إشارة صعود حقيقية منذ 2025؟</h3>
-          <span class="article-meta">أبريل 2026</span>
-        </div>
-      </div>
-      <div class="article-card">
-        <div class="article-img">🛢️</div>
-        <div class="article-body">
-          <span class="article-tag">التداول</span>
-          <h3>لماذا قد يكون انفجار أسعار النفط "الوقود الخفي" لقفزة البيتكوين؟</h3>
-          <span class="article-meta">مارس 2026</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="contact">
-    <div class="cta-band">
-      <div>
-        <h2>جاهز تبدأ رحلتك في عالم الكريبتو؟</h2>
-        <p>انضم إلى أكثر من 100,000 عضو يتابعون التحليلات والدروس اليومية على تيليجرام.</p>
-      </div>
-      <a href="https://t.me/ArabicWhales" class="btn-primary">انضم إلينا الآن</a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-col">
-        <div class="brand" style="font-size:17px;margin-bottom:14px;">🐋 حيتان العرب</div>
-        <p style="font-size:13px;color:var(--text-dim);max-width:260px;">أكبر منصة عربية تعليمية بمجال العملات الرقمية، تأسست 2020.</p>
-      </div>
-      <div class="footer-col">
-        <h4>روابط</h4>
-        <a href="#about">من نحن</a>
-        <a href="#education">التعليم</a>
-        <a href="#articles">المقالات</a>
-        <a href="#contact">تواصل معنا</a>
-      </div>
-      <div class="footer-col">
-        <h4>تابعنا</h4>
-        <a href="https://t.me/ArabicWhales">تيليجرام</a>
-        <a href="https://x.com/ArabicWhales">X (تويتر)</a>
-        <a href="https://www.instagram.com/arabic.whales">إنستغرام</a>
-        <a href="https://www.binance.com/ar/square/profile/Arabicwhales">Binance Square</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>© 2026 جميع الحقوق محفوظة لمجتمع حيتان العرب</div>
-      <div>الأسعار مقدّمة لأغراض تعليمية وليست نصيحة استثمارية</div>
-    </div>
-  </footer>
-
+<!-- TICKER -->
+<div class="ticker-wrap">
+>div class="ticker-label <عمل ات 10 أعلى >/div<
+<div class="ticker-track-outer">
+<div class="ticker-track" id="tickerTrack">
+>div class="tick-item mono"<  جاری ت ح م  ل الأسعار /div<
+</div>
+</div>
+</div>
+<!-- NAV -->
+<header class="site">
+<nav>
+>div class="brand"
+تانspan class="dot" العرب  /span></div<
+<div class="nav-links" id="navLinks">
+>a href="#home" < الرئيسية >/a<
+>a href="#about"<من نحن>/a<
+<div class="has-dd" id="eduDropdown">
+>button type="button" class="dd-trigger" id="eduTrigger <التعلیم  span class="caret">.</span></button<
+<div class="dd" id="eduDropdownList"></div>
+</div>
+>a href="#articles"ال م قال ات >/a<
+>a href="#contact"< تو اصل معن /a<
+</div>
+<div class="nav-actions">
+>a href="https://t.me/ArabicWhales" class="cta-btn" id="joinBtn"< ان ضم الآن>/a<
+>a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding: 9px 18px; font-size:14px;"<تسجيل الدخول >/a<
+<div class="user-badge" id="userBadge" style="display:none;"><span id="userBadgeName"></span> </div>
+</div>
+>button class="nav-hamburger" id="navHamburger" aria-label=" القائمة "<
+<span></span><span></span><span></span>
+Page 1
+ArabicWhales.com
+</button>
+</nav>
+</header>
+<!-- HERO -->
+<section class="hero" id="home" style="padding-top:70px;">
+<div>
+>div class="eyebrow"><span class="pulse"></span< 2020 عشقون بن منذ 100,000 أكثر من /div<
+index.html
+<h1/> من المقر 3 و الويب <span /> الكريبت و <"span class="accent> بوابتك العربية ل ف ه م <h1>
+محتوی مبسط تحليلات اسبوعية، ومسار حمت ان العرب م ج ت م ع و من مرة تع لدى مرية عربية مرت خمصة بالعملات الرقمية وال استتم از <"p class="lead>
+<p/> . تعلم واضح من المبتدئ الى المحترف
+<div class="actions">
+>a href="#education" class="btn-primary"< ابدا التعلم الآن  /a<
+>a href="https://t.me/ArabicWhales" class="btn-ghost"  ان ض م ل م ج ت م ع ت ی لی  رام /a<
+</div>
+<div class="stat-row">
+ /span></div<
+>div class="stat"><b>+100K</b><span<عضو نشط
+>div class="stat"><b>32</b><span<درساً تعلیمی  >/span></div<
+>div class="stat"><b>2020</b> <span<سنة التأسيس  /span></div<
+</div>
+</div>
+<div class="sonar-wrap">
+<div class="sonar-ring"></div>
+<div class="sonar-ring"></div>
+<div class="sonar-ring"></div>
+<div class="sonar-core"></div>
+<div class="sonar-tag">SIGNAL // ARAB_WHALES</div>
+</div>
+</section>
+<!-- ABOUT -->
+<section id="about">
+<div class="section-head">
+>div class="eyebrow"< من نحن>/div<
+<h2/> الابر م ج ت م ع عربي متفاعل في مجال التدريبات و بالشرق الأوسط <h2>
+ل تكون 2020 حيت ان العرب في أكبر منصة عربية تعليمية ومركز تتقي فى بمجال العملات الرقمية وال استتم او بشتى أشكاله، تأسست عام <p>
+<p/>. دليلك الشامل من الألف الى الياء
+</div>
+</section>
+<!-- EDUCATION ->
+<section id="education">
+<div class="section-head">
+>div class="eyebrow" <مسار ال ت ع الم  /div<
+Page 2
+ArabicWhales.com
+<h2/> ق و ال م ت ع ل ي م ية مبسطة خطوة بخطوة <h2>
+اخترنا لك اربعة مسارات واضحة بدل عشرات القوائم المتفرقة <p>
+<p/>. اختر مست وال وابدأ فوراً
+</div>
+<div class="edu-grid">
+<a class="edu-card" href="course.html?track=digital-currencies">
+<div class="edu-icon"></div>
+<h3/> مسار العملات الرقمية <h3>
+<p/>. لال مست وی ب دروسه واختبار اج تی از خاص ( اس اسی مرت و سطر متقدم مست وی ات كاملة 3<p>
+>div class="level" <اس اسری الی متقدم : المست وی >/div<
+</a>
+<a class="edu-card" href="course.html?track=trading">
+<div class="edu-icon"></div>
+>h3< التداول >/h3<
+<p/>. ما هو التداول من ماته اوامر البيع والشراء، ومخاطره وأمانه <p>
+>div class="level"<8 دروس >/div<
+</a>
+<a class="edu-card" href="course.html?track=web3">
+<div class="edu-icon">@</div>
+<h3/> و ال م س ت قبل h3>Web3>
+<p/>. وفرص العمل في عالم الويب اللام رازی DAO الهوية الرقمية ال <p>
+>div class="level"< دروس >/div<
+</a>
+<a class="edu-card" href="course.html?track=security">
+<div class="edu-icon"></div>
+<h3/> الأمان وحماية ال أصول <h3>
+<p/>. انواع الاحتيال، حماية المحافظ والتحقق من المشاريع قبل الاستثمار <p>
+>div class="level"<4 دروس >/div<
+</a>
+</div>
+<div style="text-align:center; margin-top: 26px; ">
+>a href="course.html" class="btn-ghost"<12 عرض كل المسارات ال /a<
+</div>
+</section>
+<!-- ARTICLES -->
+<section id="articles">
+<div class="section-head">
+>div class="eyebrow"  أحدث ال محتوی  /div<
+<h2/> أبرز المقالات <h2>
+</div>
+<div class="articles-grid">
+<div class="article-card main">
+>div class="article-img"
+<div class="article-body">
+صورة المقال  /div<
+Page 3
+index.html
+ArabicWhales.com
+>span class="article-tag"<اكاديمية الحيتان  /span<
+<h3/> محرك العوائد الذلي لرأس مال البيتكوين : 2.0 Bedrock مشروع <h3>
+<Jo</p  زلت تطارد اعلى نسبة عائد سان وي دون أن تسال عن مردی است دام شده ؟ <p>
+>span class="article-meta"< 2026 یونی و>/span<
+</div>
+</div>
+<div class="article-card">
+<div class="article-img"></div>
+<div class="article-body">
+>span class="article-tag"<اكاديمية الحيتان  /span<
+<h3/> دل ى لك النهائي لتأمرين محفظتك قبل فوات الأوان <h3>
+>span class="article-meta 2026 أبريل>/span<
+</div>
+</div>
+<div class="article-card">
+<div class="article-img"></div>
+<div class="article-body">
+>span class="article-tag"<اكاديمية الحعت ان  /span<
+<h3/> عقود 4 الذهب عسجل أسوا أداء أسبوعي من 5 <h3>
+>span class="article-meta 2026 مارس /span<
+</div>
+</div>
+<div class="article-card">
+<div class="article-img">B</div>
+<div class="article-body">
+>span class="article-tag"<التداول  /span<
+<h3/>2025 أول إشارة صعود حقيقية من ذ <h3>
+>span class="article-meta 2026 أبريل>/span<
+</div>
+</div>
+<div class="article-card">
+<div class="article-img"></div>
+<div class="article-body">
+>span class="article-tag"<التداول  /span<
+<h3/> ل قفزة البيتكوين؟ "ال وقود العفري" لماذا قد علون انفجار أسعار النفط <h3>
+>span class="article-meta 2026 مارس>/span<
+</div>
+</div>
+</div>
+</section>
+<!-- СТА -->
+<section id="contact">
+<div class="cta-band">
+Page 4
+index.html
+ArabicWhales.com
+<div>
+<h2/>ه ز تبدا رحلتك في عالم الكاريبت و ؟ <h2>
+<p/> . ع ض و يتابعون التحليلات والدروس الدي ومرية على تی لی جا رام 100,000 انعام الى اكثر من <p>
+</div>
+>a href="https://t.me/ArabicWhales" class="btn-primary"< ان هم الدين | الآن>/a<
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<div class="footer-inner">
+<div class="footer-col">
+>div class="brand" style="font-size:17px; margin-bottom:14px;"< عتان العرب >/div<
+>p style="font-size:13px; color:var(--text-dim); max-width:260px;"< أكبر منصة عربية تعليمية بمجال العملات الرقمية تأسست
+2020.</p>
+</div>
+<div class="footer-col">
+ h4<روابط  /h4<
+>a href="#about"<من نحن>/a<
+>a href="#education"  التعلیم  /a<
+>a href="#articles" المقالات  /a<
+>a href="#contact"< ت و اصل معن>/a<
+</div>
+<div class="footer-col">
+<h4/> ت ا ب ع ن | <h4>
+>a href="https://t.me/ArabicWhales"  ی ل   ر ا م >/a<
+>a href="https://x.com/ArabicWhales تویتر  /a<
+>a href="https://www.instagram.com/arabic.whales"< ن ست غرام>/a<
+<a href="https://www.binance.com/ar/square/profile/Arabicwhales
+</div>
+</div>
+<div class="footer-bottom">
+Square</a>
+<div/> جميع الحقوق محفوظة ل م ج ت م ع حمدان العرب 2026 <div>
+<div/> ال أس ع از مقدمة ل أغراض تعليمية وليست نصيحة استثمارية <div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
 <script src="course-data.js"></script>
 <script>
-function buildEduDropdown(){
-  const list = document.getElementById('eduDropdownList');
-  let html = '';
-  Object.keys(TRACKS).forEach(id => {
-    const t = TRACKS[id];
-    const tag = t.type === 'leveled' ? '3 مستويات' : (t.lessons.length + ' دروس');
-    html += `<a href="course.html?track=${id}">${t.icon || '📘'} ${t.title} <span class="tag">${tag}</span></a>`;
-  });
-  list.innerHTML = html;
+/* Hamburger menu */
+document.getElementById('navHamburger').addEventListener('click', () => {
+document.getElementById('navLinks').classList.toggle('mobile-open');
+Page 5
+index.html
+ArabicWhales.com
+});
+/ Auth-aware nav: hide login/join buttons and show username badge when logged in */
+async function updateAuthNavUI() {
+let loggedIn false, username
+null;
+if (typeof IS_BACKEND_CONFIGURED !== 'undefined' && IS_BACKEND_CONFIGURED) {
+const { data: { session} $\}=$ await supabaseClient.auth.getSession();
+if (session && session.user.email_confirmed_at) {
+true;
+session.user.user_metadata?.username
+loggedIn
+username
 }
+} else {
+const demoSession
+if (demoSession) {
+session.user.email.split('@')[0];
+localStorage.getItem('aw_demo_session');
+const s JSON.parse (demoSession);
+loggedIn
+username
+}
+}
+true;
+s.username
+s.email.split('@')[0];
+}
+document.getElementById('joinBtn').style.display  loggedIn? 'none'
+document.getElementById('authNavBtn').style.display  loggedIn? 'none': '';
+document.getElementById('userBadge').style.display loggedIn? 'flex': 'none';
+if (loggedIn) document.getElementById('userBadgeName').textContent = username;
+updateAuthNavUI();
+function buildEduDropdown () {
+}
+const list document.getElementById('eduDropdownList');
+let html = '';
+Object.keys (TRACKS).forEach(id => {
+const t TRACKS [id ;
+const tag = t.type === 'leveled'? 3 مست ویات : )t.lessons.length +  دروس (;
+html +=  <a href="course.html?track=\${id}">\${t.icon || '' \$ t.title} <span class="tag">\$ tag)</span></a>';
+});
+list.innerHTML  html;
 buildEduDropdown();
-
 // Static fallback so the bar is never empty if every live source fails (e.g. offline sandbox, rate limit)
 const FALLBACK_COINS = [
-  {symbol:'BTC', price:'—', chg:null},
-  {symbol:'ETH', price:'—', chg:null},
-  {symbol:'USDT', price:'—', chg:null},
-  {symbol:'BNB', price:'—', chg:null},
-  {symbol:'SOL', price:'—', chg:null},
-  {symbol:'XRP', price:'—', chg:null},
-  {symbol:'USDC', price:'—', chg:null},
-  {symbol:'ADA', price:'—', chg:null},
-  {symbol:'DOGE', price:'—', chg:null},
-  {symbol:'TRX', price:'—', chg:null},
-];
-
-function fetchWithTimeout(url, ms=8000){
-  const controller = new AbortController();
-  const id = setTimeout(()=>controller.abort(), ms);
-  return fetch(url, {signal:controller.signal}).finally(()=>clearTimeout(id));
+{symbol: 'BTC', price:'-',
+chg:null},
+{symbol: 'ETH', price:'-',
+chg:null},
+{symbol: 'USDT', price:'-', chg:null},
+{symbol: 'BNB', price:'-',
+chg:null},
+Page 6
+index.html
+ArabicWhales.com
+1;
+{symbol: 'SOL',
+price:'-',
+price:'- ,
+chg:null},
+chg:null},
+{symbol: 'XRP',
+{symbol: 'USDC', price:'-', chg:null},
+{symbol: 'ADA',
+price:'- ,
+chg:null},
+{symbol: 'DOGE', price:'-', chg:null},
+price:'- ,
+chg:null},
+{symbol: 'TRX',
+function fetchWithTimeout (url, $ms=80000${
 }
-
-function renderTicker(coins){
-  const track = document.getElementById('tickerTrack');
-  const items = coins.map(c => {
-    if(c.chg === null){
-      return `<div class="tick-item">
-        <span class="tick-sym">${c.symbol}</span>
-        <span class="tick-price">${c.price}</span>
-      </div>`;
-    }
-    const chgClass = c.chg >= 0 ? 'up' : 'down';
-    const arrow = c.chg >= 0 ? '▲' : '▼';
-    return `<div class="tick-item">
-      <span class="tick-sym">${c.symbol}</span>
-      <span class="tick-price">$${c.price}</span>
-      <span class="tick-chg ${chgClass}">${arrow} ${Math.abs(c.chg).toFixed(2)}%</span>
-    </div>`;
-  }).join('');
-  track.innerHTML = items + items; // duplicated for seamless loop
+const controller  new AbortController();
+const id setTimeout( $()=>$ controller.abort(), ms);
+return fetch (url, (signal:controller.signal}).finally(()=>clearTimeout(id));
+function renderTicker (coins) {
+const track document.getElementById('tickerTrack');
+const items coins.map $(c\Rightarrow1$
+if(c.chg === null) {
 }
-
+return <div class="tick-item">
+<span class="tick-sym">\${c.symbol}</span>
+<span class="tick-price">\${c.price}</span>
+</div>';
+const chgClassc.chg $>=0$ ?
+const arrow= c.chg >= 0
+return '<div class="tick-item">
+'up': 'down';
+;
+<span class="tick-sym">\${c.symbol}</span>
+<span class="tick-price">\$\${c.price}</span>
+<span class="tick-chg \${chgClass}">\${arrow} \${ Math.abs(c.chg).toFixed (2))</span>
+</div>';
+}).join('');
+track.innerHTML
+items + items; // duplicated for seamless loop
+}
+index.html
 // Source 1: CoinGecko (primary)
-async function tryCoinGecko(){
-  const res = await fetchWithTimeout('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&price_change_percentage=24h');
-  if(!res.ok) throw new Error('coingecko http ' + res.status);
-  const data = await res.json();
-  if(!Array.isArray(data) || data.length === 0) throw new Error('coingecko empty response');
-  return data.map(c => ({
-    symbol: c.symbol.toUpperCase(),
-    price: c.current_price >= 1 ? c.current_price.toLocaleString('en-US',{maximumFractionDigits:2}) : c.current_price.toPrecision(4),
-    chg: c.price_change_percentage_24h ?? 0
-  }));
+async function tryCoinGecko () {
+const res await fetchWithTimeout('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=
+10&page=1&price_change_percentage $=24h^{\prime}$);
+if(!res.ok) throw new Error('coingecko http+res.status);
+const data await res.json();
+if(!Array.isArray (data) || data.length == 0) throw new Error('coingecko empty response');
+return data.map(c => ({
+symbol: c.symbol.toUpperCase(),
+price: c.current_price > 1 ? c.current_price.toLocaleString('en-US', {maximumFractionDigits:2}):
+Page 7
+ArabicWhales.com
+c.current_price.toPrecision (4),
+chg: c.price_change_percentage_24h ?? 0
+}));
 }
-
 // Source 2: CoinCap (fallback if CoinGecko is rate-limited or blocked)
-async function tryCoinCap(){
-  const res = await fetchWithTimeout('https://api.coincap.io/v2/assets?limit=10');
-  if(!res.ok) throw new Error('coincap http ' + res.status);
-  const json = await res.json();
-  const data = json.data;
-  if(!Array.isArray(data) || data.length === 0) throw new Error('coincap empty response');
-  return data.map(c => {
-    const price = parseFloat(c.priceUsd);
-    const chg = parseFloat(c.changePercent24Hr);
-    return {
-      symbol: c.symbol.toUpperCase(),
-      price: price >= 1 ? price.toLocaleString('en-US',{maximumFractionDigits:2}) : price.toPrecision(4),
-      chg: isNaN(chg) ? 0 : chg
-    };
-  });
+async function tryCoinCap() {
+const res await fetchWithTimeout('https://api.coincap.io/v2/assets?limit=10');
+if(!res.ok) throw new Error('coincap http res.status);
+const json await res.json();
+const data = json.data;
+if(!Array.isArray (data) || data.length == 0) throw new Error('coincap empty response');
+return data.map(c => {
+const price
+parseFloat (c.priceUsd);
+const chg parseFloat(c.changePercent24Hr);
+return {
+symbol: c.symbol.toUpperCase(),
+price: price $>=1?$ price.toLocaleString('en-US', {maximumFractionDigits:2)): price.toPrecision(4),
+chg: isNaN(chg) 20 chg
+};
+});
 }
-
-let tickerRetries = 0;
-
+let tickerRetries $=0$
 async function loadTicker(){
-  const track = document.getElementById('tickerTrack');
-  try{
-    const coins = await tryCoinGecko();
-    renderTicker(coins);
-    tickerRetries = 0;
-    return;
-  }catch(e1){
-    console.warn('CoinGecko failed, trying CoinCap:', e1.message);
-    try{
-      const coins = await tryCoinCap();
-      renderTicker(coins);
-      tickerRetries = 0;
-      return;
-    }catch(e2){
-      console.warn('CoinCap failed too:', e2.message);
-      tickerRetries++;
-      if(tickerRetries === 1){
-        track.innerHTML = '<div class="tick-item mono">جاري إعادة محاولة تحميل الأسعار...</div>';
-      }else{
-        renderTicker(FALLBACK_COINS);
-      }
-      setTimeout(loadTicker, 12000);
-    }
-  }
+const track
+try{
+document.getElementById('tickerTrack');
+const coins await tryCoinGecko();
+renderTicker(coins);
+tickerRetries
+return;
+ catch(e1) (
+$=0$;
+console.warn('CoinGecko failed, trying CoinCap:', el.message);
+try{
+const coins await tryCoinCap();
+renderTicker (coins);
+tickerRetries $=0$;
+return;
+}catch(e2){
+console.warn('CoinCap failed too:', e2.message);
+tickerRetries++;
+if (tickerRetries === 1) {
+track.innerHTML  '<div class="tick-item mono"<جاری اعادة محاولة تحميل الأسع ار...>/div<';
+Page 8
+index.html
+ArabicWhales.com
+}else{
 }
-
+}
+renderTicker (FALLBACK_COINS);
+}
+setTimeout (loadTicker, 12000);
+}
 loadTicker();
-setInterval(loadTicker, 60000);
-
+set Interval (loadTicker, 60000);
 // Education dropdown: click/tap toggle (works on desktop + mobile), closes on outside click
-const eduDropdown = document.getElementById('eduDropdown');
-const eduTrigger = document.getElementById('eduTrigger');
+const eduDropdown document.getElementById('eduDropdown');
+const eduTrigger document.getElementById('eduTrigger');
 eduTrigger.addEventListener('click', (e) => {
-  e.stopPropagation();
-  eduDropdown.classList.toggle('open');
+e.stopPropagation();
+eduDropdown.classList.toggle('open');
 });
 document.addEventListener('click', (e) => {
-  if(!eduDropdown.contains(e.target)){
-    eduDropdown.classList.remove('open');
-  }
+if (!eduDropdown.contains(e.target)) {
 });
-eduDropdown.querySelectorAll('.dd a').forEach(link => {
-  link.addEventListener('click', () => eduDropdown.classList.remove('open'));
+}
+eduDropdown.classList.remove('open');
+eduDropdown.querySelectorAll('.dd a').forEach (link => {
+link.addEventListener('click', $()=>$ eduDropdown.classList.remove('open'));
 });
 </script>
-
 </body>
 </html>
+Page 9
+index.html
