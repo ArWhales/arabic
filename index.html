@@ -1,418 +1,302 @@
-ArabicWhales.com
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title/>3 البوابة العربية لتعلم الكريبت و وال وعب | حيتان العرب <title>
+<title id="pageTitle">المسارات التعليمية | حيتان العرب</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-index.html
-<link href="https://fonts.googleapis.com/css?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&fam
-ily-JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  body.lang-en{font-family:'Inter',sans-serif;}
+  body.lang-en h1, body.lang-en h2, body.lang-en h3, body.lang-en .brand{font-family:'Inter',sans-serif;font-weight:800;}
+
+  .course-shell{
+    max-width:1180px;margin:0 auto;padding:30px 24px 80px;
+    display:grid;grid-template-columns:300px 1fr;gap:24px;
+    align-items:start;
+  }
+  .course-sidebar{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;
+    padding:18px;position:sticky;top:100px;
+    max-height:calc(100vh - 120px);overflow-y:auto;
+  }
+  .back-to-hub{
+    display:flex;align-items:center;gap:6px;font-size:13px;color:var(--text-dim);
+    margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);cursor:pointer;
+  }
+  .back-to-hub:hover{color:var(--teal);}
+  .course-title{font-family:'Cairo',sans-serif;font-weight:700;font-size:16px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);}
+  .level-block{margin-bottom:10px;}
+  .level-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px 12px;border-radius:10px;cursor:pointer;
+    font-family:'Cairo',sans-serif;font-weight:600;font-size:14px;
+    background:var(--bg-panel-2);
+  }
+  .level-head .badge{font-size:11px;color:var(--gold);font-family:'JetBrains Mono',monospace;}
+  .level-block.locked .level-head{opacity:0.5;cursor:not-allowed;}
+  .level-lessons{display:none;padding:8px 4px 4px;}
+  .level-block.open .level-lessons{display:block;}
+  .lesson-link{
+    display:flex;align-items:center;gap:8px;
+    padding:9px 10px;border-radius:8px;font-size:13.5px;color:var(--text-dim);
+    cursor:pointer;transition:background .15s,color .15s;
+  }
+  .lesson-link:hover{background:rgba(45,212,191,0.06);color:var(--text);}
+  .lesson-link.active{background:rgba(45,212,191,0.12);color:var(--teal);font-weight:600;}
+  .lesson-link .check{width:16px;height:16px;border-radius:50%;border:1px solid var(--line);flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:10px;}
+  .lesson-link.done .check{background:var(--up);border-color:var(--up);color:#03110f;}
+  .lesson-link.exam-link{color:var(--gold);font-weight:600;}
+  .lesson-link.exam-link .check{border-color:var(--gold);}
+  .lesson-link.exam-link.done .check{background:var(--gold);color:#03110f;}
+
+  .course-main{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;
+    padding:36px;min-height:420px;
+  }
+  .lesson-eyebrow{font-size:12px;color:var(--teal);font-family:'JetBrains Mono',monospace;margin-bottom:10px;}
+  .lesson-title{font-size:26px;font-weight:900;margin-bottom:18px;font-family:'Cairo',sans-serif;}
+  .lesson-content{font-size:16px;color:var(--text);line-height:2;margin-bottom:34px;}
+  .lesson-nav{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:22px;flex-wrap:wrap;}
+  .progress-bar-outer{height:6px;background:var(--bg-panel-2);border-radius:999px;overflow:hidden;margin-bottom:20px;}
+  .progress-bar-inner{height:100%;background:var(--teal);border-radius:999px;transition:width .3s;}
+
+  .lesson-media{
+    position:relative;border-radius:14px;overflow:hidden;margin-bottom:24px;
+    border:1px solid var(--line);background:var(--bg-panel-2);
+  }
+  .lesson-media video, .lesson-media img{width:100%;display:block;max-height:340px;object-fit:cover;background:#000;}
+  .media-placeholder{
+    height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:8px;color:var(--text-dim);font-size:13px;
+  }
+  .media-placeholder .icon{font-size:34px;}
+  .watermark{
+    position:absolute;bottom:10px;left:12px;
+    background:rgba(5,13,20,0.72);backdrop-filter:blur(4px);
+    padding:5px 12px;border-radius:8px;
+    font-family:'Cairo',sans-serif;font-weight:700;font-size:12px;color:var(--teal);
+    display:flex;align-items:center;gap:6px;
+  }
+
+  .comments-section{border-top:1px solid var(--line);padding-top:24px;margin-top:10px;}
+  .comments-section h4{font-size:16px;margin-bottom:6px;font-family:'Cairo',sans-serif;}
+  .comments-note{font-size:12px;color:var(--gold);margin-bottom:16px;}
+  .comment-form{display:flex;gap:10px;margin-bottom:20px;}
+  .comment-form input{
+    flex:1;padding:11px 14px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg-deep);color:var(--text);font-size:13.5px;font-family:inherit;
+  }
+  .comment-item{background:var(--bg-panel-2);border-radius:10px;padding:12px 14px;margin-bottom:10px;}
+  .comment-item .c-meta{font-size:11.5px;color:var(--text-dim);margin-bottom:4px;font-family:'JetBrains Mono',monospace;}
+  .comment-item .c-body{font-size:14px;}
+  .empty-comments{color:var(--text-dim);font-size:13px;font-style:italic;}
+
+  .exam-q{margin-bottom:26px;padding-bottom:22px;border-bottom:1px solid var(--line);}
+  .exam-q:last-child{border-bottom:none;}
+  .exam-q h4{font-size:15.5px;margin-bottom:14px;font-weight:600;}
+  .exam-opt{display:block;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;font-size:14px;transition:border-color .15s,background .15s;}
+  .exam-opt:hover{border-color:var(--teal);}
+  .exam-opt.selected{border-color:var(--teal);background:rgba(45,212,191,0.08);}
+  .exam-opt.correct{border-color:var(--up);background:rgba(61,220,151,0.1);}
+  .exam-opt.wrong{border-color:var(--down);background:rgba(229,107,107,0.1);}
+  .exam-opt input{margin-inline-end:10px;}
+  .exam-result{text-align:center;padding:30px;border-radius:14px;margin-top:10px;}
+  .exam-result.pass{background:rgba(61,220,151,0.08);border:1px solid var(--up);}
+  .exam-result.fail{background:rgba(229,107,107,0.08);border:1px solid var(--down);}
+  .exam-result h3{font-size:22px;margin-bottom:8px;}
+  .exam-result .score{font-family:'JetBrains Mono',monospace;font-size:32px;margin:12px 0;}
+
+  .hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .hub-card{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;
+    padding:24px;display:flex;flex-direction:column;gap:10px;transition:transform .2s,border-color .2s;
+  }
+  .hub-card:hover{transform:translateY(-4px);border-color:var(--teal);}
+  .hub-card .icon{font-size:28px;}
+  .hub-card h3{font-size:16px;font-weight:600;}
+  .hub-card .meta{font-size:12px;color:var(--text-dim);font-family:'JetBrains Mono',monospace;}
+  .hub-card .progress-bar-outer{margin:6px 0 0;}
+
+  .en-content-note{
+    background:rgba(45,212,191,0.08);border:1px solid var(--teal-dim);color:var(--teal);
+    font-size:12.5px;padding:10px 14px;border-radius:10px;margin-bottom:18px;
+  }
+
+  /* locked lesson state */
+  .locked-card{text-align:center;padding:60px 30px;}
+  .locked-card .icon{font-size:44px;margin-bottom:16px;}
+  .locked-card h3{font-size:20px;margin-bottom:10px;font-family:'Cairo',sans-serif;}
+  .locked-card p{color:var(--text-dim);font-size:14px;max-width:420px;margin:0 auto 22px;}
+
+  /* video block */
+  .video-block{position:relative;border-radius:14px;overflow:hidden;margin-bottom:20px;border:1px solid var(--line);background:#000;}
+  .video-block video, .video-block iframe{width:100%;display:block;aspect-ratio:16/9;border:none;background:#000;}
+  .video-watermark{
+    position:absolute;bottom:10px;left:12px;background:rgba(5,13,20,0.72);backdrop-filter:blur(4px);
+    padding:5px 12px;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:700;font-size:12px;color:var(--teal);
+  }
+
+  /* image gallery + lightbox */
+  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:20px;}
+  .gallery-item{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);cursor:zoom-in;background:var(--bg-panel-2);}
+  .gallery-item img{width:100%;height:130px;object-fit:cover;display:block;transition:transform .2s;}
+  .gallery-item:hover img{transform:scale(1.05);}
+  .gallery-watermark{position:absolute;top:8px;left:8px;background:rgba(5,13,20,0.7);color:var(--teal);font-size:10px;font-family:'Cairo',sans-serif;font-weight:700;padding:3px 8px;border-radius:6px;}
+  .gallery-caption{padding:8px 10px;font-size:12px;color:var(--text-dim);background:var(--bg-panel-2);}
+
+  /* flashcards / accordion */
+  .flashcards{margin-bottom:24px;display:flex;flex-direction:column;gap:8px;}
+  .flashcard{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--bg-panel-2);}
+  .flashcard-q{padding:13px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;font-size:14.5px;}
+  .flashcard-q:hover{background:rgba(45,212,191,0.06);}
+  .fc-caret{transition:transform .2s;color:var(--teal);}
+  .flashcard.open .fc-caret{transform:rotate(180deg);}
+  .flashcard-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:13.5px;color:var(--text-dim);padding:0 16px;}
+  .flashcard.open .flashcard-a{max-height:300px;padding:0 16px 16px;}
+
+  /* per-lesson quiz */
+  .quiz-block{background:var(--bg-panel-2);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:24px;}
+  .quiz-block h4{font-size:15px;margin-bottom:12px;font-family:'Cairo',sans-serif;}
+  .quiz-opt{display:block;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;cursor:pointer;font-size:13.5px;background:var(--bg-panel);transition:border-color .15s,background .15s;}
+  .quiz-opt:hover{border-color:var(--teal);}
+  .quiz-opt.selected{border-color:var(--teal);background:rgba(45,212,191,0.08);}
+  .quiz-opt.correct{border-color:var(--up);background:rgba(61,220,151,0.1);}
+  .quiz-opt.wrong{border-color:var(--down);background:rgba(229,107,107,0.1);}
+  .quiz-feedback{margin-top:12px;padding:10px 14px;border-radius:8px;font-size:13.5px;}
+  .quiz-feedback.pass{background:rgba(61,220,151,0.1);color:var(--up);border:1px solid var(--up);}
+  .quiz-feedback.fail{background:rgba(229,107,107,0.1);color:var(--down);border:1px solid var(--down);}
+
+  /* preview mode */
+  .preview-banner{background:rgba(212,162,76,0.1);border:1px solid rgba(212,162,76,.35);color:var(--gold);font-size:13px;padding:10px 16px;border-radius:10px;margin-bottom:18px;}
+  .preview-tag{font-size:9.5px;background:var(--gold);color:#1a1204;padding:2px 6px;border-radius:5px;font-weight:700;margin-inline-start:4px;}
+
+  /* completion badges */
+  .badge-row{margin-top:10px;}
+  .badge-pill{display:inline-flex;align-items:center;gap:4px;background:rgba(212,162,76,0.15);color:var(--gold);font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;}
+
+  /* mobile sidebar toggle */
+  .sidebar-toggle-mobile{
+    display:none;width:100%;background:var(--bg-panel);border:1px solid var(--line);color:var(--text);
+    padding:12px;border-radius:10px;font-size:14px;font-weight:600;margin-bottom:14px;cursor:pointer;
+  }
+
+  @media (max-width:900px){
+    .course-shell{grid-template-columns:1fr;}
+    .course-sidebar{position:static;max-height:none;display:none;}
+    .course-sidebar.mobile-visible{display:block;}
+    .sidebar-toggle-mobile{display:block;}
+    .hub-grid{grid-template-columns:1fr 1fr;}
+    .gallery{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
+  }
+  @media (max-width:600px){ .hub-grid{grid-template-columns:1fr;} }
+</style>
 </head>
 <body>
-<!-- TICKER -->
-<div class="ticker-wrap">
->div class="ticker-label <عمل ات 10 أعلى >/div<
-<div class="ticker-track-outer">
-<div class="ticker-track" id="tickerTrack">
->div class="tick-item mono"<  جاری ت ح م  ل الأسعار /div<
-</div>
-</div>
-</div>
-<!-- NAV -->
-<header class="site">
-<nav>
->div class="brand"
-تانspan class="dot" العرب  /span></div<
-<div class="nav-links" id="navLinks">
->a href="#home" < الرئيسية >/a<
->a href="#about"<من نحن>/a<
-<div class="has-dd" id="eduDropdown">
->button type="button" class="dd-trigger" id="eduTrigger <التعلیم  span class="caret">.</span></button<
-<div class="dd" id="eduDropdownList"></div>
-</div>
->a href="#articles"ال م قال ات >/a<
->a href="#contact"< تو اصل معن /a<
-</div>
-<div class="nav-actions">
->a href="https://t.me/ArabicWhales" class="cta-btn" id="joinBtn"< ان ضم الآن>/a<
->a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding: 9px 18px; font-size:14px;"<تسجيل الدخول >/a<
-<div class="user-badge" id="userBadge" style="display:none;"><span id="userBadgeName"></span> </div>
-</div>
->button class="nav-hamburger" id="navHamburger" aria-label=" القائمة "<
-<span></span><span></span><span></span>
-Page 1
-ArabicWhales.com
-</button>
-</nav>
-</header>
-<!-- HERO -->
-<section class="hero" id="home" style="padding-top:70px;">
-<div>
->div class="eyebrow"><span class="pulse"></span< 2020 عشقون بن منذ 100,000 أكثر من /div<
-index.html
-<h1/> من المقر 3 و الويب <span /> الكريبت و <"span class="accent> بوابتك العربية ل ف ه م <h1>
-محتوی مبسط تحليلات اسبوعية، ومسار حمت ان العرب م ج ت م ع و من مرة تع لدى مرية عربية مرت خمصة بالعملات الرقمية وال استتم از <"p class="lead>
-<p/> . تعلم واضح من المبتدئ الى المحترف
-<div class="actions">
->a href="#education" class="btn-primary"< ابدا التعلم الآن  /a<
->a href="https://t.me/ArabicWhales" class="btn-ghost"  ان ض م ل م ج ت م ع ت ی لی  رام /a<
-</div>
-<div class="stat-row">
- /span></div<
->div class="stat"><b>+100K</b><span<عضو نشط
->div class="stat"><b>32</b><span<درساً تعلیمی  >/span></div<
->div class="stat"><b>2020</b> <span<سنة التأسيس  /span></div<
-</div>
-</div>
-<div class="sonar-wrap">
-<div class="sonar-ring"></div>
-<div class="sonar-ring"></div>
-<div class="sonar-ring"></div>
-<div class="sonar-core"></div>
-<div class="sonar-tag">SIGNAL // ARAB_WHALES</div>
-</div>
-</section>
-<!-- ABOUT -->
-<section id="about">
-<div class="section-head">
->div class="eyebrow"< من نحن>/div<
-<h2/> الابر م ج ت م ع عربي متفاعل في مجال التدريبات و بالشرق الأوسط <h2>
-ل تكون 2020 حيت ان العرب في أكبر منصة عربية تعليمية ومركز تتقي فى بمجال العملات الرقمية وال استتم او بشتى أشكاله، تأسست عام <p>
-<p/>. دليلك الشامل من الألف الى الياء
-</div>
-</section>
-<!-- EDUCATION ->
-<section id="education">
-<div class="section-head">
->div class="eyebrow" <مسار ال ت ع الم  /div<
-Page 2
-ArabicWhales.com
-<h2/> ق و ال م ت ع ل ي م ية مبسطة خطوة بخطوة <h2>
-اخترنا لك اربعة مسارات واضحة بدل عشرات القوائم المتفرقة <p>
-<p/>. اختر مست وال وابدأ فوراً
-</div>
-<div class="edu-grid">
-<a class="edu-card" href="course.html?track=digital-currencies">
-<div class="edu-icon"></div>
-<h3/> مسار العملات الرقمية <h3>
-<p/>. لال مست وی ب دروسه واختبار اج تی از خاص ( اس اسی مرت و سطر متقدم مست وی ات كاملة 3<p>
->div class="level" <اس اسری الی متقدم : المست وی >/div<
-</a>
-<a class="edu-card" href="course.html?track=trading">
-<div class="edu-icon"></div>
->h3< التداول >/h3<
-<p/>. ما هو التداول من ماته اوامر البيع والشراء، ومخاطره وأمانه <p>
->div class="level"<8 دروس >/div<
-</a>
-<a class="edu-card" href="course.html?track=web3">
-<div class="edu-icon">@</div>
-<h3/> و ال م س ت قبل h3>Web3>
-<p/>. وفرص العمل في عالم الويب اللام رازی DAO الهوية الرقمية ال <p>
->div class="level"< دروس >/div<
-</a>
-<a class="edu-card" href="course.html?track=security">
-<div class="edu-icon"></div>
-<h3/> الأمان وحماية ال أصول <h3>
-<p/>. انواع الاحتيال، حماية المحافظ والتحقق من المشاريع قبل الاستثمار <p>
->div class="level"<4 دروس >/div<
-</a>
-</div>
-<div style="text-align:center; margin-top: 26px; ">
->a href="course.html" class="btn-ghost"<12 عرض كل المسارات ال /a<
-</div>
-</section>
-<!-- ARTICLES -->
-<section id="articles">
-<div class="section-head">
->div class="eyebrow"  أحدث ال محتوی  /div<
-<h2/> أبرز المقالات <h2>
-</div>
-<div class="articles-grid">
-<div class="article-card main">
->div class="article-img"
-<div class="article-body">
-صورة المقال  /div<
-Page 3
-index.html
-ArabicWhales.com
->span class="article-tag"<اكاديمية الحيتان  /span<
-<h3/> محرك العوائد الذلي لرأس مال البيتكوين : 2.0 Bedrock مشروع <h3>
-<Jo</p  زلت تطارد اعلى نسبة عائد سان وي دون أن تسال عن مردی است دام شده ؟ <p>
->span class="article-meta"< 2026 یونی و>/span<
-</div>
-</div>
-<div class="article-card">
-<div class="article-img"></div>
-<div class="article-body">
->span class="article-tag"<اكاديمية الحيتان  /span<
-<h3/> دل ى لك النهائي لتأمرين محفظتك قبل فوات الأوان <h3>
->span class="article-meta 2026 أبريل>/span<
-</div>
-</div>
-<div class="article-card">
-<div class="article-img"></div>
-<div class="article-body">
->span class="article-tag"<اكاديمية الحعت ان  /span<
-<h3/> عقود 4 الذهب عسجل أسوا أداء أسبوعي من 5 <h3>
->span class="article-meta 2026 مارس /span<
-</div>
-</div>
-<div class="article-card">
-<div class="article-img">B</div>
-<div class="article-body">
->span class="article-tag"<التداول  /span<
-<h3/>2025 أول إشارة صعود حقيقية من ذ <h3>
->span class="article-meta 2026 أبريل>/span<
-</div>
-</div>
-<div class="article-card">
-<div class="article-img"></div>
-<div class="article-body">
->span class="article-tag"<التداول  /span<
-<h3/> ل قفزة البيتكوين؟ "ال وقود العفري" لماذا قد علون انفجار أسعار النفط <h3>
->span class="article-meta 2026 مارس>/span<
-</div>
-</div>
-</div>
-</section>
-<!-- СТА -->
-<section id="contact">
-<div class="cta-band">
-Page 4
-index.html
-ArabicWhales.com
-<div>
-<h2/>ه ز تبدا رحلتك في عالم الكاريبت و ؟ <h2>
-<p/> . ع ض و يتابعون التحليلات والدروس الدي ومرية على تی لی جا رام 100,000 انعام الى اكثر من <p>
-</div>
->a href="https://t.me/ArabicWhales" class="btn-primary"< ان هم الدين | الآن>/a<
-</div>
-</section>
-<!-- FOOTER -->
-<footer>
-<div class="footer-inner">
-<div class="footer-col">
->div class="brand" style="font-size:17px; margin-bottom:14px;"< عتان العرب >/div<
->p style="font-size:13px; color:var(--text-dim); max-width:260px;"< أكبر منصة عربية تعليمية بمجال العملات الرقمية تأسست
-2020.</p>
-</div>
-<div class="footer-col">
- h4<روابط  /h4<
->a href="#about"<من نحن>/a<
->a href="#education"  التعلیم  /a<
->a href="#articles" المقالات  /a<
->a href="#contact"< ت و اصل معن>/a<
-</div>
-<div class="footer-col">
-<h4/> ت ا ب ع ن | <h4>
->a href="https://t.me/ArabicWhales"  ی ل   ر ا م >/a<
->a href="https://x.com/ArabicWhales تویتر  /a<
->a href="https://www.instagram.com/arabic.whales"< ن ست غرام>/a<
-<a href="https://www.binance.com/ar/square/profile/Arabicwhales
-</div>
-</div>
-<div class="footer-bottom">
-Square</a>
-<div/> جميع الحقوق محفوظة ل م ج ت م ع حمدان العرب 2026 <div>
-<div/> ال أس ع از مقدمة ل أغراض تعليمية وليست نصيحة استثمارية <div>
-</div>
-</footer>
+
+  <div class="ticker-wrap">
+    <div class="ticker-label">أعلى 10 عملات</div>
+    <div class="ticker-track-outer">
+      <div class="ticker-track" id="tickerTrack">
+        <div class="tick-item mono">جاري تحميل الأسعار...</div>
+      </div>
+    </div>
+  </div>
+
+  <header class="site">
+    <nav>
+      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" data-i18n="nav_home">الرئيسية</a>
+        <a href="index.html#about" data-i18n="nav_about">من نحن</a>
+        <div class="has-dd" id="eduDropdown">
+          <button type="button" class="dd-trigger" id="eduTrigger" data-i18n="nav_edu">التعليم <span class="caret">▾</span></button>
+          <div class="dd" id="eduDropdownList"></div>
+        </div>
+        <a href="index.html#articles" data-i18n="nav_articles">المقالات</a>
+        <a href="index.html#contact" data-i18n="nav_contact">تواصل معنا</a>
+      </div>
+      <div class="nav-actions">
+        <a href="https://t.me/ArabicWhales" class="cta-btn" id="joinBtn" data-i18n="nav_join">انضم الآن</a>
+        <a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding:9px 18px;font-size:14px;" data-i18n="nav_login">تسجيل الدخول</a>
+        <div class="user-badge" id="userBadge" style="display:none;"><span id="userBadgeName"></span> 🐳</div>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <button class="lang-fab" id="langToggle">🌐 EN</button>
+
+  <!-- Login-required modal -->
+  <div id="loginModalOverlay" style="display:none;position:fixed;inset:0;z-index:300;background:rgba(2,6,9,0.75);backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:20px;">
+    <div style="max-width:380px;width:100%;background:var(--bg-panel);border:1px solid var(--line);border-radius:16px;padding:32px;text-align:center;">
+      <div style="font-size:36px;margin-bottom:10px;">🔒</div>
+      <h3 id="modalTitle" style="font-size:18px;margin-bottom:10px;font-family:'Cairo',sans-serif;">يرجى تسجيل الدخول أولاً</h3>
+      <p id="modalBody" style="color:var(--text-dim);font-size:14px;margin-bottom:22px;">للوصول إلى هذا المحتوى التعليمي، تحتاج لتسجيل الدخول أو إنشاء حساب أولاً.</p>
+      <div style="display:flex;gap:10px;">
+        <button class="btn-ghost" id="modalCancel" style="flex:1;" onclick="closeLoginModal()">إلغاء</button>
+        <a href="auth.html" class="btn-primary" id="modalConfirm" style="flex:1;text-align:center;">تسجيل الدخول</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Image lightbox -->
+  <div id="lightboxOverlay" style="display:none;position:fixed;inset:0;z-index:310;background:rgba(2,6,9,0.9);align-items:center;justify-content:center;padding:24px;cursor:zoom-out;">
+    <div style="max-width:900px;width:100%;text-align:center;">
+      <img id="lightboxImg" src="" alt="" style="max-width:100%;max-height:80vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+      <p id="lightboxCaption" style="color:var(--text-dim);font-size:13.5px;margin-top:14px;"></p>
+      <button class="btn-ghost" style="margin-top:10px;" onclick="closeLightbox()">✕</button>
+    </div>
+  </div>
+
+  <section style="padding-bottom:0;" id="pageHeadSection">
+    <div class="eyebrow" id="pageEyebrow">مسار تعليمي متكامل</div>
+    <h1 style="font-size:32px;font-weight:900;margin:16px 0 10px;" id="pageMainTitle">المسارات التعليمية</h1>
+    <p style="color:var(--text-dim);font-size:15.5px;max-width:640px;" id="pageSubtitle">اختر مساراً وابدأ التعلم خطوة بخطوة.</p>
+  </section>
+
+  <div id="hubWrap" class="course-shell" style="display:none;grid-template-columns:1fr;">
+    <div class="hub-grid" id="hubGrid"></div>
+  </div>
+
+  <div id="trackWrap" class="course-shell" style="display:none;">
+    <button class="sidebar-toggle-mobile" id="sidebarToggleMobile" data-i18n="toggle_lessons">☰ قائمة الدروس</button>
+    <aside class="course-sidebar" id="sidebar"></aside>
+    <main class="course-main" id="mainPane"></main>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <div class="brand" style="font-size:17px;margin-bottom:14px;">🐋 حيتان العرب</div>
+        <p style="font-size:13px;color:var(--text-dim);max-width:260px;">أكبر منصة عربية تعليمية بمجال العملات الرقمية، تأسست 2020.</p>
+      </div>
+      <div class="footer-col">
+        <h4>روابط</h4>
+        <a href="index.html#about">من نحن</a>
+        <a href="course.html">المسارات التعليمية</a>
+        <a href="index.html#articles">المقالات</a>
+        <a href="index.html#contact">تواصل معنا</a>
+      </div>
+      <div class="footer-col">
+        <h4>تابعنا</h4>
+        <a href="https://t.me/ArabicWhales">تيليجرام</a>
+        <a href="https://x.com/ArabicWhales">X (تويتر)</a>
+        <a href="https://www.instagram.com/arabic.whales">إنستغرام</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 جميع الحقوق محفوظة لمجتمع حيتان العرب</div>
+      <div>الأسعار مقدّمة لأغراض تعليمية وليست نصيحة استثمارية</div>
+    </div>
+  </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="config.js"></script>
 <script src="course-data.js"></script>
-<script>
-/* Hamburger menu */
-document.getElementById('navHamburger').addEventListener('click', () => {
-document.getElementById('navLinks').classList.toggle('mobile-open');
-Page 5
-index.html
-ArabicWhales.com
-});
-/ Auth-aware nav: hide login/join buttons and show username badge when logged in */
-async function updateAuthNavUI() {
-let loggedIn false, username
-null;
-if (typeof IS_BACKEND_CONFIGURED !== 'undefined' && IS_BACKEND_CONFIGURED) {
-const { data: { session} $\}=$ await supabaseClient.auth.getSession();
-if (session && session.user.email_confirmed_at) {
-true;
-session.user.user_metadata?.username
-loggedIn
-username
-}
-} else {
-const demoSession
-if (demoSession) {
-session.user.email.split('@')[0];
-localStorage.getItem('aw_demo_session');
-const s JSON.parse (demoSession);
-loggedIn
-username
-}
-}
-true;
-s.username
-s.email.split('@')[0];
-}
-document.getElementById('joinBtn').style.display  loggedIn? 'none'
-document.getElementById('authNavBtn').style.display  loggedIn? 'none': '';
-document.getElementById('userBadge').style.display loggedIn? 'flex': 'none';
-if (loggedIn) document.getElementById('userBadgeName').textContent = username;
-updateAuthNavUI();
-function buildEduDropdown () {
-}
-const list document.getElementById('eduDropdownList');
-let html = '';
-Object.keys (TRACKS).forEach(id => {
-const t TRACKS [id ;
-const tag = t.type === 'leveled'? 3 مست ویات : )t.lessons.length +  دروس (;
-html +=  <a href="course.html?track=\${id}">\${t.icon || '' \$ t.title} <span class="tag">\$ tag)</span></a>';
-});
-list.innerHTML  html;
-buildEduDropdown();
-// Static fallback so the bar is never empty if every live source fails (e.g. offline sandbox, rate limit)
-const FALLBACK_COINS = [
-{symbol: 'BTC', price:'-',
-chg:null},
-{symbol: 'ETH', price:'-',
-chg:null},
-{symbol: 'USDT', price:'-', chg:null},
-{symbol: 'BNB', price:'-',
-chg:null},
-Page 6
-index.html
-ArabicWhales.com
-1;
-{symbol: 'SOL',
-price:'-',
-price:'- ,
-chg:null},
-chg:null},
-{symbol: 'XRP',
-{symbol: 'USDC', price:'-', chg:null},
-{symbol: 'ADA',
-price:'- ,
-chg:null},
-{symbol: 'DOGE', price:'-', chg:null},
-price:'- ,
-chg:null},
-{symbol: 'TRX',
-function fetchWithTimeout (url, $ms=80000${
-}
-const controller  new AbortController();
-const id setTimeout( $()=>$ controller.abort(), ms);
-return fetch (url, (signal:controller.signal}).finally(()=>clearTimeout(id));
-function renderTicker (coins) {
-const track document.getElementById('tickerTrack');
-const items coins.map $(c\Rightarrow1$
-if(c.chg === null) {
-}
-return <div class="tick-item">
-<span class="tick-sym">\${c.symbol}</span>
-<span class="tick-price">\${c.price}</span>
-</div>';
-const chgClassc.chg $>=0$ ?
-const arrow= c.chg >= 0
-return '<div class="tick-item">
-'up': 'down';
-;
-<span class="tick-sym">\${c.symbol}</span>
-<span class="tick-price">\$\${c.price}</span>
-<span class="tick-chg \${chgClass}">\${arrow} \${ Math.abs(c.chg).toFixed (2))</span>
-</div>';
-}).join('');
-track.innerHTML
-items + items; // duplicated for seamless loop
-}
-index.html
-// Source 1: CoinGecko (primary)
-async function tryCoinGecko () {
-const res await fetchWithTimeout('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=
-10&page=1&price_change_percentage $=24h^{\prime}$);
-if(!res.ok) throw new Error('coingecko http+res.status);
-const data await res.json();
-if(!Array.isArray (data) || data.length == 0) throw new Error('coingecko empty response');
-return data.map(c => ({
-symbol: c.symbol.toUpperCase(),
-price: c.current_price > 1 ? c.current_price.toLocaleString('en-US', {maximumFractionDigits:2}):
-Page 7
-ArabicWhales.com
-c.current_price.toPrecision (4),
-chg: c.price_change_percentage_24h ?? 0
-}));
-}
-// Source 2: CoinCap (fallback if CoinGecko is rate-limited or blocked)
-async function tryCoinCap() {
-const res await fetchWithTimeout('https://api.coincap.io/v2/assets?limit=10');
-if(!res.ok) throw new Error('coincap http res.status);
-const json await res.json();
-const data = json.data;
-if(!Array.isArray (data) || data.length == 0) throw new Error('coincap empty response');
-return data.map(c => {
-const price
-parseFloat (c.priceUsd);
-const chg parseFloat(c.changePercent24Hr);
-return {
-symbol: c.symbol.toUpperCase(),
-price: price $>=1?$ price.toLocaleString('en-US', {maximumFractionDigits:2)): price.toPrecision(4),
-chg: isNaN(chg) 20 chg
-};
-});
-}
-let tickerRetries $=0$
-async function loadTicker(){
-const track
-try{
-document.getElementById('tickerTrack');
-const coins await tryCoinGecko();
-renderTicker(coins);
-tickerRetries
-return;
- catch(e1) (
-$=0$;
-console.warn('CoinGecko failed, trying CoinCap:', el.message);
-try{
-const coins await tryCoinCap();
-renderTicker (coins);
-tickerRetries $=0$;
-return;
-}catch(e2){
-console.warn('CoinCap failed too:', e2.message);
-tickerRetries++;
-if (tickerRetries === 1) {
-track.innerHTML  '<div class="tick-item mono"<جاری اعادة محاولة تحميل الأسع ار...>/div<';
-Page 8
-index.html
-ArabicWhales.com
-}else{
-}
-}
-renderTicker (FALLBACK_COINS);
-}
-setTimeout (loadTicker, 12000);
-}
-loadTicker();
-set Interval (loadTicker, 60000);
-// Education dropdown: click/tap toggle (works on desktop + mobile), closes on outside click
-const eduDropdown document.getElementById('eduDropdown');
-const eduTrigger document.getElementById('eduTrigger');
-eduTrigger.addEventListener('click', (e) => {
-e.stopPropagation();
-eduDropdown.classList.toggle('open');
-});
-document.addEventListener('click', (e) => {
-if (!eduDropdown.contains(e.target)) {
-});
-}
-eduDropdown.classList.remove('open');
-eduDropdown.querySelectorAll('.dd a').forEach (link => {
-link.addEventListener('click', $()=>$ eduDropdown.classList.remove('open'));
-});
-</script>
+<script src="course.js"></script>
 </body>
 </html>
-Page 9
-index.html
