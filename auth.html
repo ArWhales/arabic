@@ -7,135 +7,61 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<!-- تضمين مكتبة Supabase الرسمية -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <style>
-  .auth-shell {
-    min-height: calc(100vh - 200px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 24px;
+  .auth-shell{
+    min-height:calc(100vh - 200px);
+    display:flex;align-items:center;justify-content:center;
+    padding:60px 24px;
   }
-  .auth-card {
-    width: 100%;
-    max-width: 420px;
-    background: var(--bg-panel);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 38px 34px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  .auth-card{
+    width:100%;max-width:420px;
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:20px;
+    padding:38px 34px;
   }
-  .auth-tabs {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 26px;
-    background: var(--bg-panel-2);
-    border-radius: 12px;
-    padding: 4px;
+  .auth-tabs{display:flex;gap:8px;margin-bottom:26px;background:var(--bg-panel-2);border-radius:12px;padding:4px;}
+  .auth-tab{flex:1;text-align:center;padding:10px;border-radius:9px;cursor:pointer;font-family:'Cairo',sans-serif;font-weight:600;font-size:14px;color:var(--text-dim);}
+  .auth-tab.active{background:var(--teal);color:#03110f;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;color:var(--text-dim);margin-bottom:6px;}
+  .field input{
+    width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line);
+    background:var(--bg-deep);color:var(--text);font-size:14px;font-family:inherit;
   }
-  .auth-tab {
-    flex: 1;
-    text-align: center;
-    padding: 10px;
-    border-radius: 9px;
-    cursor: pointer;
-    font-family: 'Cairo', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--text-dim);
-    transition: all 0.25s ease;
+  .field input:focus{outline:none;border-color:var(--teal);}
+  .auth-submit{width:100%;margin-top:6px;}
+  .auth-note{
+    font-size:12.5px;color:var(--text-dim);text-align:center;margin-top:18px;line-height:1.8;
   }
-  .auth-tab.active {
-    background: var(--teal);
-    color: #03110f;
+  .demo-banner{
+    background:rgba(212,162,76,0.1);border:1px solid rgba(212,162,76,0.35);
+    color:var(--gold);font-size:12.5px;padding:10px 14px;border-radius:10px;
+    margin-bottom:20px;text-align:center;
   }
-  .field {
-    margin-bottom: 16px;
-  }
-  .field label {
-    display: block;
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-  }
-  .field input {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    background: var(--bg-deep);
-    color: var(--text);
-    font-size: 14px;
-    font-family: inherit;
-    transition: border-color 0.2s ease;
-  }
-  .field input:focus {
-    outline: none;
-    border-color: var(--teal);
-  }
-  .auth-submit {
-    width: 100%;
-    margin-top: 6px;
-  }
-  .auth-note {
-    font-size: 12.5px;
-    color: var(--text-dim);
-    text-align: center;
-    margin-top: 18px;
-    line-height: 1.8;
-  }
-  .demo-banner {
-    background: rgba(212, 162, 76, 0.1);
-    border: 1px solid rgba(212, 162, 76, 0.35);
-    color: var(--gold);
-    font-size: 12.5px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    line-height: 1.6;
-  }
-  .msg {
-    font-size: 13.5px;
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin-bottom: 16px;
-    display: none;
-    text-align: center;
-  }
-  .msg.error {
-    background: rgba(229, 107, 107, 0.1);
-    border: 1px solid var(--down);
-    color: var(--down);
-    display: block;
-  }
-  .msg.success {
-    background: rgba(61, 220, 151, 0.1);
-    border: 1px solid var(--up);
-    color: var(--up);
-    display: block;
-  }
+  .msg{font-size:13.5px;padding:10px 12px;border-radius:8px;margin-bottom:16px;display:none;}
+  .msg.error{background:rgba(229,107,107,0.1);border:1px solid var(--down);color:var(--down);display:block;}
+  .msg.success{background:rgba(61,220,151,0.1);border:1px solid var(--up);color:var(--up);display:block;}
 </style>
 </head>
 <body>
   <header class="site">
     <nav>
       <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
-      <div class="nav-links">
+      <div class="nav-links" id="navLinks">
         <a href="index.html">الرئيسية</a>
         <a href="course.html">المسارات التعليمية</a>
       </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="القائمة" style="margin-inline-start:auto;">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
   </header>
 
   <div class="auth-shell">
     <div class="auth-card">
-      <!-- بنر الوضع التجريبي النشط للمحاكاة المحلية -->
       <div id="demoBanner" class="demo-banner" style="display:none;">
-        🔧 <strong>وضع تجريبي نشط:</strong> لم يتم ربط خادم قاعدة البيانات بعد. يمكنك استخدام أي بريد إلكتروني افتراضي لتجربة الأكاديمية.
+        🔧 وضع تجريبي — لم يتم ربط قاعدة بيانات بعد. راجع ملف <code>config.js</code> لتفعيل حسابات حقيقية.
       </div>
-      
       <div class="auth-tabs">
         <div class="auth-tab active" id="tabLogin" onclick="switchTab('login')">تسجيل الدخول</div>
         <div class="auth-tab" id="tabSignup" onclick="switchTab('signup')">إنشاء حساب</div>
@@ -160,17 +86,20 @@
       </form>
 
       <p class="auth-note" id="verifyNote" style="display:none;">
-        📧 <strong>تأكيد البريد الإلكتروني:</strong> تم إرسال رابط التحقق بنجاح. يرجى مراجعة صندوق الوارد والضغط على الرابط لتفعيل حسابك قبل الدخول للمسارات.
+        تم إرسال رابط تحقق إلى بريدك الإلكتروني. افتح بريدك واضغط الرابط لتفعيل حسابك قبل الدخول للمسارات التعليمية.
       </p>
     </div>
   </div>
 
-<!-- استدعاء ملف الإعدادات للتحقق من تهيئة الـ Backend -->
 <script src="config.js"></script>
+<script>
+document.getElementById('navHamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('mobile-open');
+});
+</script>
 <script>
 let mode = "login";
 
-// تبديل الواجهة بين تسجيل الدخول وإنشاء الحساب
 function switchTab(m){
   mode = m;
   document.getElementById('tabLogin').classList.toggle('active', m === 'login');
@@ -181,28 +110,23 @@ function switchTab(m){
   document.getElementById('verifyNote').style.display = 'none';
 }
 
-// عرض بنر التنبيه في حال كان النظام يعمل في الوضع التجريبي المحلي
-if(typeof IS_BACKEND_CONFIGURED !== 'undefined' && !IS_BACKEND_CONFIGURED){
+if(!IS_BACKEND_CONFIGURED){
   document.getElementById('demoBanner').style.display = 'block';
 }
 
-// معالجة إرسال النموذج وحماية الجلسة
 document.getElementById('authForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('email').value.trim();
   const password = document.getElementById('password').value;
   const usernameInput = document.getElementById('username').value.trim();
   const msgBox = document.getElementById('msgBox');
-  const verifyNote = document.getElementById('verifyNote');
-  
   msgBox.style.display = 'none';
-  verifyNote.style.display = 'none';
 
-  // --- 1. معالجة الوضع التجريبي المحلي (Local Demo Mode) ---
-  if(typeof IS_BACKEND_CONFIGURED !== 'undefined' && !IS_BACKEND_CONFIGURED){
+  if(!IS_BACKEND_CONFIGURED){
+    // Demo mode: keep a simple email -> username directory so returning users
+    // (logging in, not signing up) still get their username back.
     const directory = JSON.parse(localStorage.getItem('aw_username_directory') || '{}');
     let username;
-    
     if(mode === 'signup'){
       username = usernameInput || email.split('@')[0];
       directory[email] = username;
@@ -210,58 +134,39 @@ document.getElementById('authForm').addEventListener('submit', async (e) => {
     } else {
       username = directory[email] || email.split('@')[0];
     }
-    
-    // حفظ الجلسة التجريبية لتأمين حماية لوحة التحكم والمسارات التعليمية
     localStorage.setItem('aw_demo_session', JSON.stringify({email, username, ts: Date.now()}));
-    
     msgBox.className = 'msg success';
-    msgBox.textContent = 'تم تسجيل الدخول بنجاح (وضع تجريبي). جاري توجيهك...';
+    msgBox.textContent = 'تم تسجيل الدخول (وضع تجريبي — لا يوجد تحقق حقيقي من البريد بعد).';
     msgBox.style.display = 'block';
-    
     setTimeout(() => window.location.href = 'course.html', 900);
     return;
   }
 
-  // --- 2. معالجة الربط السحابي الحقيقي مع خادم Supabase ---
-  try {
-    if(typeof supabaseClient === 'undefined'){
-      throw new Error("فشل الاتصال بـ Supabase. يرجى التحقق من إعدادات ملف config.js");
-    }
-
-    if(mode === 'signup') {
+  try{
+    if(mode === 'signup'){
       const { data, error } = await supabaseClient.auth.signUp({
-        email, 
-        password,
-        options: { 
-          data: { username: usernameInput || email.split('@')[0] } 
-        }
+        email, password,
+        options: { data: { username: usernameInput || email.split('@')[0] } }
       });
       if(error) throw error;
-      
-      verifyNote.style.display = 'block';
+      document.getElementById('verifyNote').style.display = 'block';
       msgBox.className = 'msg success';
-      msgBox.textContent = 'تم إنشاء الحساب بنجاح! يرجى تأكيد البريد الإلكتروني.';
+      msgBox.textContent = 'تم إنشاء الحساب بنجاح.';
       msgBox.style.display = 'block';
     } else {
       const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
       if(error) throw error;
-      
-      // التحقق من تفعيل الحساب عبر البريد الإلكتروني
-      if(data.user && !data.user.email_confirmed_at){
-        verifyNote.style.display = 'block';
-        msgBox.className = 'msg error';
-        msgBox.textContent = 'يرجى تفعيل حسابك عبر رابط التحقق المرسل لبريدك الإلكتروني أولاً.';
-        msgBox.style.display = 'block';
+      if(!data.user.email_confirmed_at){
+        document.getElementById('verifyNote').style.display = 'block';
         return;
       }
-      
       window.location.href = 'course.html';
     }
-  } catch (err) {
+  }catch(err){
     msgBox.className = 'msg error';
     msgBox.textContent = err.message === 'Invalid login credentials'
       ? 'البريد الإلكتروني أو كلمة المرور غير صحيحة.'
-      : (err.message || 'حدث خطأ أثناء الاتصال بالخادم، حاول مرة أخرى.');
+      : (err.message || 'حدث خطأ، حاول مرة أخرى.');
     msgBox.style.display = 'block';
   }
 });
