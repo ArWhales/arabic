@@ -3,39 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>حيتان العرب | البوابة العربية لتعلم الكريبتو والويب 3</title>
+<title>حيتان العرب | البوابة العربية لتعلم الكريبتو والويب 3 🚀</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* تنسيقات إضافية لمساحات الوسائط المخصصة (Media Placeholders) */
+  .media-placeholder {
+      background-color: #e0e7ff;
+      border: 2px dashed #4f46e5;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #4f46e5;
+      font-weight: bold;
+      padding: 30px;
+  }
+  .media-placeholder small {
+      color: #6b7280;
+      font-weight: normal;
+      margin-top: 10px;
+      font-size: 0.85rem;
+  }
+</style>
 </head>
 <body>
 
-  <!-- TICKER -->
+  <!-- شريط الأسعار (TICKER) -->
   <div class="ticker-wrap">
-    <div class="ticker-label">أعلى 10 عملات</div>
+    <div class="ticker-label">🏆 أعلى 10 عملات</div>
     <div class="ticker-track-outer">
       <div class="ticker-track" id="tickerTrack">
-        <div class="tick-item mono">جاري تحميل الأسعار...</div>
+        <div class="tick-item mono">⏳ جاري تحميل الأسعار...</div>
       </div>
     </div>
   </div>
 
-  <!-- NAV -->
+  <!-- القائمة العلوية (NAV) -->
   <header class="site">
     <nav>
-      <div class="brand">🐋 حيتان <span class="dot">العرب</span></div>
+      <div class="brand">🐳 حيتان <span class="dot">العرب</span></div>
       <div class="nav-links" id="navLinks">
-        <a href="#home">الرئيسية</a>
-        <a href="#about">من نحن</a>
+        <a href="#home">🏠 الرئيسية</a>
+        <a href="#about">ℹ️ من نحن</a>
         <div class="has-dd" id="eduDropdown">
-          <button type="button" class="dd-trigger" id="eduTrigger">التعليم <span class="caret">▾</span></button>
+          <button type="button" class="dd-trigger" id="eduTrigger">📚 التعليم <span class="caret">▾</span></button>
           <div class="dd" id="eduDropdownList"></div>
         </div>
-        <a href="#articles">المقالات</a>
-        <a href="#contact">تواصل معنا</a>
+        <a href="#articles">📝 المقالات</a>
+        <a href="#contact">📞 تواصل معنا</a>
       </div>
       <div class="nav-actions">
-        <a href="https://t.me/ArabicWhales" class="cta-btn" id="joinBtn">انضم الآن</a>
+        <a href="https://t.me/ArabicWhales" class="cta-btn" id="joinBtn">🚀 انضم الآن</a>
         <a href="auth.html" class="btn-ghost" id="authNavBtn" style="padding:9px 18px;font-size:14px;">تسجيل الدخول</a>
         <div class="user-badge" id="userBadge" style="display:none;"><span id="userBadgeName"></span> 🐳</div>
       </div>
@@ -45,177 +67,118 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- القسم الرئيسي (HERO) -->
   <section class="hero" id="home" style="padding-top:70px;">
     <div>
-      <div class="eyebrow"><span class="pulse"></span> أكثر من 100,000 يثقون بنا منذ 2020</div>
-      <h1>بوابتك العربية لفهم <span class="accent">الكريبتو</span> والويب 3 من الصفر</h1>
+      <div class="eyebrow"><span class="pulse"></span> أكثر من 100,000 يثقون بنا منذ 2020 🌟</div>
+      <h1>بوابتك العربية لفهم <span class="accent">الكريبتو</span> والويب 3 من الصفر 🚀</h1>
       <p class="lead">حيتان العرب مجتمع ومنصة تعليمية عربية متخصصة بالعملات الرقمية والاستثمار — محتوى مبسّط، تحليلات أسبوعية، ومسار تعلّم واضح من المبتدئ إلى المحترف.</p>
       <div class="actions">
-        <a href="#education" class="btn-primary">ابدأ التعلّم الآن</a>
-        <a href="https://t.me/ArabicWhales" class="btn-ghost">انضم لمجتمع تيليجرام</a>
+        <a href="#education" class="btn-primary">🎓 ابدأ التعلّم الآن</a>
+        <a href="https://t.me/ArabicWhales" class="btn-ghost">💬 انضم لمجتمع تيليجرام</a>
       </div>
-      <div class="stat-row">
-        <div class="stat"><b>+100K</b><span>عضو نشط</span></div>
-        <div class="stat"><b>32</b><span>درساً تعليمياً</span></div>
-        <div class="stat"><b>2020</b><span>سنة التأسيس</span></div>
+      
+      <!-- إضافة مساحة مطابقة الوسائط (فيديو ترحيبي) -->
+      <div class="media-placeholder" style="margin-top: 40px; min-height: 200px;">
+        🎥 [مكان مخصص لفيديو تعريفي قصير عن المنصة]
+        <small>قم بوضع فيديو أو صورة متحركة (GIF) ترحيبية هنا لجذب المستخدمين (src="assets/videos/intro.mp4")</small>
+      </div>
+
+      <div class="stat-row" style="margin-top: 40px;">
+        <div class="stat"><b>+100K</b><span>عضو نشط 👥</span></div>
+        <div class="stat"><b>32</b><span>درساً تعليمياً 📖</span></div>
+        <div class="stat"><b>2020</b><span>سنة التأسيس 🏛️</span></div>
       </div>
     </div>
     <div class="sonar-wrap">
       <div class="sonar-ring"></div>
       <div class="sonar-ring"></div>
       <div class="sonar-ring"></div>
-      <div class="sonar-core">🐋</div>
+      <div class="sonar-core">🐳</div>
       <div class="sonar-tag">SIGNAL // ARAB_WHALES</div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- قسم من نحن (ABOUT) -->
   <section id="about">
     <div class="section-head">
-      <div class="eyebrow">من نحن</div>
+      <div class="eyebrow">من نحن 💡</div>
       <h2>أكبر مجتمع عربي متفاعل في مجال الكريبتو بالشرق الأوسط</h2>
       <p>حيتان العرب هي أكبر منصة عربية تعليمية ومركز تثقيفي بمجال العملات الرقمية والاستثمار بشتى أشكاله، تأسست عام 2020 لتكون دليلك الشامل من الألف إلى الياء.</p>
     </div>
   </section>
 
-  <!-- EDUCATION -->
+  <!-- مسار التعلم (EDUCATION) -->
   <section id="education">
     <div class="section-head">
-      <div class="eyebrow">مسار التعلّم</div>
-      <h2>قوائم تعليمية مبسّطة، خطوة بخطوة</h2>
-      <p>اخترنا لك المسارات الواضحة لتختار مستواك وتبدأ فوراً.</p>
+      <div class="eyebrow">مسار التعلّم 🛤️</div>
+      <h2>قوائم تعليمية مبسّطة، خطوة بخطوة 🧠</h2>
+      <p>اخترنا لك أربعة مسارات واضحة بدل عشرات القوائم المتفرقة — اختر مستواك وابدأ فوراً.</p>
     </div>
     <div class="edu-grid">
       <a class="edu-card" href="course.html?track=digital-currencies">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M14.8 9A3.5 3.5 0 0 0 12 7.5h-1v9h1a3.5 3.5 0 0 0 2.8-5.5z"></path><line x1="11" y1="7.5" x2="11" y2="6"></line><line x1="13" y1="18" x2="13" y2="16.5"></line></svg>
-        </div>
+        <div class="edu-icon">💎</div>
         <h3>مسار العملات الرقمية</h3>
         <p>3 مستويات كاملة (أساسي، متوسط، متقدم)، كل مستوى بدروسه واختبار اجتياز خاص.</p>
         <div class="level">المستوى: أساسي إلى متقدم</div>
       </a>
       <a class="edu-card" href="course.html?track=trading">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
-        </div>
-        <h3>التداول</h3>
+        <div class="edu-icon">📈</div>
+        <h3>التداول والتحليل</h3>
         <p>ما هو التداول، منصاته، أوامر البيع والشراء، ومخاطره وأمانه.</p>
         <div class="level">8 دروس</div>
       </a>
       <a class="edu-card" href="course.html?track=web3">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-        </div>
+        <div class="edu-icon">🌐</div>
         <h3>Web3 والمستقبل</h3>
         <p>الهوية الرقمية، الـ DAO، وفرص العمل في عالم الويب اللامركزي.</p>
         <div class="level">5 دروس</div>
       </a>
       <a class="edu-card" href="course.html?track=security">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        </div>
+        <div class="edu-icon">🔒</div>
         <h3>الأمان وحماية الأصول</h3>
         <p>أنواع الاحتيال، حماية المحافظ، والتحقق من المشاريع قبل الاستثمار.</p>
         <div class="level">4 دروس</div>
       </a>
-      <a class="edu-card" href="course.html?track=wallets">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"></path><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path></svg>
-        </div>
-        <h3>المحافظ الرقمية</h3>
-        <p>أنواع المحافظ، الساخنة والباردة، وكيفية تأمين المفاتيح الخاصة.</p>
-        <div class="level">8 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=crypto-basics">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-2v4zm0-4h1.5a1.5 1.5 0 1 0 0-3H11v3zm0 4v3h-1.5V15H11zm-1.5-7V7H11v1H9.5z"></path><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"></path></svg>
-        </div>
-        <h3>ما هو الكريبتو والبيتكوين؟</h3>
-        <p>فهم جذور العملات الرقمية والبيتكوين وكيف تعمل الشبكة.</p>
-        <div class="level">8 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=ethereum-smart-contracts">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-        </div>
-        <h3>الإيثريوم والعقود الذكية</h3>
-        <p>التعرف على عالم العقود الذكية والمنصات القابلة للبرمجة.</p>
-        <div class="level">10 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=blockchain">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-        </div>
-        <h3>ما هو البلوكشين؟</h3>
-        <p>شرح تقنية الكتل المتسلسلة وآليات الإجماع الأساسية.</p>
-        <div class="level">7 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=stablecoins">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle><path d="M6 12h.01M18 12h.01"></path></svg>
-        </div>
-        <h3>العملات المستقرة Stablecoins</h3>
-        <p>أنواع العملات المستقرة وكيف تحافظ على قيمتها المرتبطة بالدولار.</p>
-        <div class="level">4 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=defi">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"></path></svg>
-        </div>
-        <h3>التمويل اللامركزي DeFi</h3>
-        <p>الإقراض، الاقتراض، والسيولة اللامركزية وكيفية استخدامها.</p>
-        <div class="level">5 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=exchanges">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-        </div>
-        <h3>منصات CEX و DEX</h3>
-        <p>الفرق بين المنصات المركزية واللامركزية وكيفية التداول عليها.</p>
-        <div class="level">5 دروس</div>
-      </a>
-      <a class="edu-card" href="course.html?track=networks">
-        <div class="edu-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
-        </div>
-        <h3>الشبكات</h3>
-        <p>الطبقات المختلفة وشبكات الطبقة الثانية (Layer 2) وحل مشاكل الازدحام.</p>
-        <div class="level">5 دروس</div>
-      </a>
+    </div>
+    <div style="text-align:center;margin-top:26px;">
+      <a href="course.html" class="btn-ghost">عرض كل المسارات الـ 12 ➔</a>
     </div>
   </section>
 
-  <!-- ARTICLES -->
+  <!-- المقالات (ARTICLES) -->
   <section id="articles">
     <div class="section-head">
-      <div class="eyebrow">أحدث المحتوى</div>
-      <h2>أبرز المقالات</h2>
+      <div class="eyebrow">أحدث المحتوى 🗞️</div>
+      <h2>أبرز المقالات والتحليلات</h2>
     </div>
     <div class="articles-grid">
       <div class="article-card main">
-        <div class="article-img">📈 صورة المقال</div>
+        <!-- تحديث مكان صورة المقال الرئيسي -->
+        <div class="article-img media-placeholder" style="min-height: 180px; padding: 10px; border-radius: 8px 8px 0 0; margin: 0; border: none; background-color: #f3f4f6;">
+          🖼️ [مكان مخصص لصورة المقال الرئيسي]
+        </div>
         <div class="article-body">
-          <span class="article-tag">اكاديمية الحيتان</span>
+          <span class="article-tag">أكاديمية الحيتان 🎓</span>
           <h3>مشروع Bedrock 2.0: محرّك العوائد الذكي لرأس مال البيتكوين</h3>
           <p>هل ما زلت تطارد أعلى نسبة عائد سنوي دون أن تسأل عن مدى استدامتها؟</p>
-          <span class="article-meta">يونيو 2026</span>
+          <span class="article-meta">📅 يونيو 2026</span>
         </div>
       </div>
       <div class="article-card">
         <div class="article-img">🔐</div>
         <div class="article-body">
-          <span class="article-tag">اكاديمية الحيتان</span>
+          <span class="article-tag">أكاديمية الحيتان</span>
           <h3>دليلك النهائي لتأمين محفظتك قبل فوات الأوان</h3>
-          <span class="article-meta">أبريل 2026</span>
+          <span class="article-meta">📅 أبريل 2026</span>
         </div>
       </div>
       <div class="article-card">
         <div class="article-img">🥇</div>
         <div class="article-body">
-          <span class="article-tag">اكاديمية الحيتان</span>
+          <span class="article-tag">أكاديمية الحيتان</span>
           <h3>الذهب يسجل أسوأ أداء أسبوعي منذ 4 عقود</h3>
-          <span class="article-meta">مارس 2026</span>
+          <span class="article-meta">📅 مارس 2026</span>
         </div>
       </div>
       <div class="article-card">
@@ -223,7 +186,7 @@
         <div class="article-body">
           <span class="article-tag">التداول</span>
           <h3>أول إشارة صعود حقيقية منذ 2025؟</h3>
-          <span class="article-meta">أبريل 2026</span>
+          <span class="article-meta">📅 أبريل 2026</span>
         </div>
       </div>
       <div class="article-card">
@@ -231,48 +194,48 @@
         <div class="article-body">
           <span class="article-tag">التداول</span>
           <h3>لماذا قد يكون انفجار أسعار النفط "الوقود الخفي" لقفزة البيتكوين؟</h3>
-          <span class="article-meta">مارس 2026</span>
+          <span class="article-meta">📅 مارس 2026</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- الانضمام (CTA) -->
   <section id="contact">
     <div class="cta-band">
       <div>
-        <h2>جاهز تبدأ رحلتك في عالم الكريبتو؟</h2>
+        <h2>جاهز لتبدأ رحلتك في عالم الكريبتو؟ 🚀</h2>
         <p>انضم إلى أكثر من 100,000 عضو يتابعون التحليلات والدروس اليومية على تيليجرام.</p>
       </div>
-      <a href="https://t.me/ArabicWhales" class="btn-primary">انضم إلينا الآن</a>
+      <a href="https://t.me/ArabicWhales" class="btn-primary">انضم إلينا الآن 🔥</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- الفوتر (FOOTER) -->
   <footer>
     <div class="footer-inner">
       <div class="footer-col">
-        <div class="brand" style="font-size:17px;margin-bottom:14px;">🐋 حيتان العرب</div>
+        <div class="brand" style="font-size:17px;margin-bottom:14px;">🐳 حيتان العرب</div>
         <p style="font-size:13px;color:var(--text-dim);max-width:260px;">أكبر منصة عربية تعليمية بمجال العملات الرقمية، تأسست 2020.</p>
       </div>
       <div class="footer-col">
-        <h4>روابط</h4>
+        <h4>روابط سريعة</h4>
         <a href="#about">من نحن</a>
         <a href="#education">التعليم</a>
         <a href="#articles">المقالات</a>
         <a href="#contact">تواصل معنا</a>
       </div>
       <div class="footer-col">
-        <h4>تابعنا</h4>
-        <a href="https://t.me/ArabicWhales">تيليجرام</a>
-        <a href="https://x.com/ArabicWhales">X (تويتر)</a>
-        <a href="https://www.instagram.com/arabic.whales">إنستغرام</a>
-        <a href="https://www.binance.com/ar/square/profile/Arabicwhales">Binance Square</a>
+        <h4>تابعنا على</h4>
+        <a href="https://t.me/ArabicWhales">تيليجرام ✈️</a>
+        <a href="https://x.com/ArabicWhales">X (تويتر) 🐦</a>
+        <a href="https://www.instagram.com/arabic.whales">إنستغرام 📸</a>
+        <a href="https://www.binance.com/ar/square/profile/Arabicwhales">Binance Square 🟨</a>
       </div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 جميع الحقوق محفوظة لمجتمع حيتان العرب</div>
-      <div>الأسعار مقدّمة لأغراض تعليمية وليست نصيحة استثمارية</div>
+      <div>⚠️ الأسعار مقدّمة لأغراض تعليمية وليست نصيحة استثمارية</div>
     </div>
   </footer>
 
@@ -402,17 +365,17 @@ async function loadTicker(){
     tickerRetries = 0;
     return;
   }catch(e1){
-    console.warn('CoinGecko failed, trying CoinCap:', e1.message);
+    console.warn('⚠️ فشل جلب البيانات من CoinGecko، جاري المحاولة مع CoinCap:', e1.message);
     try{
       const coins = await tryCoinCap();
       renderTicker(coins);
       tickerRetries = 0;
       return;
     }catch(e2){
-      console.warn('CoinCap failed too:', e2.message);
+      console.warn('❌ فشل جلب البيانات من CoinCap أيضاً:', e2.message);
       tickerRetries++;
       if(tickerRetries === 1){
-        track.innerHTML = '<div class="tick-item mono">جاري إعادة محاولة تحميل الأسعار...</div>';
+        track.innerHTML = '<div class="tick-item mono">🔄 جاري إعادة محاولة تحميل الأسعار...</div>';
       }else{
         renderTicker(FALLBACK_COINS);
       }
